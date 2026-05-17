@@ -1,0 +1,201 @@
+{
+  "nav": { "work": "PROIECTE", "about": "DESPRE", "menu": "MENIU", "close": "ÎNCHIDE" },
+  "hero": {
+    "intro": "OH, NU TE-AM VĂZUT ACOLO —",
+    "line1": "CONSTRUIESC",
+    "line2": "lucruri DIGITALE ツ",
+    "scroll": "derulează pentru proiecte, craft și puțin haos",
+    "tag": "[WEB · APPS · DESIGN · VIENA · 2026]",
+    "badge": "co-studio · Viena · 2026 ·",
+    "marquee": "WEB · WORDPRESS · REACT · APPS · SWIFT · EXPO · DESIGN · VIDEO · VFX ·"
+  },
+  "about": {
+    "label": "[ + ] PUȚIN MAI MULT DESPRE MINE",
+    "labelCollapsed": "[ − ] PUȚIN MAI MULT DESPRE MINE",
+    "bio1": "Hei — sunt <strong>Corneliu Secrieri</strong>, <strong>developer & designer din Viena</strong>. Lucrez solo la <strong>co-studio</strong> — site-uri, aplicații, grafică, video. <strong>Minimalism modern</strong>, uneori complex din plăcere.",
+    "bio2": "Născut în <strong>România</strong>, crescut acolo și în <strong>Austria</strong>. Când nu livrez <strong>React</strong>, <strong>WordPress</strong> sau <strong>Swift / Expo</strong>, fac muzică, editez video sau caut <strong>cafea</strong> decentă. co-studio e locul meu pentru tech <em>și</em> sunet — <strong>cod întâlnește meșteșugul ツ</strong>"
+  },
+  "work": {
+    "title": "PROIECTE",
+    "viewCase": "VEZI PROIECTUL →",
+    "medicare": {
+      "client": "Medicare",
+      "title": "Medicare",
+      "desc": "Aplicație mobilă — dezvoltare produs la co-studio, de la concept la lansare."
+    },
+    "cobible": {
+      "client": "co.bible",
+      "title": "co.bible",
+      "desc": "App Biblie nativă iOS — 100% Swift pentru viteză, claritate și lectură focusată."
+    },
+    "priconnect": {
+      "client": "pri connect",
+      "title": "pri connect",
+      "desc": "App cross-platform — React Native & Expo (hibrid) pentru iOS și Android dintr-o singură bază de cod."
+    }
+  },
+  "services": {
+    "label": "SERVICII",
+    "web": {
+      "title": "WEB & WORDPRESS",
+      "sub": "React · Angular · WordPress · JS · SQL · Docker",
+      "desc": "De la landing pages și CMS la aplicații React — curat, rapid, ușor de întreținut."
+    },
+    "app": {
+      "title": "DEZVOLTARE APP",
+      "sub": "Swift · Expo · React Native · Ionic · Java",
+      "desc": "Aplicații native și cross-platform pentru iOS, Android și nu numai."
+    },
+    "design": {
+      "title": "GRAFICĂ & UI DESIGN",
+      "sub": "Logo-uri · Flyere · Postere · UI · Figma",
+      "desc": "Vizualuri de brand și interfețe — de la print la pixel, gata de lansare."
+    },
+    "media": {
+      "title": "VIDEO & VFX",
+      "sub": "Montaj · Motion · Efecte vizuale",
+      "desc": "Tăieturi, motion și efecte pentru conținut care trebuie să lovească tare."
+    }
+  },
+  "contact": {
+    "email": "Email",
+    "phone": "Telefon",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "calendar": "Programează un call",
+    "cv": "Descarcă CV-ul"
+  },
+  "footer": {
+    "contactLabel": "[ CONTACT ]",
+    "headline1": "HAI SĂ",
+    "headline2": "CONSTRUIM",
+    "headline3": "CEVA TARE ツ",
+    "location": "Bazat în Viena · Remote posibil",
+    "available": "Deschis la proiecte",
+    "copyright": "© 2026 co-studio · Corneliu Secrieri ツ",
+    "impressum": "Informații legale",
+    "privacy": "Confidențialitate",
+    "bookCall": "Programează un call"
+  },
+  "notFound": {
+    "label": "[ 404 ]",
+    "title": "Pagină negăsită",
+    "desc": "Linkul nu duce nicăieri — greșeală de tastare, bookmark vechi sau ceva ce am scos.",
+    "home": "← Înapoi acasă"
+  },
+  "about_page": {
+    "back": "← ÎNAPOI",
+    "info": "[ info ]",
+    "nutshell": "PE SCURT",
+    "bio": "Sunt <strong>Corneliu Secrieri</strong> — developer, designer și editor video, solo la <strong>co-studio</strong> din <strong>Viena</strong>. Construiesc <strong>site-uri</strong> (WordPress & React), <strong>aplicații</strong> (Swift, Expo, Ionic), <strong>grafică</strong> (logo-uri, flyere, postere) și <strong>video</strong> cu VFX când proiectul cere.",
+    "deeper": "PUȚIN MAI ADÂNC",
+    "p1": "A început cu primul meu computer — demontat, montat, înțeles cum funcționează. Mult înainte de HTL, deja experimentam, stricam și repar.",
+    "p2": "Născut în România, copilăria acolo, apoi toată școala în Austria — încheiată cu <strong>HTL informatică</strong>. Pe lângă școală, proiecte private și suport IT în sat: instalări Windows, drivere, programe — helpdesk-ul real.",
+    "p3": "Azi iubesc <strong>interfețe moderne, minimale</strong> — dar nu mă feresc de design complex când povestea cere. Stack: React, Angular, WordPress, Swift, Expo, Python, Java, SQL, Docker și altele.",
+    "p4": "<strong>co-studio</strong> (fondat 2026) e studio-ul meu personal pentru tot ce mă entuziasmează — clienți, aplicații proprii, design, video și pe termen lung: <strong>producție muzicală</strong> sub același nume. Tech ziua, sunet noaptea.",
+    "focus": "CE FAC",
+    "experience": "DRUM",
+    "exp1": {
+      "year": "2026 – acum",
+      "company": "co-studio",
+      "role": "Fondator · Solo",
+      "desc": "Studio-ul meu — web, app-uri, grafică, video. Proiecte care îmi plac și clienți care apreciază calitatea."
+    },
+    "exp2": {
+      "year": "HTL · Austria",
+      "company": "IT + proiecte proprii",
+      "role": "Elev & maker",
+      "desc": "HTL informatică, proiecte paralele, experimente WordPress/React, primele comenzi reale."
+    },
+    "exp3": {
+      "year": "Mai devreme",
+      "company": "România · primii pași",
+      "role": "Bricoler & ajutor IT",
+      "desc": "Primul PC, bricolaj înainte de HTL, suport IT pentru oameni din sat — instalări, drivere, depanare."
+    }
+  },
+  "legal": {
+    "back": "← ÎNAPOI",
+    "impressum": {
+      "title": "Informații legale",
+      "meta": "Informații conform legislației austriece (ECG, legea media)."
+    },
+    "privacy": {
+      "title": "Politica de confidențialitate",
+      "meta": "Informații privind prelucrarea datelor personale (GDPR)."
+    },
+    "impressum_sections": {
+      "provider": {
+        "h": "Proprietar media & furnizor",
+        "p": "Corneliu Secrieri<br/>co-studio<br/>Dr.-Zaussinger-Ring 1<br/>2434 Götzendorf an der Leitha, Austria<br/><br/>Email: <a href=\"mailto:secrieri.corneliu@gmail.com\">secrieri.corneliu@gmail.com</a><br/>Telefon: <a href=\"tel:+436602261011\">+43 660 2261011</a><br/>UID: nu se aplică (întreprindere individuală)"
+      },
+      "subject": {
+        "h": "Activitate",
+        "p": "Dezvoltare web și aplicații, design grafic, editare video și efecte vizuale. Întreprindere individuală; fără număr UID."
+      },
+      "liability_content": {
+        "h": "Răspundere pentru conținut",
+        "p": "Conținutul acestui site a fost creat cu atenție. Nu se garantează completitudinea sau actualitatea. Obligațiile legale de eliminare sau blocare rămân neafectate."
+      },
+      "liability_links": {
+        "h": "Răspundere pentru linkuri",
+        "p": "Site-ul conține linkuri externe. Nu am influență asupra conținutului lor și nu îmi asum răspunderea. Furnizorul paginii linkate este responsabil."
+      },
+      "copyright": {
+        "h": "Drepturi de autor",
+        "p": "Conținutul și lucrările de pe acest site sunt protejate de legea austriacă a drepturilor de autor. Reproducerea necesită acordul scris al lui Corneliu Secrieri, dacă nu se prevede altfel."
+      }
+    },
+    "privacy_sections": {
+      "controller": {
+        "h": "Operator",
+        "p": "Corneliu Secrieri, co-studio, Dr.-Zaussinger-Ring 1, 2434 Götzendorf an der Leitha, Austria. Email: <a href=\"mailto:secrieri.corneliu@gmail.com\">secrieri.corneliu@gmail.com</a>, Telefon: <a href=\"tel:+436602261011\">+43 660 2261011</a>."
+      },
+      "overview": {
+        "h": "Prezentare",
+        "p": "Protejarea datelor tale personale este importantă pentru mine. Această politică explică ce date pot fi prelucrate la vizitarea site-ului și ce drepturi ai."
+      },
+      "hosting": {
+        "h": "Hosting & loguri server",
+        "p": "La accesarea site-ului, furnizorul de hosting poate prelucra date tehnice (ex. adresă IP, browser, oră) în loguri. Temei legal: interes legitim (art. 6(1)(f) GDPR)."
+      },
+      "contact": {
+        "h": "Contact",
+        "p": "Dacă mă contactezi prin email, telefon sau formularul de contact, prelucrez datele furnizate pentru a răspunde. Formularul este trimis prin <strong>Web3Forms</strong> (Web3Forms Inc.) la adresa mea de email. Pentru programări poți folosi pagina de rezervare (Google Ireland Ltd.). Temei: contract / demersuri precontractuale (art. 6(1)(b) GDPR) sau interes legitim (art. 6(1)(f) GDPR)."
+      },
+      "cookies": {
+        "h": "Cookie-uri & stocare locală",
+        "p": "Folosim doar stocare tehnic necesară: limba aleasă e salvată local în browser (localStorage, cheie <code>i18nextLng</code>). Fără cookie-uri de marketing, analiză sau tracking de la terți. Poți șterge datele oricând din setările browserului. La prima vizită apare un scurt mesaj informativ."
+      },
+      "rights": {
+        "h": "Drepturile tale",
+        "p": "Ai dreptul la acces, rectificare, ștergere, restricționare, portabilitate și opoziție. Poți depune plângere la autoritatea austriacă de protecție a datelor (dsb.gv.at)."
+      },
+      "changes": {
+        "h": "Modificări",
+        "p": "Această politică poate fi actualizată. Versiunea curentă este mereu pe această pagină. Ultima actualizare: 2026."
+      }
+    }
+  },
+  "contactForm": {
+    "rail": "CONTACT",
+    "label": "[ scrie-mi ]",
+    "title": "Trimite un mesaj",
+    "desc": "Nume, email, mesaj — îți răspund la secrieri.corneliu@gmail.com.",
+    "name": "Nume",
+    "email": "Email",
+    "message": "Mesaj",
+    "submit": "Trimite mesajul",
+    "sending": "Se trimite…",
+    "success": "Mulțumesc — mesajul a fost trimis.",
+    "error": "Ceva nu a mers. Încearcă din nou sau scrie-mi direct pe email.",
+    "notConfigured": "Formularul nu e configurat încă (lipsește cheia de acces).",
+    "privacy": "Prin trimitere, îmi permiți să prelucrez datele pentru răspuns. Vezi confidențialitatea."
+  },
+  "cookies": {
+    "label": "[ cookies ]",
+    "message": "Doar esențial: limba ta e salvată local. Fără tracking, fără reclame.",
+    "privacyLink": "Confidențialitate",
+    "accept": "OK"
+  }
+}

@@ -1,0 +1,201 @@
+{
+  "nav": { "work": "PROJEKTE", "about": "ÜBER MICH", "menu": "MENÜ", "close": "SCHLIESSEN" },
+  "hero": {
+    "intro": "OH, HAB DICH GERADE ERST GESEHEN —",
+    "line1": "ICH BAUE",
+    "line2": "digitale DINGE ツ",
+    "scroll": "scroll runter für Projekte, Craft & ein bisschen Chaos",
+    "tag": "[WEB · APPS · DESIGN · WIEN · 2026]",
+    "badge": "co-studio · Wien · 2026 ·",
+    "marquee": "WEB · WORDPRESS · REACT · APPS · SWIFT · EXPO · DESIGN · VIDEO · VFX ·"
+  },
+  "about": {
+    "label": "[ + ] EIN BISSCHEN MEHR ÜBER MICH",
+    "labelCollapsed": "[ − ] EIN BISSCHEN MEHR ÜBER MICH",
+    "bio1": "Hey — ich bin <strong>Corneliu Secrieri</strong>, <strong>Entwickler & Designer aus Wien</strong>. Solo bei <strong>co-studio</strong> — Webseiten, Apps, Grafik, Video. <strong>Moderner Minimalismus</strong>, manchmal bewusst komplex.",
+    "bio2": "Geboren in <strong>Rumänien</strong>, aufgewachsen dort und in <strong>Österreich</strong>. Wenn ich nicht <strong>React</strong>, <strong>WordPress</strong> oder <strong>Swift / Expo</strong> shipe, mache ich Musik, schneide Video oder suche ordentlichen <strong>Kaffee</strong>. co-studio ist mein Spielplatz für Tech <em>und</em> Sound — <strong>Code trifft Craft ツ</strong>"
+  },
+  "work": {
+    "title": "PROJEKTE",
+    "viewCase": "PROJEKT ANSEHEN →",
+    "medicare": {
+      "client": "Medicare",
+      "title": "Medicare",
+      "desc": "Mobile App — Produktentwicklung unter co-studio, von der Idee bis zum Release."
+    },
+    "cobible": {
+      "client": "co.bible",
+      "title": "co.bible",
+      "desc": "Native iOS Bibel-App — komplett in Swift für Performance, Klarheit und fokussiertes Lesen."
+    },
+    "priconnect": {
+      "client": "pri connect",
+      "title": "pri connect",
+      "desc": "Cross-Platform App — React Native & Expo (hybrid) für iOS und Android aus einer Codebasis."
+    }
+  },
+  "services": {
+    "label": "LEISTUNGEN",
+    "web": {
+      "title": "WEB & WORDPRESS",
+      "sub": "React · Angular · WordPress · JS · SQL · Docker",
+      "desc": "Von Landing Pages und CMS bis zu React-Apps — sauber, schnell, wartbar."
+    },
+    "app": {
+      "title": "APP-ENTWICKLUNG",
+      "sub": "Swift · Expo · React Native · Ionic · Java",
+      "desc": "Native und plattformübergreifende Apps für iOS, Android und mehr."
+    },
+    "design": {
+      "title": "GRAFIK & UI DESIGN",
+      "sub": "Logos · Flyer · Poster · UI · Figma",
+      "desc": "Brand-Visuals und Interfaces — von Print bis Pixel, ready to ship."
+    },
+    "media": {
+      "title": "VIDEO & VFX",
+      "sub": "Schnitt · Motion · Visual FX",
+      "desc": "Cuts, Motion und Effekte für Content, der hängen bleiben soll."
+    }
+  },
+  "contact": {
+    "email": "E-Mail",
+    "phone": "Telefon",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "calendar": "Termin buchen",
+    "cv": "CV herunterladen"
+  },
+  "footer": {
+    "contactLabel": "[ KONTAKT ]",
+    "headline1": "LASS UNS",
+    "headline2": "ETWAS",
+    "headline3": "BAUEN ツ",
+    "location": "Basiert in Wien · Remote möglich",
+    "available": "Offen für Projekte",
+    "copyright": "© 2026 co-studio · Corneliu Secrieri ツ",
+    "impressum": "Impressum",
+    "privacy": "Datenschutz",
+    "bookCall": "Termin buchen"
+  },
+  "notFound": {
+    "label": "[ 404 ]",
+    "title": "Seite nicht gefunden",
+    "desc": "Dieser Link führt ins Leere — Tippfehler, alter Bookmark oder etwas, das es nicht mehr gibt.",
+    "home": "← Zur Startseite"
+  },
+  "about_page": {
+    "back": "← ZURÜCK",
+    "info": "[ info ]",
+    "nutshell": "KURZ GESAGT",
+    "bio": "Ich bin <strong>Corneliu Secrieri</strong> — Entwickler, Designer und Video-Editor, solo unter <strong>co-studio</strong> in <strong>Wien</strong>. Ich baue <strong>Webseiten</strong> (WordPress & React), <strong>Apps</strong> (Swift, Expo, Ionic), <strong>Grafik</strong> (Logos, Flyer, Poster) und <strong>Video</strong> mit VFX, wenn's passt.",
+    "deeper": "ETWAS TIEFER",
+    "p1": "Angefangen hat's mit meinem ersten Computer — auseinandernehmen, zusammenbauen, verstehen wie's tickt. Lange vor der HTL hab ich schon gebastelt, kaputt gemacht und repariert.",
+    "p2": "Geboren in Rumänien, Kindheit dort, dann die ganze Schulzeit in Österreich — abgeschlossen mit der <strong>HTL für Informatik</strong>. Nebenbei eigene Projekte und klassischer IT-Support im Dorf: Windows installieren, Treiber, Programme — der echte Helpdesk.",
+    "p3": "Heute liebe ich <strong>moderne, minimale Interfaces</strong> — aber komplexes Design ist willkommen, wenn die Story's braucht. Stack: React, Angular, WordPress, Swift, Expo, Python, Java, SQL, Docker und mehr.",
+    "p4": "<strong>co-studio</strong> (gegründet 2026) ist mein privates Studio für alles, was mich antreibt — Kundenarbeit, eigene Apps, Design, Video und langfristig: <strong>Music Studio</strong> unter demselben Namen. Tech tagsüber, Sound nachts.",
+    "focus": "WAS ICH MACHE",
+    "experience": "WEG",
+    "exp1": {
+      "year": "2026 – heute",
+      "company": "co-studio",
+      "role": "Gründer · Solo",
+      "desc": "Mein eigenes Studio — Web, Apps, Grafik, Video. Projekte, die mir Spaß machen, und Kunden, denen Qualität wichtig ist."
+    },
+    "exp2": {
+      "year": "HTL · Österreich",
+      "company": "IT + eigene Builds",
+      "role": "Schüler & Maker",
+      "desc": "HTL Informatik, Privatprojekte mit Schulwissen, WordPress/React-Experimente, erste echte Aufträge."
+    },
+    "exp3": {
+      "year": "Früher",
+      "company": "Rumänien · erste Schritte",
+      "role": "Bastler & IT-Hilfe",
+      "desc": "Erster PC, Basteln vor der HTL, IT-Support für Leute im Dorf — Installationen, Treiber, Troubleshooting."
+    }
+  },
+  "legal": {
+    "back": "← ZURÜCK",
+    "impressum": {
+      "title": "Impressum",
+      "meta": "Angaben gemäß österreichischem Recht (ECG, Mediengesetz)."
+    },
+    "privacy": {
+      "title": "Datenschutzerklärung",
+      "meta": "Informationen zur Verarbeitung personenbezogener Daten (DSGVO)."
+    },
+    "impressum_sections": {
+      "provider": {
+        "h": "Medieninhaber & Diensteanbieter",
+        "p": "Corneliu Secrieri<br/>co-studio<br/>Dr.-Zaussinger-Ring 1<br/>2434 Götzendorf an der Leitha, Österreich<br/><br/>E-Mail: <a href=\"mailto:secrieri.corneliu@gmail.com\">secrieri.corneliu@gmail.com</a><br/>Telefon: <a href=\"tel:+436602261011\">+43 660 2261011</a><br/>UID: nicht vorhanden (Einzelunternehmen)"
+      },
+      "subject": {
+        "h": "Unternehmensgegenstand",
+        "p": "Web- und App-Entwicklung, Grafikdesign, Videobearbeitung und visuelle Effekte. Einzelunternehmen; keine UID-Nummer."
+      },
+      "liability_content": {
+        "h": "Haftung für Inhalte",
+        "p": "Die Inhalte dieser Website wurden mit Sorgfalt erstellt. Für Vollständigkeit, Richtigkeit und Aktualität wird keine Haftung übernommen. Verpflichtungen zur Entfernung oder Sperrung von Informationen nach den allgemeinen Gesetzen bleiben unberührt."
+      },
+      "liability_links": {
+        "h": "Haftung für Links",
+        "p": "Diese Website enthält Links zu externen Seiten. Auf deren Inhalte habe ich keinen Einfluss und übernehme keine Haftung. Verantwortlich ist jeweils der Anbieter der verlinkten Seiten."
+      },
+      "copyright": {
+        "h": "Urheberrecht",
+        "p": "Inhalte und Werke auf dieser Website unterliegen dem österreichischen Urheberrecht. Vervielfältigung und Verbreitung bedürfen der schriftlichen Zustimmung von Corneliu Secrieri, sofern nicht anders angegeben."
+      }
+    },
+    "privacy_sections": {
+      "controller": {
+        "h": "Verantwortlicher",
+        "p": "Corneliu Secrieri, co-studio, Dr.-Zaussinger-Ring 1, 2434 Götzendorf an der Leitha, Österreich. E-Mail: <a href=\"mailto:secrieri.corneliu@gmail.com\">secrieri.corneliu@gmail.com</a>, Telefon: <a href=\"tel:+436602261011\">+43 660 2261011</a>."
+      },
+      "overview": {
+        "h": "Überblick",
+        "p": "Der Schutz deiner personenbezogenen Daten ist mir wichtig. Diese Erklärung beschreibt, welche Daten beim Besuch dieser Website verarbeitet werden können und welche Rechte du hast."
+      },
+      "hosting": {
+        "h": "Hosting & Server-Logfiles",
+        "p": "Beim Aufruf der Website können technische Daten (z. B. IP-Adresse, Browsertyp, Zeitpunkt) in Server-Logfiles verarbeitet werden. Rechtsgrundlage: berechtigtes Interesse (Art. 6 Abs. 1 lit. f DSGVO)."
+      },
+      "contact": {
+        "h": "Kontaktaufnahme",
+        "p": "Bei Kontakt per E-Mail, Telefon oder über das Kontaktformular verarbeite ich die von dir mitgeteilten Daten zur Bearbeitung der Anfrage. Das Formular wird über <strong>Web3Forms</strong> (Web3Forms Inc.) an meine E-Mail-Adresse weitergeleitet. Für Termine kannst du meine Terminbuchung nutzen (Google Ireland Ltd.). Rechtsgrundlage: Vertrag/Anbahnung (Art. 6 Abs. 1 lit. b DSGVO) oder berechtigtes Interesse (Art. 6 Abs. 1 lit. f DSGVO)."
+      },
+      "cookies": {
+        "h": "Cookies & lokale Speicherung",
+        "p": "Es werden nur technisch notwendige Speicher genutzt: deine Sprachwahl wird lokal im Browser gespeichert (localStorage, Schlüssel <code>i18nextLng</code>). Keine Marketing-, Analyse- oder Tracking-Cookies von Drittanbietern. Gespeicherte Daten kannst du jederzeit in den Browser-Einstellungen löschen. Beim ersten Besuch erscheint ein kurzer Hinweis."
+      },
+      "rights": {
+        "h": "Deine Rechte",
+        "p": "Du hast Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit und Widerspruch. Beschwerde bei der Österreichischen Datenschutzbehörde (dsb.gv.at). Anfragen bitte an die oben genannte Kontaktadresse."
+      },
+      "changes": {
+        "h": "Änderungen",
+        "p": "Diese Erklärung kann aktualisiert werden. Die aktuelle Fassung findest du stets auf dieser Seite. Stand: 2026."
+      }
+    }
+  },
+  "contactForm": {
+    "rail": "KONTAKT",
+    "label": "[ schreib mir ]",
+    "title": "Nachricht senden",
+    "desc": "Name, E-Mail, Nachricht — ich melde mich bei secrieri.corneliu@gmail.com.",
+    "name": "Name",
+    "email": "E-Mail",
+    "message": "Nachricht",
+    "submit": "Nachricht senden",
+    "sending": "Wird gesendet…",
+    "success": "Danke — deine Nachricht ist angekommen.",
+    "error": "Das hat nicht geklappt. Bitte nochmal versuchen oder direkt per E-Mail.",
+    "notConfigured": "Formular noch nicht eingerichtet (Access Key fehlt).",
+    "privacy": "Mit dem Absenden erlaubst du die Verarbeitung deiner Daten zur Beantwortung. Siehe Datenschutz."
+  },
+  "cookies": {
+    "label": "[ cookies ]",
+    "message": "Nur das Nötigste: Wir speichern deine Sprache lokal. Kein Tracking, keine Werbung.",
+    "privacyLink": "Datenschutz",
+    "accept": "Alles klar"
+  }
+}
