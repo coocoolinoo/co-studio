@@ -32,6 +32,11 @@
       "client": "pri connect",
       "title": "pri connect",
       "desc": "Cross-platform app — React Native & Expo (hybrid) for iOS and Android from one codebase."
+    },
+    "vsmannersdorf": {
+      "client": "Volksschule Mannersdorf",
+      "title": "VS Mannersdorf",
+      "desc": "Modern React website for the primary school Mannersdorf am Leithagebirge (Lower Austria) — React + Vite, CSS Modules, no component library."
     }
   },
   "services": {

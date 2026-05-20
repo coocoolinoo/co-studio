@@ -10,8 +10,20 @@ import ScrambleText from './ScrambleText'
 import SectionCounter from './SectionCounter'
 import AnimatedNumber from './AnimatedNumber'
 import { HOME_SECTION_TOTAL } from '../lib/site'
+import vsMannersdorfImg from '../assets/vs-mannersord/web-vs.png'
 
-const PROJECT_KEYS = ['medicare', 'cobible', 'priconnect'] as const
+type ProjectEntry = {
+  key: string
+  image?: string
+  href?: string
+}
+
+const PROJECTS: ProjectEntry[] = [
+  { key: 'medicare' },
+  { key: 'cobible' },
+  { key: 'priconnect' },
+  { key: 'vsmannersdorf', image: vsMannersdorfImg, href: 'https://vs-mannersdorf.vercel.app' },
+]
 
 function WorkScrollHeader({
   sectionRef,
@@ -81,12 +93,16 @@ function ProjectCard({
   titleKey,
   descKey,
   viewCaseKey,
+  image,
+  href,
 }: {
   index: number
   clientKey: string
   titleKey: string
   descKey: string
   viewCaseKey: string
+  image?: string
+  href?: string
 }) {
   return (
     <TiltCard className="project-card flex min-h-[420px] overflow-hidden rounded-2xl bg-white shadow-[0_4px_40px_rgba(0,0,0,0.08)] md:min-h-[480px]">
@@ -104,7 +120,13 @@ function ProjectCard({
           <p className="mt-4 max-w-sm font-mono text-sm leading-relaxed text-near-black/60">
             <ScrambleText i18nKey={descKey} />
           </p>
-          <a href="#" className="nav-link mt-8 w-fit" data-cursor-hover>
+          <a
+            href={href ?? '#'}
+            target={href ? '_blank' : undefined}
+            rel={href ? 'noopener noreferrer' : undefined}
+            className="nav-link mt-8 w-fit"
+            data-cursor-hover
+          >
             <ScrambleText i18nKey={viewCaseKey} />
           </a>
         </motion.div>
@@ -124,7 +146,18 @@ function ProjectCard({
             }}
             style={{ transformOrigin: 'right', background: 'var(--accent)' }}
           />
-          <MockupStack />
+          {image ? (
+            <div className="flex h-full min-h-[280px] items-center justify-center overflow-hidden">
+              <img
+                src={image}
+                alt=""
+                className="h-full w-full object-cover object-top"
+                draggable={false}
+              />
+            </div>
+          ) : (
+            <MockupStack />
+          )}
         </motion.div>
       </div>
     </TiltCard>
@@ -154,7 +187,7 @@ export default function Work() {
         </FadeUp>
 
         <div id="work-projects" className="mt-10 flex flex-col gap-8 md:mt-12">
-          {PROJECT_KEYS.map((key, index) => (
+          {PROJECTS.map(({ key, image, href }, index) => (
             <FadeUp key={key} delay={index * 0.1}>
               <ProjectCard
                 index={index + 1}
@@ -162,6 +195,8 @@ export default function Work() {
                 titleKey={`work.${key}.title`}
                 descKey={`work.${key}.desc`}
                 viewCaseKey="work.viewCase"
+                image={image}
+                href={href}
               />
             </FadeUp>
           ))}
