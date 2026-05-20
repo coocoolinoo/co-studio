@@ -26,7 +26,7 @@
     "cobible": {
       "client": "co.bible",
       "title": "co.bible",
-      "desc": "Native iOS Bibel-App — komplett in Swift für Performance, Klarheit und fokussiertes Lesen."
+      "desc": "Native iOS Bibel-App in Swift — mehrere Übersetzungen, aktives Lesen und Quiz-Duelle gegen andere, um der Beste zu werden."
     },
     "priconnect": {
       "client": "pri connect",

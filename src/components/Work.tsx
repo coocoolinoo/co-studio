@@ -11,6 +11,7 @@ import SectionCounter from './SectionCounter'
 import AnimatedNumber from './AnimatedNumber'
 import { HOME_SECTION_TOTAL } from '../lib/site'
 import vsMannersdorfImg from '../assets/vs-mannersord/web-vs.png'
+import coBibleImg from '../assets/co.bible/co.bible-mockup.png'
 
 type ProjectEntry = {
   key: string
@@ -20,7 +21,7 @@ type ProjectEntry = {
 
 const PROJECTS: ProjectEntry[] = [
   { key: 'medicare' },
-  { key: 'cobible' },
+  { key: 'cobible', image: coBibleImg },
   { key: 'priconnect' },
   { key: 'vsmannersdorf', image: vsMannersdorfImg, href: 'https://vs-mannersdorf.vercel.app' },
 ]
