@@ -1,4 +1,3 @@
-import { useRef } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { motion, useScroll, useTransform } from 'framer-motion'
@@ -19,7 +18,6 @@ import { easeEditorial } from '../lib/motion'
 import { useScrambledString } from '../hooks/useScrambledString'
 
 function ProjectMarquee({ title }: { title: string }) {
-  const containerRef = useRef<HTMLDivElement>(null)
   const { scrollY } = useScroll()
   const x1 = useTransform(scrollY, [0, 500], ['0%', '-10%'])
   const x2 = useTransform(scrollY, [0, 500], ['-8%', '4%'])
@@ -27,7 +25,7 @@ function ProjectMarquee({ title }: { title: string }) {
 
   return (
     <FadeUp>
-      <TiltCard className="float-card relative overflow-hidden py-10" ref={containerRef}>
+      <TiltCard className="float-card relative overflow-hidden py-10">
         <span className="absolute top-6 left-8 font-mono text-[10px] tracking-[0.15em] text-near-black/50 uppercase md:left-10">
           co-studio
         </span>
