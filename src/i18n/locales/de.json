@@ -18,25 +18,41 @@
   "work": {
     "title": "PROJEKTE",
     "viewCase": "PROJEKT ANSEHEN →",
+    "detail": {
+      "back": "← PROJEKTE",
+      "facts": "FACTS",
+      "client": "CLIENT",
+      "platform": "PLATTFORM",
+      "year": "JAHR",
+      "stack": "TECH STACK",
+      "about": "ÜBER DAS PROJEKT",
+      "live": "LIVE SITE →",
+      "github": "GITHUB →",
+      "notFound": "Projekt nicht gefunden."
+    },
     "medicare": {
       "client": "Medicare",
       "title": "Medicare",
-      "desc": "Mobile App — Produktentwicklung unter co-studio, von der Idee bis zum Release."
+      "desc": "Mobile App — Produktentwicklung unter co-studio, von der Idee bis zum Release.",
+      "longDesc": "Medicare ist eine Mobile App, die unter co-studio von Grund auf entwickelt wurde — von der ersten Idee über Konzept und Design bis zum fertigen Release. Saubere UX, durchgängiges visuelles Design und ein moderner Mobile-Stack."
     },
     "cobible": {
       "client": "co.bible",
       "title": "co.bible",
-      "desc": "Native iOS Bibel-App in Swift — mehrere Übersetzungen, aktives Lesen und Quiz-Duelle gegen andere, um der Beste zu werden."
+      "desc": "Native iOS Bibel-App in Swift — mehrere Übersetzungen, aktives Lesen und Quiz-Duelle gegen andere, um der Beste zu werden.",
+      "longDesc": "co.bible ist eine native iOS Bibel-App, vollständig in Swift gebaut. Das Hauptfeature: mehrere Bibelübersetzungen vergleichen, aktiv lesen und in Quiz-Duellen gegen andere Nutzer antreten — wer kennt die Bibel am besten?"
     },
-    "priconnect": {
-      "client": "pri connect",
-      "title": "pri connect",
-      "desc": "Cross-Platform App — React Native & Expo (hybrid) für iOS und Android aus einer Codebasis."
+    "bibelsuche": {
+      "client": "co-studio",
+      "title": "Bibelsuche",
+      "desc": "Desktop-App für macOS & Windows — Bibelverse blitzschnell über mehrere Übersetzungen suchen, gebaut mit Tauri & React.",
+      "longDesc": "Bibelsuche ist eine schnelle, moderne Desktop-App für macOS und Windows. Bibelverse über mehrere Übersetzungen (Zefania XML) blitzschnell durchsuchen — gebaut mit Tauri (Rust-Backend) und React + Vite im Frontend. Native Performance, Web-Technologien."
     },
     "vsmannersdorf": {
       "client": "Volksschule Mannersdorf",
       "title": "VS Mannersdorf",
-      "desc": "Moderne React-Website für die Volksschule Mannersdorf am Leithagebirge (NÖ) — React + Vite, CSS Modules, ohne Component-Library."
+      "desc": "Moderne React-Website für die Volksschule Mannersdorf am Leithagebirge (NÖ) — React + Vite, CSS Modules, ohne Component-Library.",
+      "longDesc": "Moderne Website für die Volksschule Mannersdorf am Leithagebirge (Niederösterreich). Komplett in React + Vite gebaut, Styling ausschließlich mit CSS Modules — ohne Component-Library oder UI-Framework. Klares, zugängliches Design für Schüler, Eltern und Lehrpersonal."
     }
   },
   "services": {

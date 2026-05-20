@@ -18,25 +18,41 @@
   "work": {
     "title": "WORK",
     "viewCase": "VIEW PROJECT →",
+    "detail": {
+      "back": "← PROJECTS",
+      "facts": "FACTS",
+      "client": "CLIENT",
+      "platform": "PLATFORM",
+      "year": "YEAR",
+      "stack": "TECH STACK",
+      "about": "ABOUT THE PROJECT",
+      "live": "LIVE SITE →",
+      "github": "GITHUB →",
+      "notFound": "Project not found."
+    },
     "medicare": {
       "client": "Medicare",
       "title": "Medicare",
-      "desc": "Mobile app — product build under co-studio, from concept to shipped experience."
+      "desc": "Mobile app — product build under co-studio, from concept to shipped experience.",
+      "longDesc": "Medicare is a mobile app built from scratch under co-studio — from the initial idea through concept and design all the way to release. Clean UX, cohesive visual design, and a modern mobile stack."
     },
     "cobible": {
       "client": "co.bible",
       "title": "co.bible",
-      "desc": "Native iOS Bible app in Swift — multiple translations, active reading and quiz duels against others to become the top player."
+      "desc": "Native iOS Bible app in Swift — multiple translations, active reading and quiz duels against others to become the top player.",
+      "longDesc": "co.bible is a native iOS Bible app built entirely in Swift. The core feature: compare multiple Bible translations, read actively, and challenge others in quiz duels — who knows the Bible best?"
     },
-    "priconnect": {
-      "client": "pri connect",
-      "title": "pri connect",
-      "desc": "Cross-platform app — React Native & Expo (hybrid) for iOS and Android from one codebase."
+    "bibelsuche": {
+      "client": "co-studio",
+      "title": "Bibelsuche",
+      "desc": "Desktop app for macOS & Windows — search Bible verses across translations at lightning speed, built with Tauri & React.",
+      "longDesc": "Bibelsuche is a fast, modern desktop app for macOS and Windows. Search Bible verses across multiple translations (Zefania XML) at lightning speed — built with Tauri (Rust backend) and React + Vite on the frontend. Native performance, web technologies."
     },
     "vsmannersdorf": {
       "client": "Volksschule Mannersdorf",
       "title": "VS Mannersdorf",
-      "desc": "Modern React website for the primary school Mannersdorf am Leithagebirge (Lower Austria) — React + Vite, CSS Modules, no component library."
+      "desc": "Modern React website for the primary school Mannersdorf am Leithagebirge (Lower Austria) — React + Vite, CSS Modules, no component library.",
+      "longDesc": "Modern website for the primary school Mannersdorf am Leithagebirge (Lower Austria). Built entirely with React + Vite, styled exclusively with CSS Modules — no component library or UI framework. Clean, accessible design for students, parents, and staff."
     }
   },
   "services": {

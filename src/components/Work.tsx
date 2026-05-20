@@ -1,4 +1,5 @@
 import { useRef, type RefObject } from 'react'
+import { Link } from 'react-router-dom'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import FadeUp from './FadeUp'
@@ -10,21 +11,7 @@ import ScrambleText from './ScrambleText'
 import SectionCounter from './SectionCounter'
 import AnimatedNumber from './AnimatedNumber'
 import { HOME_SECTION_TOTAL } from '../lib/site'
-import vsMannersdorfImg from '../assets/vs-mannersord/web-vs.png'
-import coBibleImg from '../assets/co.bible/co.bible-mockup.png'
-
-type ProjectEntry = {
-  key: string
-  image?: string
-  href?: string
-}
-
-const PROJECTS: ProjectEntry[] = [
-  { key: 'medicare' },
-  { key: 'cobible', image: coBibleImg },
-  { key: 'priconnect' },
-  { key: 'vsmannersdorf', image: vsMannersdorfImg, href: 'https://vs-mannersdorf.vercel.app' },
-]
+import { PROJECTS_META } from '../lib/projects'
 
 function WorkScrollHeader({
   sectionRef,
@@ -90,20 +77,20 @@ function MockupStack() {
 
 function ProjectCard({
   index,
+  slug,
   clientKey,
   titleKey,
   descKey,
   viewCaseKey,
   image,
-  href,
 }: {
   index: number
+  slug: string
   clientKey: string
   titleKey: string
   descKey: string
   viewCaseKey: string
   image?: string
-  href?: string
 }) {
   return (
     <TiltCard className="project-card flex min-h-[420px] overflow-hidden rounded-2xl bg-white shadow-[0_4px_40px_rgba(0,0,0,0.08)] md:min-h-[480px]">
@@ -121,15 +108,9 @@ function ProjectCard({
           <p className="mt-4 max-w-sm font-mono text-sm leading-relaxed text-near-black/60">
             <ScrambleText i18nKey={descKey} />
           </p>
-          <a
-            href={href ?? '#'}
-            target={href ? '_blank' : undefined}
-            rel={href ? 'noopener noreferrer' : undefined}
-            className="nav-link mt-8 w-fit"
-            data-cursor-hover
-          >
+          <Link to={`/work/${slug}`} className="nav-link mt-8 w-fit" data-cursor-hover>
             <ScrambleText i18nKey={viewCaseKey} />
-          </a>
+          </Link>
         </motion.div>
         <motion.div
           className="work-card-dark relative w-full overflow-hidden bg-[#1a1a1a] md:w-[60%] md:rounded-r-2xl"
@@ -188,16 +169,16 @@ export default function Work() {
         </FadeUp>
 
         <div id="work-projects" className="mt-10 flex flex-col gap-8 md:mt-12">
-          {PROJECTS.map(({ key, image, href }, index) => (
-            <FadeUp key={key} delay={index * 0.1}>
+          {PROJECTS_META.map(({ slug, image }, index) => (
+            <FadeUp key={slug} delay={index * 0.1}>
               <ProjectCard
                 index={index + 1}
-                clientKey={`work.${key}.client`}
-                titleKey={`work.${key}.title`}
-                descKey={`work.${key}.desc`}
+                slug={slug}
+                clientKey={`work.${slug}.client`}
+                titleKey={`work.${slug}.title`}
+                descKey={`work.${slug}.desc`}
                 viewCaseKey="work.viewCase"
                 image={image}
-                href={href}
               />
             </FadeUp>
           ))}

@@ -9,6 +9,7 @@ import Home from './pages/Home'
 import Impressum from './pages/Impressum'
 import NotFound from './pages/NotFound'
 import Privacy from './pages/Privacy'
+import ProjectDetail from './pages/ProjectDetail'
 
 function AnimatedRoutes() {
   const location = useLocation()
@@ -18,6 +19,7 @@ function AnimatedRoutes() {
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/work/:slug" element={<ProjectDetail />} />
         <Route path="/impressum" element={<Impressum />} />
         <Route path="/datenschutz" element={<Privacy />} />
         <Route path="*" element={<NotFound />} />

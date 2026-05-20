@@ -18,25 +18,41 @@
   "work": {
     "title": "PROIECTE",
     "viewCase": "VEZI PROIECTUL →",
+    "detail": {
+      "back": "← PROIECTE",
+      "facts": "FACTS",
+      "client": "CLIENT",
+      "platform": "PLATFORMĂ",
+      "year": "AN",
+      "stack": "TECH STACK",
+      "about": "DESPRE PROIECT",
+      "live": "SITE LIVE →",
+      "github": "GITHUB →",
+      "notFound": "Proiect negăsit."
+    },
     "medicare": {
       "client": "Medicare",
       "title": "Medicare",
-      "desc": "Aplicație mobilă — dezvoltare produs la co-studio, de la concept la lansare."
+      "desc": "Aplicație mobilă — dezvoltare produs la co-studio, de la concept la lansare.",
+      "longDesc": "Medicare este o aplicație mobilă construită de la zero la co-studio — de la prima idee, prin concept și design, până la lansare. UX curat, design vizual coerent și un stack mobile modern."
     },
     "cobible": {
       "client": "co.bible",
       "title": "co.bible",
-      "desc": "App Biblie nativă iOS în Swift — traduceri multiple, lectură activă și dueluri quiz contra altor jucători pentru a deveni cel mai bun."
+      "desc": "App Biblie nativă iOS în Swift — traduceri multiple, lectură activă și dueluri quiz contra altor jucători pentru a deveni cel mai bun.",
+      "longDesc": "co.bible este o aplicație Biblie nativă iOS construită integral în Swift. Funcția principală: compară mai multe traduceri ale Bibliei, citește activ și provoacă alți utilizatori la dueluri quiz — cine cunoaște cel mai bine Biblia?"
     },
-    "priconnect": {
-      "client": "pri connect",
-      "title": "pri connect",
-      "desc": "App cross-platform — React Native & Expo (hibrid) pentru iOS și Android dintr-o singură bază de cod."
+    "bibelsuche": {
+      "client": "co-studio",
+      "title": "Bibelsuche",
+      "desc": "Aplicație desktop pentru macOS & Windows — caută versete biblice rapid în mai multe traduceri, construită cu Tauri & React.",
+      "longDesc": "Bibelsuche este o aplicație desktop rapidă și modernă pentru macOS și Windows. Caută versete biblice în mai multe traduceri (Zefania XML) fulgerător de rapid — construită cu Tauri (backend Rust) și React + Vite în frontend. Performanță nativă, tehnologii web."
     },
     "vsmannersdorf": {
       "client": "Volksschule Mannersdorf",
       "title": "VS Mannersdorf",
-      "desc": "Website React modern pentru școala primară Mannersdorf am Leithagebirge (Austria Inferioară) — React + Vite, CSS Modules, fără librărie de componente."
+      "desc": "Website React modern pentru școala primară Mannersdorf am Leithagebirge (Austria Inferioară) — React + Vite, CSS Modules, fără librărie de componente.",
+      "longDesc": "Website modern pentru școala primară Mannersdorf am Leithagebirge (Austria Inferioară). Construit integral cu React + Vite, stilizat exclusiv cu CSS Modules — fără librărie de componente sau framework UI. Design curat și accesibil pentru elevi, părinți și personal didactic."
     }
   },
   "services": {
