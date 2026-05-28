@@ -30,11 +30,11 @@
       "github": "GITHUB →",
       "notFound": "Project not found."
     },
-    "medicare": {
-      "client": "Medicare",
-      "title": "Medicare",
-      "desc": "Mobile app — product build under co-studio, from concept to shipped experience.",
-      "longDesc": "Medicare is a mobile app built from scratch under co-studio — from the initial idea through concept and design all the way to release. Clean UX, cohesive visual design, and a modern mobile stack."
+    "pifx": {
+      "client": "HTL Diplomarbeit",
+      "title": "πf(x)",
+      "desc": "Audio multi-effects device on a Raspberry Pi — HTL final thesis. Real-time DSP in C++, from hardware design to software.",
+      "longDesc": "πf(x) is the HTL Diplomarbeit (final thesis) built together with Moritz Metzinger at HTL Informationstechnologie / Medientechnik (2025/26). The project is a standalone audio multi-effects unit powered by a Raspberry Pi with a Behringer UCA222 audio interface. Audio is processed in real-time via a C++ DSP engine with effects including filters, delay, reverb, distortion, modulation, and dynamics — all running on embedded Linux. Covers the full stack: acoustics theory, digital signal processing, embedded hardware design, and C++ software."
     },
     "cobible": {
       "client": "co.bible",

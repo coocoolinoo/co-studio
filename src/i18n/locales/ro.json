@@ -30,11 +30,11 @@
       "github": "GITHUB →",
       "notFound": "Proiect negăsit."
     },
-    "medicare": {
-      "client": "Medicare",
-      "title": "Medicare",
-      "desc": "Aplicație mobilă — dezvoltare produs la co-studio, de la concept la lansare.",
-      "longDesc": "Medicare este o aplicație mobilă construită de la zero la co-studio — de la prima idee, prin concept și design, până la lansare. UX curat, design vizual coerent și un stack mobile modern."
+    "pifx": {
+      "client": "HTL Diplomarbeit",
+      "title": "πf(x)",
+      "desc": "Dispozitiv audio multi-efecte pe bază de Raspberry Pi — lucrare de diplomă HTL. DSP în timp real în C++, de la hardware la software.",
+      "longDesc": "πf(x) este lucrarea de diplomă HTL realizată împreună cu Moritz Metzinger la HTL Informationstechnologie / Medientechnik (anul școlar 2025/26). Proiectul este un dispozitiv standalone de efecte audio multiple bazat pe un Raspberry Pi cu interfața audio Behringer UCA222. Sunetul este procesat în timp real printr-un motor DSP scris în C++ — efecte precum filtre, delay, reverb, distorsie, modulație și dinamică, totul rulând pe Linux embedded. Proiectul acoperă întregul stack: teoria acusticii, procesarea digitală a semnalului, proiectarea hardware embedded și software C++."
     },
     "cobible": {
       "client": "co.bible",

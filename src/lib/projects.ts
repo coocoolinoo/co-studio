@@ -14,10 +14,10 @@ export type ProjectMeta = {
 
 export const PROJECTS_META: ProjectMeta[] = [
   {
-    slug: 'medicare',
+    slug: 'pifx',
     year: 2026,
-    platform: 'iOS · Android',
-    tags: ['React Native', 'Expo', 'TypeScript'],
+    platform: 'Raspberry Pi · Embedded',
+    tags: ['C++', 'DSP', 'Raspberry Pi', 'Audio FX'],
   },
   {
     slug: 'cobible',
