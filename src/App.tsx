@@ -1,7 +1,9 @@
+import { useState } from 'react'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
-import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
 import CookieNotice from './components/CookieNotice'
 import Cursor from './components/Cursor'
+import Intro from './components/Intro'
 import ScrollToTop from './components/ScrollToTop'
 import { LanguageScrambleProvider } from './context/LanguageScrambleContext'
 import About from './pages/About'
@@ -28,6 +30,26 @@ function AnimatedRoutes() {
   )
 }
 
+function AppContent() {
+  const [showIntro, setShowIntro] = useState(() => {
+    return !sessionStorage.getItem('co-studio-intro-seen')
+  })
+
+  const handleIntroComplete = () => {
+    sessionStorage.setItem('co-studio-intro-seen', 'true')
+    setShowIntro(false)
+  }
+
+  return (
+    <>
+      {showIntro && <Intro onComplete={handleIntroComplete} />}
+      <div style={{ opacity: showIntro ? 0 : 1, transition: 'opacity 0.5s ease' }}>
+        <AnimatedRoutes />
+      </div>
+    </>
+  )
+}
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -35,7 +57,7 @@ export default function App() {
       <LanguageScrambleProvider>
         <Cursor />
         <CookieNotice />
-        <AnimatedRoutes />
+        <AppContent />
       </LanguageScrambleProvider>
     </BrowserRouter>
   )

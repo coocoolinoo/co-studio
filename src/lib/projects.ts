@@ -36,7 +36,7 @@ export const PROJECTS_META: ProjectMeta[] = [
   },
   {
     slug: 'vsmannersdorf',
-    year: 2025,
+    year: 2026,
     platform: 'Web',
     tags: ['React', 'Vite', 'CSS Modules', 'React Router'],
     github: 'https://github.com/co-studio-code/vs-mannersdorf',
