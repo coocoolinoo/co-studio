@@ -28,23 +28,11 @@ const FOCUS_KEYS = [
   { Icon: FrameIcon, key: 'media' as const },
 ]
 
-const EXP_KEYS = ['exp1', 'exp2', 'exp3'] as const
-
 const STORY_KEYS = ['p1', 'p2', 'p3', 'p4'] as const
 
 const paragraphReveal = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0 },
-}
-
-const experienceContainer = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
-}
-
-const experienceRow = {
-  hidden: { opacity: 0, x: -24 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: easeEditorial } },
 }
 
 function AboutMarqueeHeader() {
@@ -211,48 +199,6 @@ export default function About() {
                     </FadeUp>
                   ))}
                 </div>
-              </TiltCard>
-            </FadeUp>
-          </PageContainer>
-
-          <PageContainer className="about-page-experience section-spacing">
-            <FadeUp>
-              <TiltCard className="float-card">
-                <p className="about-section-label font-mono text-xs tracking-[0.2em] text-near-black uppercase">
-                  <ScrambleText i18nKey="about_page.experience" />
-                </p>
-                <motion.ul
-                  className="mt-8"
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: '-40px' }}
-                  variants={experienceContainer}
-                >
-                  {EXP_KEYS.map((key) => (
-                    <motion.li
-                      key={key}
-                      variants={experienceRow}
-                      className="exp-entry experience-row grid grid-cols-1 gap-2 py-6 transition-colors md:grid-cols-[140px_1fr] md:gap-8"
-                    >
-                      <span className="exp-year experience-year font-mono text-xs">
-                        <ScrambleText i18nKey={`about_page.${key}.year`} />
-                      </span>
-                      <div>
-                        <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
-                          <span className="text-[1.4rem] font-bold text-near-black">
-                            <ScrambleText i18nKey={`about_page.${key}.company`} />
-                          </span>
-                          <span className="font-mono text-xs text-near-black/60">
-                            <ScrambleText i18nKey={`about_page.${key}.role`} />
-                          </span>
-                        </div>
-                        <p className="mt-2 text-sm leading-relaxed text-[#555555]">
-                          <ScrambleText i18nKey={`about_page.${key}.desc`} />
-                        </p>
-                      </div>
-                    </motion.li>
-                  ))}
-                </motion.ul>
               </TiltCard>
             </FadeUp>
           </PageContainer>
