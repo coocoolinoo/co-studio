@@ -130,7 +130,7 @@ export default function About() {
                   <ScrambleText i18nKey="about_page.back" />
                 </Link>
               </MagneticWrap>
-              <Logo variant="light" showWordmark={false} size={32} />
+              <Logo variant="secondary-light" size={32} />
               <span
                 className="font-mono text-[0.75rem] tracking-[0.1em] text-[#888] tabular-nums"
                 aria-label="2026"

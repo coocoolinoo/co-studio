@@ -55,7 +55,7 @@ export default function NotFound() {
               </MagneticWrap>
 
               <motion.div className="mt-16 opacity-40" aria-hidden>
-                <Logo variant="light" showWordmark size={36} />
+                <Logo variant="secondary-light" size={36} />
               </motion.div>
             </motion.div>
           </PageContainer>
