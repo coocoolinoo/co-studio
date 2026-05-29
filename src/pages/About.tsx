@@ -21,6 +21,27 @@ import { easeEditorial } from '../lib/motion'
 
 const PHOTO_COLORS = ['#bbbbbb', '#aaaaaa', '#cccccc', '#dddddd', '#b8b8b8']
 
+const STACK_CATEGORIES = [
+  {
+    label: 'WEB',
+    items: ['React', 'Angular', 'WordPress', 'TypeScript', 'Vite', 'Node.js', 'SQL', 'Docker', 'Python'],
+  },
+  {
+    label: 'MOBILE',
+    items: ['Swift', 'SwiftUI', 'Expo', 'React Native', 'Ionic', 'Java'],
+  },
+  {
+    label: 'DESIGN',
+    items: ['Figma', 'Photoshop', 'Illustrator', 'After Effects', 'Premiere Pro'],
+  },
+  {
+    label: 'TOOLS',
+    items: ['Git', 'C++', 'Tauri', 'Rust', 'Raspberry Pi', 'Linux'],
+  },
+]
+
+const ACCENT_ITEMS = new Set(['React', 'Swift', 'WordPress', 'Figma', 'C++'])
+
 const FOCUS_KEYS = [
   { Icon: LineIcon, key: 'web' as const },
   { Icon: CrossIcon, key: 'app' as const },
@@ -33,6 +54,62 @@ const STORY_KEYS = ['p1', 'p2', 'p3', 'p4'] as const
 const paragraphReveal = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0 },
+}
+
+function StackGrid() {
+  return (
+    <FadeUp>
+      <TiltCard className="float-card">
+        <p className="about-section-label font-mono text-xs tracking-[0.2em] text-near-black uppercase">
+          [ STACK ]
+        </p>
+        <div className="mt-8 flex flex-col gap-6">
+          {STACK_CATEGORIES.map((cat, ci) => (
+            <div key={cat.label} className="flex flex-col gap-3 sm:flex-row sm:gap-8">
+              <span
+                className="w-20 shrink-0 font-mono text-[10px] tracking-[0.2em] text-near-black/35 uppercase pt-[3px]"
+              >
+                {cat.label}
+              </span>
+              <div className="flex flex-wrap gap-2">
+                {cat.items.map((item, ii) => {
+                  const isAccent = ACCENT_ITEMS.has(item)
+                  return (
+                    <motion.span
+                      key={item}
+                      initial={{ opacity: 0, scale: 0.88 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true, margin: '-20px' }}
+                      transition={{
+                        duration: 0.3,
+                        delay: ci * 0.06 + ii * 0.04,
+                        ease: [0.34, 1.56, 0.64, 1],
+                      }}
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        padding: '4px 12px',
+                        borderRadius: '999px',
+                        fontSize: '0.7rem',
+                        fontFamily: "'JetBrains Mono', monospace",
+                        letterSpacing: '0.06em',
+                        background: isAccent ? '#E8522A' : 'transparent',
+                        color: isAccent ? '#F5F0E8' : '#1A1410',
+                        border: isAccent ? '1.5px solid #E8522A' : '1.5px solid rgba(26,20,16,0.18)',
+                        fontWeight: isAccent ? 600 : 400,
+                      }}
+                    >
+                      {item}
+                    </motion.span>
+                  )
+                })}
+              </div>
+            </div>
+          ))}
+        </div>
+      </TiltCard>
+    </FadeUp>
+  )
 }
 
 function AboutMarqueeHeader() {
@@ -169,6 +246,10 @@ export default function About() {
                 ))}
               </div>
             </div>
+          </PageContainer>
+
+          <PageContainer className="about-page-stack section-spacing !pt-0">
+            <StackGrid />
           </PageContainer>
 
           <PageContainer className="about-page-focus !pt-0">
