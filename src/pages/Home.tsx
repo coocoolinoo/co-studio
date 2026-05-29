@@ -6,7 +6,7 @@ import PageRoute from '../components/PageRoute'
 import PageTransition from '../components/PageTransition'
 import ContactSection from '../components/ContactSection'
 import Services from '../components/Services'
-import Work from '../components/Work'
+import WorkSection from '../components/WorkSection'
 
 export default function Home() {
   return (
@@ -16,7 +16,7 @@ export default function Home() {
         <main>
           <Hero />
           <About />
-          <Work />
+          <WorkSection />
           <Services />
           <ContactSection />
         </main>

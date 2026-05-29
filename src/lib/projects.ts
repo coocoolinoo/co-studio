@@ -1,6 +1,6 @@
 import vsMannersdorfImg from '../assets/vs-mannersord/web-vs.png'
-import coBibleImg from '../assets/co.bible/co.bible-mockup.png'
-import bibelsucheImg from '../assets/bibelsuche/biblesrc.png'
+import coBibleImg from '../assets/co.bible/co-bible.png'
+import bibelsucheImg from '../assets/bibelsuche/generated-image.png'
 
 export type ProjectMeta = {
   slug: string
