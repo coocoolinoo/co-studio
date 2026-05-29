@@ -36,7 +36,8 @@ export default function ContactForm() {
           message: data.get('message'),
           subject: `co-studio — ${data.get('name')}`,
           replyto: data.get('email'),
-          from_name: 'co-studio Website',
+          from_name: 'co-studio',
+          logo: 'https://co-studio.at/favicon-32.png',
         }),
       })
 
