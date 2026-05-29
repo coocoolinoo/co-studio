@@ -44,14 +44,6 @@ function WorkScrollHeader({
         <WorkMarqueeRow text={row.repeat(4)} />
       </motion.div>
 
-      <a
-        href="#work-projects"
-        className="work-arrow-btn absolute top-1/2 right-0 z-10 flex h-[70px] w-[70px] -translate-y-1/2 items-center justify-center text-[1.2rem]"
-        data-cursor-hover
-        aria-label="View projects"
-      >
-        ►
-      </a>
     </div>
   )
 }

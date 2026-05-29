@@ -311,6 +311,19 @@ body {
   background: var(--ink);
 }
 
+/* ——— Loop animation — hidden on mobile ——— */
+.loop-animation-wrap {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .loop-animation-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}
+
 .mockup-shape {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
