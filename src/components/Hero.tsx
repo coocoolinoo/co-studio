@@ -99,7 +99,7 @@ export default function Hero() {
               {tag}
             </motion.p>
 
-            <ProfileActions className="mt-8" showCv={false} />
+            <ProfileActions className="mt-8" showCv={false} showCalendar={false} />
           </div>
 
           {/* RIGHT — loop animation, desktop only */}
