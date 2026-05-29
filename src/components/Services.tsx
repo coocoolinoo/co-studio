@@ -157,16 +157,17 @@ const SERVICES = [
   },
 ]
 
-const STATS = [
-  { value: 24, suffix: '+', label: 'Projects shipped' },
-  { value: 18, suffix: '+', label: 'Clients served' },
-  { value: 3,  suffix: '+', label: 'Years active' },
-  { value: 15, suffix: '+', label: 'Technologies' },
-]
+const STAT_DEFS = [
+  { value: 24, suffix: '+', key: 'projects' },
+  { value: 18, suffix: '+', key: 'clients' },
+  { value: 3,  suffix: '+', key: 'years' },
+  { value: 15, suffix: '+', key: 'tech' },
+] as const
 
 // ─── Stat counter item ───────────────────────────────────────────────────────
 
-function StatItem({ value, suffix, label }: { value: number; suffix: string; label: string }) {
+function StatItem({ value, suffix, labelKey }: { value: number; suffix: string; labelKey: string }) {
+  const { t } = useTranslation()
   const ref = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { once: true, margin: '-40px' })
 
@@ -176,7 +177,7 @@ function StatItem({ value, suffix, label }: { value: number; suffix: string; lab
         {inView ? <AnimatedNumber value={value} pad={value < 10 ? 1 : 2} duration={1.4} /> : '0'}
         <span>{suffix}</span>
       </div>
-      <div className="service-stat-label">{label}</div>
+      <div className="service-stat-label">{t(labelKey)}</div>
     </div>
   )
 }
@@ -187,7 +188,7 @@ export default function Services() {
   const navigate = useNavigate()
   const { t } = useTranslation()
   const sectionLabel = useScrambledString(t('services.label').replace(/^\[\d+\]\s*/, ''))
-  const marqueeText = useScrambledString('WEB · APPS · DESIGN · VIDEO · CO-STUDIO ·', 300)
+  const marqueeText = useScrambledString(t('hero.marquee'), 300)
 
   return (
     <section id="focus" className="section-spacing">
@@ -232,7 +233,7 @@ export default function Services() {
                 <div className="service-item-desc">
                   <p>{t(`services.${key}.desc`)}</p>
                   <span className="service-detail-link">
-                    VIEW FULL SERVICE <span>→</span>
+                    {t('serviceDetail.viewFull')} <span>→</span>
                   </span>
                 </div>
               </div>
@@ -242,8 +243,8 @@ export default function Services() {
 
         {/* Stats */}
         <div className="service-stats">
-          {STATS.map((s) => (
-            <StatItem key={s.label} {...s} />
+          {STAT_DEFS.map((s) => (
+            <StatItem key={s.key} value={s.value} suffix={s.suffix} labelKey={`serviceStat.${s.key}`} />
           ))}
         </div>
       </PageContainer>

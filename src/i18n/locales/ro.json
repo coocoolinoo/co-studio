@@ -218,5 +218,99 @@
     "message": "Doar esențial: limba ta e salvată local. Fără tracking, fără reclame.",
     "privacyLink": "Confidențialitate",
     "accept": "OK"
+  },
+  "serviceDetail": {
+    "back": "← SERVICII",
+    "included": "CE INCLUDE",
+    "stack": "TECH STACK",
+    "process": "PROCES",
+    "ctaLabel": "HAI SĂ VORBIM",
+    "ctaTitle1": "AI UN PROIECT",
+    "ctaTitle2": "ÎN MINTE?",
+    "viewFull": "DETALII COMPLETE"
+  },
+  "serviceStat": {
+    "projects": "Proiecte livrate",
+    "clients": "Clienți serviți",
+    "years": "Ani activi",
+    "tech": "Tehnologii"
+  },
+  "servicePages": {
+    "web": {
+      "tagline": "De la landing pages și build-uri CMS la aplicații React full-stack — construite curat, rapid și durabil.",
+      "desc": "Fie că ai nevoie de o aplicație React performantă, un site WordPress flexibil sau un backend personalizat — acopăr întregul stack. Fiecare proiect este gândit pentru mentenabilitate: cod curat, structură documentată și arhitectură logică. Fără bloat, fără setup-uri supracomplicate.",
+      "deliverables": [
+        "Aplicații React & Angular personalizate",
+        "Build-uri WordPress & integrare CMS",
+        "Design & integrare REST API",
+        "Design baze de date (SQL, MySQL, PostgreSQL)",
+        "Containerizare Docker & deployment",
+        "Optimizare performanță & SEO",
+        "Landing pages & site-uri de marketing"
+      ],
+      "process": [
+        { "num": "01", "title": "Analiză", "desc": "Obiective, cerințe tehnice, scope — definite înainte de prima linie de cod." },
+        { "num": "02", "title": "Design", "desc": "Wireframe-uri și concepte UI în Figma, agreate înainte de dezvoltare." },
+        { "num": "03", "title": "Dezvoltare", "desc": "Dezvoltare bazată pe componente cu check-in-uri regulate." },
+        { "num": "04", "title": "Deploy", "desc": "Deploy live, testare, documentație de predare." }
+      ]
+    },
+    "app": {
+      "tagline": "Aplicații mobile native și cross-platform — de la concept la App Store. Construite să se simtă bine pe orice ecran.",
+      "desc": "Aplicații mobile care nu se simt ca aplicații mobile. Fie că e o experiență nativă Swift pentru iOS sau un build cross-platform cu Expo și React Native — focusul e mereu pe performanță, feeling și UI curat. Gestionez întregul ciclu: concept, design, build și lansare.",
+      "deliverables": [
+        "Aplicații iOS native (Swift & SwiftUI)",
+        "Aplicații cross-platform (Expo & React Native)",
+        "Aplicații Android (Ionic & Java)",
+        "Aplicații desktop (Tauri + Rust)",
+        "Publicare App Store & Google Play",
+        "Notificări push & servicii în fundal",
+        "Integrare API & stocare locală de date"
+      ],
+      "process": [
+        { "num": "01", "title": "Concept", "desc": "Scope funcționalități, decizii de platformă, flux utilizator — definite înainte de design." },
+        { "num": "02", "title": "Prototip", "desc": "Prototip interactiv pentru validarea UX înainte de build complet." },
+        { "num": "03", "title": "Dezvoltare", "desc": "Dezvoltare iterativă cu review-uri de etapă și testare beta." },
+        { "num": "04", "title": "Lansare", "desc": "Publicare App Store / Play Store, monitorizare și suport post-lansare." }
+      ]
+    },
+    "design": {
+      "tagline": "Logo-uri, interfețe și print — totul creat să fie livrat. Minimalism modern, uneori deliberat complex.",
+      "desc": "Design care nu arată doar bine, ci și funcționează. De la o identitate de brand care rezistă pe orice touchpoint, la un sistem UI pe care un developer îl poate construi efectiv — design cu scop. Grid-uri curate, tipografie puternică, culori intenționate.",
+      "deliverables": [
+        "Design logo & identitate de brand",
+        "Design UI/UX & sisteme de design",
+        "Fișiere Figma cu librării de componente",
+        "Design print (flyere, postere, broșuri)",
+        "Assets & template-uri social media",
+        "Seturi de iconițe & ilustrație",
+        "Ghiduri de stil & brand guidelines"
+      ],
+      "process": [
+        { "num": "01", "title": "Brief", "desc": "Înțelegerea brandului, audienței și obiectivelor vizuale." },
+        { "num": "02", "title": "Concept", "desc": "Moodboard-uri, schițe și direcție — agreate înainte de execuție." },
+        { "num": "03", "title": "Design", "desc": "Execuție completă în Figma cu runde de revizuire incluse." },
+        { "num": "04", "title": "Livrare", "desc": "Fișiere gata de export în toate formatele necesare plus ghid de stil." }
+      ]
+    },
+    "video": {
+      "tagline": "Montaj, motion și efecte — pentru conținut care lovește mai tare.",
+      "desc": "Video care mișcă. Fie că e un promo tăiat rapid, o piesă motion graphics sau o secvență VFX completă — aduc precizie tehnică și simț vizual puternic. Montat pentru platforma pe care va trăi, mixat corect și livrat la timp.",
+      "deliverables": [
+        "Montaj video & post-producție",
+        "Motion graphics & titluri animate",
+        "Efecte vizuale (compositing, tracking)",
+        "Etalon cromatică & corecție de culoare",
+        "Variante social media (Reels, Shorts, TikTok)",
+        "Sound design & mixaj audio",
+        "Export în toate formatele & rezoluțiile necesare"
+      ],
+      "process": [
+        { "num": "01", "title": "Brief", "desc": "Platformă, ton, durată, referințe — tot ce conturează montajul." },
+        { "num": "02", "title": "Montaj", "desc": "Montaj brut livrat pentru feedback înainte de VFX și culoare." },
+        { "num": "03", "title": "Efecte", "desc": "Motion graphics, VFX și etalon cromatică aplicate." },
+        { "num": "04", "title": "Export", "desc": "Livrare finală în toate formatele necesare cu arhiva proiectului." }
+      ]
+    }
   }
 }

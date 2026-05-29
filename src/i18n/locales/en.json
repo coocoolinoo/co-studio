@@ -218,5 +218,99 @@
     "message": "Only essentials: we save your language locally. No tracking, no ads.",
     "privacyLink": "Privacy policy",
     "accept": "OK"
+  },
+  "serviceDetail": {
+    "back": "← SERVICES",
+    "included": "WHAT'S INCLUDED",
+    "stack": "TECH STACK",
+    "process": "PROCESS",
+    "ctaLabel": "LET'S TALK",
+    "ctaTitle1": "GOT A PROJECT",
+    "ctaTitle2": "IN MIND?",
+    "viewFull": "VIEW FULL SERVICE"
+  },
+  "serviceStat": {
+    "projects": "Projects shipped",
+    "clients": "Clients served",
+    "years": "Years active",
+    "tech": "Technologies"
+  },
+  "servicePages": {
+    "web": {
+      "tagline": "From landing pages and CMS builds to full-stack React apps — built clean, built fast, built to last.",
+      "desc": "Whether you need a high-performance React app, a flexible WordPress site, or a custom backend — I cover the full stack. Every project is designed with maintainability in mind: clean code, documented structure, and sensible architecture. No bloat, no overcomplicated setups.",
+      "deliverables": [
+        "Custom React & Angular applications",
+        "WordPress builds & CMS integration",
+        "REST API design & integration",
+        "Database design (SQL, MySQL, PostgreSQL)",
+        "Docker containerisation & deployment",
+        "Performance optimisation & SEO",
+        "Landing pages & marketing sites"
+      ],
+      "process": [
+        { "num": "01", "title": "Discovery", "desc": "Goals, tech requirements, scope — mapped out before a single line of code." },
+        { "num": "02", "title": "Design", "desc": "Wireframes and UI concepts in Figma, agreed before development starts." },
+        { "num": "03", "title": "Build", "desc": "Clean, component-driven development with regular check-ins." },
+        { "num": "04", "title": "Deploy", "desc": "Live deployment, testing, handover documentation." }
+      ]
+    },
+    "app": {
+      "tagline": "Native and cross-platform mobile apps — from concept to App Store. Built to feel right on any screen.",
+      "desc": "Mobile apps that don't feel like mobile apps. Whether it's a native Swift experience for iOS or a cross-platform build with Expo and React Native — the focus is always on performance, feel, and clean UI. I handle the full lifecycle: concept, design, build, and release.",
+      "deliverables": [
+        "Native iOS apps (Swift & SwiftUI)",
+        "Cross-platform apps (Expo & React Native)",
+        "Android apps (Ionic & Java)",
+        "Desktop apps (Tauri + Rust)",
+        "App Store & Google Play submission",
+        "Push notifications & background services",
+        "API integration & local data storage"
+      ],
+      "process": [
+        { "num": "01", "title": "Concept", "desc": "Feature scope, platform decisions, user flow — defined before design." },
+        { "num": "02", "title": "Prototype", "desc": "Interactive prototype to validate UX before full build." },
+        { "num": "03", "title": "Build", "desc": "Iterative development with milestone reviews and beta testing." },
+        { "num": "04", "title": "Release", "desc": "App Store / Play Store submission, monitoring, and post-launch support." }
+      ]
+    },
+    "design": {
+      "tagline": "Logos, interfaces, and print — everything designed to ship. Modern minimalism, sometimes deliberately complex.",
+      "desc": "Design that doesn't just look good but works. From a brand identity that holds up across every touchpoint, to a UI system a developer can actually build from — I design with purpose. Clean grids, strong type, intentional colour.",
+      "deliverables": [
+        "Logo design & brand identity",
+        "UI/UX design & design systems",
+        "Figma files with component libraries",
+        "Print design (flyers, posters, brochures)",
+        "Social media assets & templates",
+        "Icon sets & illustration",
+        "Style guides & brand guidelines"
+      ],
+      "process": [
+        { "num": "01", "title": "Brief", "desc": "Understanding the brand, audience, and visual goals." },
+        { "num": "02", "title": "Concept", "desc": "Moodboards, sketches, and direction — agreed before full execution." },
+        { "num": "03", "title": "Design", "desc": "Full execution in Figma with revisions included." },
+        { "num": "04", "title": "Deliver", "desc": "Export-ready files in all required formats plus style guide." }
+      ]
+    },
+    "video": {
+      "tagline": "Cuts, motion, and effects — for content that needs to hit harder.",
+      "desc": "Video that moves. Whether it's a fast-cut promo, a motion graphics piece, or a full VFX sequence — I bring technical precision and a strong visual sense. Edited for the platform it's meant to live on, mixed properly, and delivered on time.",
+      "deliverables": [
+        "Video editing & post-production",
+        "Motion graphics & animated titles",
+        "Visual effects (compositing, tracking)",
+        "Colour grading & correction",
+        "Social media cuts (Reels, Shorts, TikTok)",
+        "Sound design & audio mixing",
+        "Export in all required formats & resolutions"
+      ],
+      "process": [
+        { "num": "01", "title": "Brief", "desc": "Platform, tone, length, references — everything that shapes the cut." },
+        { "num": "02", "title": "Cut", "desc": "Rough edit delivered for feedback before VFX and colour." },
+        { "num": "03", "title": "Effects", "desc": "Motion graphics, VFX, and colour grading applied." },
+        { "num": "04", "title": "Export", "desc": "Final delivery in all required formats with project archive." }
+      ]
+    }
   }
 }

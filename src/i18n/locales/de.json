@@ -218,5 +218,99 @@
     "message": "Nur das Nötigste: Wir speichern deine Sprache lokal. Kein Tracking, keine Werbung.",
     "privacyLink": "Datenschutz",
     "accept": "Alles klar"
+  },
+  "serviceDetail": {
+    "back": "← LEISTUNGEN",
+    "included": "WAS IST INBEGRIFFEN",
+    "stack": "TECH STACK",
+    "process": "ABLAUF",
+    "ctaLabel": "KONTAKT",
+    "ctaTitle1": "HAST DU EIN",
+    "ctaTitle2": "PROJEKT?",
+    "viewFull": "MEHR ERFAHREN"
+  },
+  "serviceStat": {
+    "projects": "Projekte geliefert",
+    "clients": "Kunden betreut",
+    "years": "Jahre aktiv",
+    "tech": "Technologien"
+  },
+  "servicePages": {
+    "web": {
+      "tagline": "Von Landing Pages und CMS-Builds bis zu vollständigen React-Apps — sauber gebaut, schnell, langlebig.",
+      "desc": "Ob leistungsstarke React-App, flexibles WordPress-Projekt oder maßgeschneidertes Backend — ich decke den gesamten Stack ab. Jedes Projekt wird mit Blick auf Wartbarkeit entwickelt: sauberer Code, dokumentierte Struktur und eine vernünftige Architektur. Kein Ballast, keine überkomplizierten Setups.",
+      "deliverables": [
+        "Custom React- & Angular-Anwendungen",
+        "WordPress-Builds & CMS-Integration",
+        "REST-API-Design & Integration",
+        "Datenbankdesign (SQL, MySQL, PostgreSQL)",
+        "Docker-Containerisierung & Deployment",
+        "Performance-Optimierung & SEO",
+        "Landing Pages & Marketing-Webseiten"
+      ],
+      "process": [
+        { "num": "01", "title": "Analyse", "desc": "Ziele, technische Anforderungen, Scope — alles definiert, bevor eine Zeile Code geschrieben wird." },
+        { "num": "02", "title": "Design", "desc": "Wireframes und UI-Konzepte in Figma, abgestimmt vor Entwicklungsstart." },
+        { "num": "03", "title": "Entwicklung", "desc": "Saubere, komponentenbasierte Entwicklung mit regelmäßigen Abstimmungen." },
+        { "num": "04", "title": "Deploy", "desc": "Live-Deployment, Tests, Übergabedokumentation." }
+      ]
+    },
+    "app": {
+      "tagline": "Native und cross-platform Mobile Apps — vom Konzept bis in den App Store. Gebaut für jedes Gerät.",
+      "desc": "Mobile Apps, die sich nicht wie Mobile Apps anfühlen. Ob native Swift-Erfahrung für iOS oder eine Cross-Platform-Lösung mit Expo und React Native — Fokus liegt immer auf Performance, Feel und sauberem UI. Ich begleite den gesamten Lifecycle: Konzept, Design, Entwicklung und Release.",
+      "deliverables": [
+        "Native iOS-Apps (Swift & SwiftUI)",
+        "Cross-Platform-Apps (Expo & React Native)",
+        "Android-Apps (Ionic & Java)",
+        "Desktop-Apps (Tauri + Rust)",
+        "App Store & Google Play Einreichung",
+        "Push-Benachrichtigungen & Hintergrunddienste",
+        "API-Integration & lokale Datenspeicherung"
+      ],
+      "process": [
+        { "num": "01", "title": "Konzept", "desc": "Feature-Scope, Plattform-Entscheidungen, User Flow — definiert vor dem Design." },
+        { "num": "02", "title": "Prototyp", "desc": "Interaktiver Prototyp zur UX-Validierung vor dem vollständigen Build." },
+        { "num": "03", "title": "Entwicklung", "desc": "Iterative Entwicklung mit Meilenstein-Reviews und Beta-Tests." },
+        { "num": "04", "title": "Release", "desc": "App Store / Play Store Einreichung, Monitoring und Support nach Launch." }
+      ]
+    },
+    "design": {
+      "tagline": "Logos, Interfaces und Print — alles designed zum Liefern. Moderner Minimalismus, manchmal bewusst komplex.",
+      "desc": "Design, das nicht nur gut aussieht, sondern funktioniert. Von einer Markenidentität, die über jeden Touchpoint hält, bis zu einem UI-System, das ein Entwickler wirklich umsetzen kann — ich designe mit Absicht. Klare Grids, starke Typografie, bewusste Farben.",
+      "deliverables": [
+        "Logodesign & Markenidentität",
+        "UI/UX-Design & Design-Systeme",
+        "Figma-Dateien mit Component-Libraries",
+        "Printdesign (Flyer, Poster, Broschüren)",
+        "Social-Media-Assets & Vorlagen",
+        "Icon-Sets & Illustration",
+        "Style Guides & Markenrichtlinien"
+      ],
+      "process": [
+        { "num": "01", "title": "Briefing", "desc": "Marke, Zielgruppe und visuelle Ziele verstehen." },
+        { "num": "02", "title": "Konzept", "desc": "Moodboards, Skizzen und Richtung — abgestimmt vor der Ausführung." },
+        { "num": "03", "title": "Design", "desc": "Vollständige Umsetzung in Figma inklusive Korrekturrunden." },
+        { "num": "04", "title": "Übergabe", "desc": "Exportfertige Dateien in allen benötigten Formaten plus Style Guide." }
+      ]
+    },
+    "video": {
+      "tagline": "Schnitte, Motion und Effekte — für Content, der härter trifft.",
+      "desc": "Video, das bewegt. Ob schnell geschnittener Promo, Motion-Graphics-Stück oder vollständige VFX-Sequenz — ich bringe technische Präzision und ein starkes Bildgefühl mit. Geschnitten für die Plattform, auf der es leben soll, ordentlich gemixt und pünktlich geliefert.",
+      "deliverables": [
+        "Videoschnitt & Post-Produktion",
+        "Motion Graphics & animierte Titel",
+        "Visual Effects (Compositing, Tracking)",
+        "Farbkorrektur & Color Grading",
+        "Social-Media-Cuts (Reels, Shorts, TikTok)",
+        "Sound Design & Audio-Mixing",
+        "Export in allen benötigten Formaten & Auflösungen"
+      ],
+      "process": [
+        { "num": "01", "title": "Briefing", "desc": "Plattform, Ton, Länge, Referenzen — alles, was den Schnitt formt." },
+        { "num": "02", "title": "Schnitt", "desc": "Rohschnitt zur Freigabe vor VFX und Farbkorrektur." },
+        { "num": "03", "title": "Effekte", "desc": "Motion Graphics, VFX und Color Grading werden angewendet." },
+        { "num": "04", "title": "Export", "desc": "Endlieferung in allen benötigten Formaten inklusive Projektarchiv." }
+      ]
+    }
   }
 }

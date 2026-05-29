@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import Footer from './Footer'
 import Navbar from './Navbar'
 import PageContainer from './PageContainer'
@@ -8,34 +9,30 @@ import PageTransition from './PageTransition'
 import FadeUp from './FadeUp'
 import { easeEditorial } from '../lib/motion'
 
-type ProcessStep = {
-  num: string
-  title: string
-  desc: string
-}
+type ProcessStep = { num: string; title: string; desc: string }
 
 type ServiceDetailPageProps = {
+  slug: 'web' | 'app' | 'design' | 'video'
   num: string
-  title: string
-  tagline: string
-  desc: string
-  deliverables: string[]
+  titleKey: string
   techStack: string[]
   accentTech?: string[]
-  process: ProcessStep[]
 }
 
 export default function ServiceDetailPage({
+  slug,
   num,
-  title,
-  tagline,
-  desc,
-  deliverables,
+  titleKey,
   techStack,
   accentTech = [],
-  process,
 }: ServiceDetailPageProps) {
+  const { t } = useTranslation()
   const accentSet = new Set(accentTech)
+
+  const tagline     = t(`servicePages.${slug}.tagline`)
+  const desc        = t(`servicePages.${slug}.desc`)
+  const deliverables = t(`servicePages.${slug}.deliverables`, { returnObjects: true }) as string[]
+  const process      = t(`servicePages.${slug}.process`,     { returnObjects: true }) as ProcessStep[]
 
   return (
     <PageTransition>
@@ -52,7 +49,7 @@ export default function ServiceDetailPage({
               style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px 0 48px' }}
             >
               <Link to="/#focus" className="nav-pill nav-link" data-cursor-hover>
-                ← SERVICES
+                {t('serviceDetail.back')}
               </Link>
               <span className="font-mono text-[0.7rem] tracking-[0.15em] text-near-black/40 uppercase">
                 {num}
@@ -68,17 +65,16 @@ export default function ServiceDetailPage({
                 className="font-display font-black uppercase tracking-tight text-near-black"
                 style={{ fontSize: 'clamp(3.5rem, 10vw, 8rem)', lineHeight: 0.9, letterSpacing: '-0.02em' }}
               >
-                {title}
+                {t(titleKey)}
               </h1>
               <p
-                className="mt-6 max-w-2xl font-mono text-sm leading-relaxed text-near-black/60"
-                style={{ fontSize: 'clamp(0.85rem, 1.5vw, 1.1rem)' }}
+                className="mt-6 max-w-2xl font-mono leading-relaxed text-near-black/60"
+                style={{ fontSize: 'clamp(0.85rem, 1.5vw, 1.05rem)' }}
               >
                 {tagline}
               </p>
             </motion.div>
 
-            {/* Divider */}
             <motion.div
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
@@ -102,28 +98,22 @@ export default function ServiceDetailPage({
             <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '48px' }}
               className="md:grid-cols-2">
 
-              {/* Deliverables */}
               <FadeUp>
                 <p className="font-mono text-[0.65rem] tracking-[0.2em] text-near-black/40 uppercase mb-6">
-                  [ WHAT'S INCLUDED ]
+                  [ {t('serviceDetail.included')} ]
                 </p>
-                <ul style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
+                <ul style={{ display: 'flex', flexDirection: 'column' }}>
                   {deliverables.map((item, i) => (
                     <motion.li
-                      key={item}
+                      key={i}
                       initial={{ opacity: 0, x: -16 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.4, delay: i * 0.06, ease: easeEditorial }}
                       style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '12px',
-                        padding: '14px 0',
-                        borderBottom: '1px solid rgba(26,20,16,0.08)',
-                        fontFamily: "'JetBrains Mono', monospace",
-                        fontSize: '0.82rem',
-                        color: '#1A1410',
+                        display: 'flex', alignItems: 'center', gap: '12px',
+                        padding: '14px 0', borderBottom: '1px solid rgba(26,20,16,0.08)',
+                        fontFamily: "'JetBrains Mono', monospace", fontSize: '0.82rem', color: '#1A1410',
                       }}
                     >
                       <span style={{ color: '#E8522A', fontSize: '0.7rem' }}>→</span>
@@ -133,10 +123,9 @@ export default function ServiceDetailPage({
                 </ul>
               </FadeUp>
 
-              {/* Tech stack */}
               <FadeUp delay={0.1}>
                 <p className="font-mono text-[0.65rem] tracking-[0.2em] text-near-black/40 uppercase mb-6">
-                  [ TECH STACK ]
+                  [ {t('serviceDetail.stack')} ]
                 </p>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
                   {techStack.map((tech, i) => {
@@ -149,12 +138,8 @@ export default function ServiceDetailPage({
                         viewport={{ once: true }}
                         transition={{ duration: 0.3, delay: i * 0.04, ease: [0.34, 1.56, 0.64, 1] }}
                         style={{
-                          display: 'inline-flex',
-                          padding: '5px 14px',
-                          borderRadius: '999px',
-                          fontFamily: "'JetBrains Mono', monospace",
-                          fontSize: '0.68rem',
-                          letterSpacing: '0.06em',
+                          display: 'inline-flex', padding: '5px 14px', borderRadius: '999px',
+                          fontFamily: "'JetBrains Mono', monospace", fontSize: '0.68rem', letterSpacing: '0.06em',
                           background: isAccent ? '#E8522A' : 'transparent',
                           color: isAccent ? '#F5F0E8' : '#1A1410',
                           border: isAccent ? '1.5px solid #E8522A' : '1.5px solid rgba(26,20,16,0.18)',
@@ -174,13 +159,14 @@ export default function ServiceDetailPage({
           <PageContainer className="section-spacing">
             <FadeUp>
               <p className="font-mono text-[0.65rem] tracking-[0.2em] text-near-black/40 uppercase mb-10">
-                [ PROCESS ]
+                [ {t('serviceDetail.process')} ]
               </p>
             </FadeUp>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1px',
+            <div style={{
+              display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1px',
               background: 'rgba(26,20,16,0.1)', border: '1px solid rgba(26,20,16,0.1)',
-              borderRadius: '16px', overflow: 'hidden' }}
-              className="md:grid-cols-4">
+              borderRadius: '16px', overflow: 'hidden',
+            }} className="md:grid-cols-4">
               {process.map((step, i) => (
                 <motion.div
                   key={step.num}
@@ -215,12 +201,12 @@ export default function ServiceDetailPage({
                 display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '20px' }}>
                 <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '0.65rem',
                   letterSpacing: '0.2em', color: 'rgba(245,240,232,0.35)', textTransform: 'uppercase' }}>
-                  [ LET'S TALK ]
+                  [ {t('serviceDetail.ctaLabel')} ]
                 </p>
                 <h2 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: 'clamp(2rem,5vw,3.5rem)',
                   fontWeight: 900, textTransform: 'uppercase', color: '#F5F0E8',
                   lineHeight: 1, letterSpacing: '-0.01em' }}>
-                  GOT A PROJECT<br/>IN MIND?
+                  {t('serviceDetail.ctaTitle1')}<br/>{t('serviceDetail.ctaTitle2')}
                 </h2>
                 <motion.a
                   href="mailto:secrieri.corneliu@gmail.com"
