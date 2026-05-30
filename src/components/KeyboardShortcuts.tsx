@@ -58,6 +58,7 @@ export default function KeyboardShortcuts() {
       <button
         onClick={() => { playClick(); setOpen(o => !o) }}
         title="Keyboard shortcuts"
+        className="fixed-action-btn"
         style={{
           position: 'fixed', bottom: 24, right: 24, zIndex: 1000,
           width: 36, height: 36, borderRadius: '50%',

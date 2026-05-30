@@ -10,6 +10,7 @@ import PageContainer from '../components/PageContainer'
 import PageRoute from '../components/PageRoute'
 import PageTransition from '../components/PageTransition'
 import ReadingTime from '../components/ReadingTime'
+import SEO from '../components/SEO'
 import TiltCard from '../components/TiltCard'
 import FadeUp from '../components/FadeUp'
 import Logo from '../components/Logo'
@@ -163,8 +164,13 @@ export default function About() {
   return (
     <PageTransition>
       <PageRoute>
+        <SEO
+          title="Über mich — Corneliu Secrieri | co-studio Wien"
+          description="Corneliu Secrieri — Web & App Developer aus Wien. 3+ Jahre Erfahrung, 24+ Projekte, React, Swift, Tauri, WordPress."
+          url="https://www.co-studio.at/about"
+        />
         <Navbar />
-        <main className="about-page-main bg-off-white pt-28">
+        <main id="main-content" className="about-page-main bg-off-white pt-28">
           <PageContainer className="pb-4">
             <motion.div
               style={{

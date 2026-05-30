@@ -1,27 +1,118 @@
 <!doctype html>
-<html lang="en">
+<html lang="de">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
-    <link rel="icon" href="/favicon-32.png" type="image/png" sizes="64x64" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
-    <link rel="manifest" href="/site.webmanifest" />
-    <meta name="theme-color" content="#1A1410" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="co-studio — Web, apps, design & video from Vienna."
-    />
+
+    <!-- ── PRIMARY SEO ── -->
+    <title>co-studio — Web & App Entwicklung Wien | Corneliu Secrieri</title>
+    <meta name="description" content="co-studio ist eine Web- und App-Entwicklung aus Wien. React, Swift, Tauri, WordPress — moderne digitale Produkte von Corneliu Secrieri. Jetzt Termin buchen." />
+    <meta name="keywords" content="Webentwicklung Wien, App Entwicklung Wien, React Developer Wien, Swift Developer, WordPress Wien, Freelancer Wien, co-studio, Corneliu Secrieri, UI Design Wien, Tauri Desktop App" />
+    <meta name="author" content="Corneliu Secrieri" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#1A1410" />
+    <link rel="canonical" href="https://www.co-studio.at/" />
+
+    <!-- ── OPEN GRAPH ── -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.co-studio.at/" />
+    <meta property="og:title" content="co-studio — Web & App Entwicklung Wien" />
+    <meta property="og:description" content="Moderne Web- und App-Entwicklung aus Wien. React, Swift, Tauri, WordPress. Corneliu Secrieri — clean code, strong craft." />
+    <meta property="og:image" content="https://www.co-studio.at/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="de_AT" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:locale:alternate" content="ro_RO" />
+    <meta property="og:site_name" content="co-studio" />
+
+    <!-- ── TWITTER CARD ── -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://www.co-studio.at/" />
+    <meta name="twitter:title" content="co-studio — Web & App Entwicklung Wien" />
+    <meta name="twitter:description" content="Moderne Web- und App-Entwicklung aus Wien. React, Swift, Tauri, WordPress." />
+    <meta name="twitter:image" content="https://www.co-studio.at/og-image.png" />
+
+    <!-- ── FAVICON ── -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- ── FONTS ── -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,700;0,900;1,400&family=JetBrains+Mono:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
-    <title>co-studio</title>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,700;0,900;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,700;0,900;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" />
   </head>
   <body>
+    <!-- Skip link for accessibility -->
+    <a
+      href="#main-content"
+      style="position:absolute;top:-40px;left:0;background:#E8522A;color:white;padding:8px 16px;z-index:99999;text-decoration:none;font-family:monospace;font-size:14px;transition:top .2s"
+      onfocus="this.style.top='0'"
+      onblur="this.style.top='-40px'"
+    >Zum Hauptinhalt springen</a>
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+
+    <!-- ── STRUCTURED DATA (JSON-LD) ── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://www.co-studio.at/#corneliu",
+          "name": "Corneliu Secrieri",
+          "url": "https://www.co-studio.at",
+          "email": "secrieri.corneliu@gmail.com",
+          "jobTitle": "Web & App Developer",
+          "worksFor": { "@id": "https://www.co-studio.at/#organization" },
+          "sameAs": [
+            "https://github.com/coocoolinoo",
+            "https://www.linkedin.com/in/corneliu-s-b488a22b6"
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Wien",
+            "addressCountry": "AT"
+          }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://www.co-studio.at/#organization",
+          "name": "co-studio",
+          "url": "https://www.co-studio.at",
+          "logo": "https://www.co-studio.at/favicon.svg",
+          "email": "secrieri.corneliu@gmail.com",
+          "founder": { "@id": "https://www.co-studio.at/#corneliu" },
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Wien",
+            "addressCountry": "AT"
+          },
+          "sameAs": [
+            "https://github.com/coocoolinoo",
+            "https://www.linkedin.com/in/corneliu-s-b488a22b6"
+          ],
+          "knowsAbout": [
+            "React", "Swift", "Tauri", "WordPress", "TypeScript",
+            "UI/UX Design", "Mobile App Development", "Web Development", "Figma"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.co-studio.at/#website",
+          "url": "https://www.co-studio.at",
+          "name": "co-studio",
+          "description": "Web- und App-Entwicklung aus Wien",
+          "publisher": { "@id": "https://www.co-studio.at/#organization" },
+          "inLanguage": ["de", "en", "ro"]
+        }
+      ]
+    }
+    </script>
   </body>
 </html>

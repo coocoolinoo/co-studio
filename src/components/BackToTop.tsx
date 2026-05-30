@@ -26,6 +26,7 @@ export default function BackToTop() {
           transition={{ duration: 0.3, ease: [0.34, 1.56, 0.64, 1] }}
           onClick={scrollUp}
           title="Back to top"
+          className="fixed-action-btn"
           style={{
             position: 'fixed',
             bottom: 24,

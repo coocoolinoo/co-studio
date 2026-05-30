@@ -4,6 +4,7 @@ import Hero from '../components/Hero'
 import Navbar from '../components/Navbar'
 import PageRoute from '../components/PageRoute'
 import PageTransition from '../components/PageTransition'
+import SEO from '../components/SEO'
 import ContactSection from '../components/ContactSection'
 import Services from '../components/Services'
 import WorkSection from '../components/WorkSection'
@@ -12,8 +13,13 @@ export default function Home() {
   return (
     <PageTransition>
       <PageRoute>
+        <SEO
+          title="co-studio — Web & App Entwicklung Wien | Corneliu Secrieri"
+          description="Moderne Web- und App-Entwicklung aus Wien. React, Swift, Tauri, WordPress. Clean code, strong craft."
+          url="https://www.co-studio.at/"
+        />
         <Navbar />
-        <main>
+        <main id="main-content">
           <Hero />
           <About />
           <WorkSection />

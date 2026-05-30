@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
+import { HelmetProvider } from 'react-helmet-async'
 import BackToTop from './components/BackToTop'
 import CookieNotice from './components/CookieNotice'
 import Cursor from './components/Cursor'
@@ -77,6 +78,7 @@ function TabTitleEasterEgg() {
 
 export default function App() {
   return (
+    <HelmetProvider>
     <BrowserRouter>
       <ScrollToTop />
       <TabTitleEasterEgg />
@@ -101,5 +103,6 @@ export default function App() {
         <AppContent />
       </LanguageScrambleProvider>
     </BrowserRouter>
+    </HelmetProvider>
   )
 }

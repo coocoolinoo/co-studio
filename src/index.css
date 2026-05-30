@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+/* Hide fixed action buttons on mobile */
+@media (max-width: 768px) {
+  .fixed-action-btn {
+    display: none !important;
+  }
+}
+
 @keyframes clockPulse {
   0%, 100% { opacity: 1; transform: scale(1); }
   50%       { opacity: 0.4; transform: scale(0.6); }
