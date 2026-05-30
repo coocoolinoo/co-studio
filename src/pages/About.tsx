@@ -2,12 +2,14 @@ import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { motion, useScroll, useTransform } from 'framer-motion'
+import portrait from '../assets/DA-Foto.jpg'
 import Footer from '../components/Footer'
 import HtmlText from '../components/HtmlText'
 import Navbar from '../components/Navbar'
 import PageContainer from '../components/PageContainer'
 import PageRoute from '../components/PageRoute'
 import PageTransition from '../components/PageTransition'
+import ReadingTime from '../components/ReadingTime'
 import TiltCard from '../components/TiltCard'
 import FadeUp from '../components/FadeUp'
 import Logo from '../components/Logo'
@@ -19,7 +21,6 @@ import AnimatedNumber from '../components/AnimatedNumber'
 import ProfileActions from '../components/ProfileActions'
 import { easeEditorial } from '../lib/motion'
 
-const PHOTO_COLORS = ['#bbbbbb', '#aaaaaa', '#cccccc', '#dddddd', '#b8b8b8']
 
 const STACK_CATEGORIES = [
   {
@@ -150,28 +151,14 @@ function AboutMarqueeHeader() {
   )
 }
 
-function PhotoStrip() {
-  const renderPhotos = (prefix: string) =>
-    PHOTO_COLORS.map((color) => (
-      <div
-        key={`${prefix}-${color}`}
-        className="h-[220px] w-[160px] shrink-0 rounded-lg"
-        style={{ backgroundColor: color }}
-      />
-    ))
-
-  return (
-    <div className="photo-strip -mx-4 mt-10 overflow-hidden md:-mx-0">
-      <div className="photo-strip-track flex gap-4 px-4">
-        {renderPhotos('a')}
-        {renderPhotos('b')}
-      </div>
-    </div>
-  )
-}
 
 export default function About() {
   const storyRef = useRef<HTMLDivElement>(null)
+  const { t } = useTranslation()
+
+  const aboutText = ['bio', 'p1', 'p2', 'p3', 'p4']
+    .map(k => t(`about_page.${k}`))
+    .join(' ')
 
   return (
     <PageTransition>
@@ -184,7 +171,7 @@ export default function About() {
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
-                padding: '20px 0 40px',
+                padding: '20px 0 24px',
               }}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -204,6 +191,15 @@ export default function About() {
               </span>
             </motion.div>
 
+            <motion.div
+              style={{ padding: '0 0 16px' }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.3, ease: easeEditorial }}
+            >
+              <ReadingTime text={aboutText} />
+            </motion.div>
+
             <AboutMarqueeHeader />
           </PageContainer>
 
@@ -213,12 +209,36 @@ export default function About() {
                 <p className="about-section-label border-b border-black/10 pb-4 font-mono text-xs tracking-[0.2em] text-near-black uppercase">
                   <ScrambleText i18nKey="about_page.nutshell" />
                 </p>
-                <HtmlText
-                  i18nKey="about_page.bio"
-                  className="about-bio mt-8 block max-w-4xl text-near-black"
-                />
-                <ProfileActions className="mt-8 border-t border-black/10 pt-8" />
-                <PhotoStrip />
+                <div className="mt-8 flex flex-col gap-8 md:flex-row md:items-start md:gap-12">
+                  <div className="flex-1">
+                    <HtmlText
+                      i18nKey="about_page.bio"
+                      className="about-bio block text-near-black"
+                    />
+                    <ProfileActions className="mt-8 border-t border-black/10 pt-8" />
+                  </div>
+                  <motion.div
+                    className="w-full shrink-0 md:w-52"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-40px' }}
+                    transition={{ duration: 0.7, ease: easeEditorial }}
+                  >
+                    <img
+                      src={portrait}
+                      alt="Corneliu Secrieri"
+                      style={{
+                        width: '100%',
+                        borderRadius: 14,
+                        objectFit: 'cover',
+                        objectPosition: 'top center',
+                        aspectRatio: '3 / 4',
+                        display: 'block',
+                        border: '1px solid rgba(26,20,16,0.08)',
+                      }}
+                    />
+                  </motion.div>
+                </div>
               </TiltCard>
             </FadeUp>
           </PageContainer>

@@ -1,7 +1,12 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import AvailabilityBadge from './AvailabilityBadge'
+import CopyEmail from './CopyEmail'
+import LastUpdated from './LastUpdated'
 import Logo from './Logo'
 import ScrambleText from './ScrambleText'
+import ViennaClock from './ViennaClock'
+import VisitorCounter from './VisitorCounter'
 
 const SOCIALS = [
   { key: 'email' as const, href: 'mailto:secrieri.corneliu@gmail.com' },
@@ -74,7 +79,7 @@ export default function Footer() {
               fontFamily: "'JetBrains Mono', monospace",
             }}
           >
-            secrieri.corneliu@gmail.com →
+            <CopyEmail style={{ color: 'inherit' }}>secrieri.corneliu@gmail.com →</CopyEmail>
           </motion.a>
         </motion.div>
 
@@ -193,20 +198,13 @@ export default function Footer() {
               <ScrambleText i18nKey="footer.privacy" />
             </Link>
           </span>
+          <VisitorCounter />
+          <LastUpdated />
         </div>
-        <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <span className="footer-pulse-dot" />
-          <span
-            style={{
-              fontSize: '0.7rem',
-              color: 'rgba(245,240,232,0.5)',
-              fontFamily: "'JetBrains Mono', monospace",
-              letterSpacing: '0.1em',
-            }}
-          >
-            <ScrambleText i18nKey="footer.available" />
-          </span>
-        </span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
+          <AvailabilityBadge variant="footer" />
+          <ViennaClock variant="footer" />
+        </div>
       </motion.div>
     </motion.footer>
   )

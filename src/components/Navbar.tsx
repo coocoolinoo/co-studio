@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import AvailabilityBadge from './AvailabilityBadge'
 import LanguageSwitcher from './LanguageSwitcher'
 import Logo from './Logo'
 import MagneticWrap from './MagneticWrap'
 import ScrambleNavLink from './ScrambleNavLink'
 import ScrambleText from './ScrambleText'
+import ViennaClock from './ViennaClock'
 
 export default function Navbar() {
   const { t } = useTranslation()
@@ -70,6 +72,10 @@ export default function Navbar() {
               </li>
             </ul>
             <LanguageSwitcher />
+            <AvailabilityBadge variant="navbar" />
+            <div title="Current time in Vienna, Austria 🇦🇹">
+              <ViennaClock variant="navbar" />
+            </div>
           </div>
 
           <div className="flex items-center gap-3 md:hidden">
