@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
+import { playClick } from '../utils/sound'
 
 const projects = [
   {
@@ -111,8 +112,8 @@ export default function WorkReel() {
   const total = projects.length
   const proj = projects[current]
 
-  const prev = () => setCurrent(c => Math.max(0, c - 1))
-  const next = () => setCurrent(c => Math.min(total - 1, c + 1))
+  const prev = () => { playClick(); setCurrent(c => Math.max(0, c - 1)) }
+  const next = () => { playClick(); setCurrent(c => Math.min(total - 1, c + 1)) }
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {

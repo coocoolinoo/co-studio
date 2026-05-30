@@ -1,12 +1,14 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
+import BackToTop from './components/BackToTop'
 import CookieNotice from './components/CookieNotice'
 import Cursor from './components/Cursor'
 import Intro from './components/Intro'
 import KeyboardShortcuts from './components/KeyboardShortcuts'
 import ScrollProgress from './components/ScrollProgress'
 import ScrollToTop from './components/ScrollToTop'
+import SoundToggle from './components/SoundToggle'
 import { LanguageScrambleProvider } from './context/LanguageScrambleContext'
 import About from './pages/About'
 import Home from './pages/Home'
@@ -60,10 +62,25 @@ function AppContent() {
   )
 }
 
+function TabTitleEasterEgg() {
+  useEffect(() => {
+    const handleBlur = () => { document.title = '👋 Komm zurück!' }
+    const handleFocus = () => { document.title = 'co-studio — Web & App Development · Vienna' }
+    window.addEventListener('blur', handleBlur)
+    window.addEventListener('focus', handleFocus)
+    return () => {
+      window.removeEventListener('blur', handleBlur)
+      window.removeEventListener('focus', handleFocus)
+    }
+  }, [])
+  return null
+}
+
 export default function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
+      <TabTitleEasterEgg />
       <LanguageScrambleProvider>
         {/* Noise/grain overlay */}
         <div
@@ -80,6 +97,8 @@ export default function App() {
         <ScrollProgress />
         <Cursor />
         <CookieNotice />
+        <SoundToggle />
+        <BackToTop />
         <KeyboardShortcuts />
         <AppContent />
       </LanguageScrambleProvider>

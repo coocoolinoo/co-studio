@@ -6,6 +6,18 @@ import HeroWords from './HeroWords'
 import LoopAnimation from './LoopAnimation'
 import ProfileActions from './ProfileActions'
 
+type Lang = 'de' | 'en' | 'ro'
+
+function getGreeting(): Record<Lang, string> {
+  const now = new Date()
+  const h = new Date(now.toLocaleString('en-US', { timeZone: 'Europe/Vienna' })).getHours()
+  if (h >= 5 && h < 10)  return { de: 'Guten Morgen —',   en: 'Good morning —',   ro: 'Bună dimineața —' }
+  if (h >= 10 && h < 13) return { de: 'Guten Vormittag —', en: 'Good morning —',   ro: 'Bună dimineața —' }
+  if (h >= 13 && h < 18) return { de: 'Guten Tag —',       en: 'Good afternoon —', ro: 'Bună ziua —' }
+  if (h >= 18 && h < 22) return { de: 'Guten Abend —',     en: 'Good evening —',   ro: 'Bună seara —' }
+  return                         { de: 'Noch wach? —',      en: 'Still up? —',      ro: 'Încă treaz? —' }
+}
+
 const HERO_VIDEO =
   'https://assets.mixkit.co/videos/preview/mixkit-abstract-flowing-dark-fluid-4288-large.mp4'
 
@@ -14,8 +26,11 @@ const displayClass =
 const displaySize = { fontSize: 'clamp(5rem, 14vw, 11.25rem)' }
 
 export default function Hero() {
-  const { t } = useTranslation()
-  const intro = useScrambledString(t('hero.intro'))
+  const { t, i18n } = useTranslation()
+  const lang = (i18n.language.slice(0, 2) as Lang) in { de: 1, en: 1, ro: 1 }
+    ? (i18n.language.slice(0, 2) as Lang)
+    : 'en'
+  const intro = useScrambledString(getGreeting()[lang])
   const line1 = useScrambledString(t('hero.line1'), 400)
   const line2 = useScrambledString(t('hero.line2'), 400)
   const scroll = useScrambledString(t('hero.scroll'), 380)

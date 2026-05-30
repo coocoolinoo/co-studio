@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import AvailabilityBadge from './AvailabilityBadge'
@@ -7,6 +8,26 @@ import Logo from './Logo'
 import ScrambleText from './ScrambleText'
 import ViennaClock from './ViennaClock'
 import VisitorCounter from './VisitorCounter'
+
+function TimeOnSite() {
+  const [seconds, setSeconds] = useState(0)
+  useEffect(() => {
+    const start = Date.now()
+    const id = setInterval(() => setSeconds(Math.floor((Date.now() - start) / 1000)), 1000)
+    return () => clearInterval(id)
+  }, [])
+  if (seconds < 30) return null
+  const m = Math.floor(seconds / 60)
+  const s = seconds % 60
+  const label = m > 0 ? `You've been here for ${m} min` : `You've been here for ${s}s`
+  return (
+    <span style={{
+      fontFamily: "'JetBrains Mono', monospace",
+      fontSize: 8, letterSpacing: '.1em',
+      color: 'rgba(245,240,232,.18)', whiteSpace: 'nowrap',
+    }}>{label}</span>
+  )
+}
 
 const SOCIALS = [
   { key: 'email' as const, href: 'mailto:secrieri.corneliu@gmail.com' },
@@ -199,6 +220,7 @@ export default function Footer() {
             </Link>
           </span>
           <VisitorCounter />
+          <TimeOnSite />
           <LastUpdated />
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>

@@ -1,6 +1,18 @@
 import { useState, type FormEvent } from 'react'
 import { useTranslation } from 'react-i18next'
+import confetti from 'canvas-confetti'
 import { WEB3FORMS_ACCESS_KEY, HAS_CONTACT_FORM } from '../lib/site'
+import { playSuccess } from '../utils/sound'
+
+const CONFETTI_COLORS = ['#E8522A', '#F0B429', '#F5F0E8', '#1A1410']
+
+function fireConfetti() {
+  confetti({ particleCount: 60, angle: 60, spread: 55, origin: { x: 0, y: 0.7 }, colors: CONFETTI_COLORS, gravity: 1.2, scalar: 0.9, drift: 0.5 })
+  confetti({ particleCount: 60, angle: 120, spread: 55, origin: { x: 1, y: 0.7 }, colors: CONFETTI_COLORS, gravity: 1.2, scalar: 0.9, drift: -0.5 })
+  setTimeout(() => {
+    confetti({ particleCount: 40, angle: 90, spread: 70, origin: { x: 0.5, y: 0.6 }, colors: CONFETTI_COLORS, gravity: 1.5, scalar: 0.8 })
+  }, 300)
+}
 
 type FormStatus = 'idle' | 'sending' | 'success' | 'error'
 
@@ -50,6 +62,8 @@ export default function ContactForm() {
 
       setStatus('success')
       form.reset()
+      playSuccess()
+      fireConfetti()
     } catch {
       setStatus('error')
     }

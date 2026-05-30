@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import MagneticWrap from './MagneticWrap'
+import { playClick } from '../utils/sound'
 
 const LANGS = ['EN', 'DE', 'RO'] as const
 
@@ -13,7 +14,7 @@ export default function LanguageSwitcher() {
         <span key={lang} className="inline-flex items-center">
           <button
             type="button"
-            onClick={() => i18n.changeLanguage(lang.toLowerCase())}
+            onClick={() => { playClick(); i18n.changeLanguage(lang.toLowerCase()) }}
             className={`lang-btn${current === lang ? ' active' : ''}`}
             data-cursor-hover
           >
