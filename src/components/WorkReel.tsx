@@ -140,7 +140,7 @@ export default function WorkReel() {
       <div style={{ borderRadius: 20, overflow: 'hidden', marginTop: '6rem', border: '1px solid rgba(26,20,16,.08)', position: 'relative' }}>
 
         {/* Big faded counter */}
-        <div style={{
+        <div className="reel-counter" style={{
           position: 'absolute', top: 24, right: 36, zIndex: 5,
           fontFamily: "'Barlow Condensed', sans-serif",
           fontSize: 64, fontWeight: 900, lineHeight: 1,
@@ -263,7 +263,7 @@ export default function WorkReel() {
         </AnimatePresence>
 
         {/* ── BOTTOM NAV ── */}
-        <div style={{ padding: '18px 40px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid rgba(26,20,16,.08)', background: 'var(--bg)' }}>
+        <div className="reel-bottom-nav" style={{ padding: '18px 40px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid rgba(26,20,16,.08)', background: 'var(--bg)' }}>
 
           {/* Dots */}
           <div style={{ display: 'flex', gap: 7, alignItems: 'center' }}>
@@ -281,7 +281,7 @@ export default function WorkReel() {
             ))}
           </div>
 
-          <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, letterSpacing: '.12em', color: 'rgba(26,20,16,.22)' }}>
+          <span className="reel-navigate-hint" style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, letterSpacing: '.12em', color: 'rgba(26,20,16,.22)' }}>
             ← → NAVIGATE
           </span>
 
@@ -309,7 +309,7 @@ export default function WorkReel() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={e => { if (e.target === e.currentTarget) setDemoOpen(false) }}
-            style={{ position: 'fixed', inset: 0, zIndex: 9999, background: 'rgba(26,20,16,.8)', backdropFilter: 'blur(12px)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 40 }}
+            style={{ position: 'fixed', inset: 0, zIndex: 9999, background: 'rgba(26,20,16,.8)', backdropFilter: 'blur(12px)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 'clamp(12px, 4vw, 40px)' }}
           >
             <motion.div
               initial={{ scale: 0.9, y: 40 }}

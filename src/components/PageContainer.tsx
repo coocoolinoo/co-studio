@@ -11,6 +11,6 @@ export default function PageContainer({
   className = '',
 }: PageContainerProps) {
   return (
-    <div className={`mx-auto w-full max-w-[1200px] px-10 ${className}`}>{children}</div>
+    <div className={`mx-auto w-full max-w-[1200px] px-5 md:px-10 ${className}`}>{children}</div>
   )
 }

@@ -252,9 +252,9 @@ export default function About() {
           <PageContainer className="section-spacing">
             <div ref={storyRef} className="flex flex-col gap-12 lg:flex-row lg:gap-16">
               <div className="lg:sticky lg:top-32 lg:w-[40%] lg:self-start">
-                <h2 className="font-display text-[clamp(2rem,5vw,3rem)] font-bold uppercase leading-tight tracking-tight text-near-black">
+                <h1 className="font-display text-[clamp(2rem,5vw,3rem)] font-bold uppercase leading-tight tracking-tight text-near-black">
                   <ScrambleText i18nKey="about_page.deeper" />
-                </h2>
+                </h1>
               </div>
               <div className="flex flex-col gap-8 lg:w-[60%]">
                 {STORY_KEYS.map((key) => (

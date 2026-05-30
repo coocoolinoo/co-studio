@@ -27,10 +27,11 @@ function WorkHeader() {
   return (
     <div
       ref={ref}
+      className="work-scroll-marquee-wrap"
       style={{
         background: 'white',
         borderRadius: 20,
-        margin: '0 40px',
+        margin: '0 16px',
         padding: '32px 0',
         overflow: 'hidden',
         position: 'relative',

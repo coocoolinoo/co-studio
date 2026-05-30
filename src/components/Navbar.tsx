@@ -32,7 +32,7 @@ export default function Navbar() {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 bg-off-white">
-        <nav className="mx-auto flex max-w-[1200px] items-center justify-between gap-4 px-10 py-5">
+        <nav className="mx-auto flex max-w-[1200px] items-center justify-between gap-4 px-5 py-5 md:px-10">
           <MagneticWrap>
             <Link
               to="/"
@@ -72,9 +72,11 @@ export default function Navbar() {
               </li>
             </ul>
             <LanguageSwitcher />
-            <AvailabilityBadge variant="navbar" />
-            <div title="Current time in Vienna, Austria 🇦🇹">
-              <ViennaClock variant="navbar" />
+            <div className="hidden items-center gap-3 lg:flex">
+              <AvailabilityBadge variant="navbar" />
+              <div title="Current time in Vienna, Austria 🇦🇹">
+                <ViennaClock variant="navbar" />
+              </div>
             </div>
           </div>
 
@@ -97,7 +99,7 @@ export default function Navbar() {
 
       {menuOpen && (
         <div className="fixed inset-0 z-[100] flex flex-col bg-off-white md:hidden">
-          <div className="flex items-center justify-between px-10 py-5">
+          <div className="flex items-center justify-between px-5 py-5">
             <Logo variant="light" showWordmark={false} size={40} />
             <MagneticWrap>
               <button
@@ -111,7 +113,7 @@ export default function Navbar() {
             </MagneticWrap>
           </div>
 
-          <nav className="flex flex-1 flex-col justify-center gap-4 px-10">
+          <nav className="flex flex-1 flex-col justify-center gap-4 px-5">
             <ScrambleNavLink
               to="/#work"
               label={workLabel}

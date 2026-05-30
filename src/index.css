@@ -235,9 +235,15 @@ body {
 
 .about-bio {
   font-family: var(--font-sans);
-  font-size: 1.5rem;
+  font-size: 1.15rem;
   font-weight: 400;
   line-height: 1.6;
+}
+
+@media (min-width: 768px) {
+  .about-bio {
+    font-size: 1.5rem;
+  }
 }
 
 /* Space between about card and tech ticker */
@@ -800,9 +806,18 @@ body {
   padding-left: calc(2rem + 56px + 40px);
 }
 
-.service-item:hover .service-item-desc {
+.service-item:hover .service-item-desc,
+.service-item:focus-within .service-item-desc {
   max-height: 160px;
   opacity: 1;
+}
+
+@media (pointer: coarse) {
+  .service-item-desc {
+    max-height: none;
+    opacity: 1;
+    padding-left: calc(2rem + 28px);
+  }
 }
 
 .service-item-desc p {
@@ -1050,7 +1065,7 @@ body {
 
 .about-marquee-solid,
 .about-marquee-outline {
-  font-size: clamp(5rem, 15vw, 10rem);
+  font-size: clamp(3rem, 12vw, 10rem);
 }
 
 .about-marquee-outline {
@@ -1236,11 +1251,24 @@ body {
 
 @media (max-width: 767px) {
   .footer-split {
-    margin: 0 20px 32px !important;
+    margin: 0 12px 24px !important;
   }
 
   .footer-split-grid {
     grid-template-columns: 1fr !important;
+  }
+
+  .footer-split-grid > * {
+    padding: 36px 24px !important;
+  }
+
+  .footer-bottom-bar {
+    padding: 14px 20px !important;
+    gap: 10px 12px !important;
+  }
+
+  .footer-bottom-bar > div:last-child {
+    display: none !important;
   }
 }
 
@@ -1312,6 +1340,13 @@ body {
 
   .custom-cursor {
     display: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .work-scroll-marquee-wrap {
+    margin-left: 40px !important;
+    margin-right: 40px !important;
   }
 }
 
@@ -1814,14 +1849,26 @@ body {
 @media (max-width: 768px) {
   .reel-slide {
     grid-template-columns: 1fr !important;
+    min-height: auto !important;
   }
   .reel-info-panel {
-    padding: 32px 24px;
+    padding: 28px 20px;
     order: 2;
   }
   .reel-slide > div:last-child {
-    min-height: 260px;
+    min-height: 220px;
     order: 1;
+  }
+  .reel-bottom-nav {
+    padding: 14px 16px !important;
+  }
+  .reel-navigate-hint {
+    display: none !important;
+  }
+  .reel-counter {
+    font-size: 40px !important;
+    right: 16px !important;
+    top: 14px !important;
   }
 }
 @media (max-width: 480px) {
