@@ -8,7 +8,6 @@ import Intro from './components/Intro'
 import KeyboardShortcuts from './components/KeyboardShortcuts'
 import ScrollProgress from './components/ScrollProgress'
 import ScrollToTop from './components/ScrollToTop'
-import SoundToggle from './components/SoundToggle'
 import { LanguageScrambleProvider } from './context/LanguageScrambleContext'
 import About from './pages/About'
 import Home from './pages/Home'
@@ -97,7 +96,6 @@ export default function App() {
         <ScrollProgress />
         <Cursor />
         <CookieNotice />
-        <SoundToggle />
         <BackToTop />
         <KeyboardShortcuts />
         <AppContent />

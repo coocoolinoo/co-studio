@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
+import { playClick, isSoundEnabled } from '../utils/sound'
 
 const SHORTCUTS = [
   { key: 'W', label: 'Scroll to Work' },
@@ -16,7 +17,14 @@ const SHORTCUTS = [
 
 export default function KeyboardShortcuts() {
   const [open, setOpen] = useState(false)
+  const [soundOn, setSoundOn] = useState(isSoundEnabled)
   const navigate = useNavigate()
+
+  const toggleSound = () => {
+    const next = !soundOn
+    setSoundOn(next)
+    localStorage.setItem('co-studio-sound', next ? 'on' : 'off')
+  }
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
@@ -48,7 +56,7 @@ export default function KeyboardShortcuts() {
   return (
     <>
       <button
-        onClick={() => setOpen(o => !o)}
+        onClick={() => { playClick(); setOpen(o => !o) }}
         title="Keyboard shortcuts"
         style={{
           position: 'fixed', bottom: 24, right: 24, zIndex: 1000,
@@ -117,8 +125,34 @@ export default function KeyboardShortcuts() {
               </div>
             ))}
 
+            {/* Sound toggle row */}
+            <div
+              onClick={toggleSound}
+              style={{
+                display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                padding: '10px 0 4px', cursor: 'pointer', gap: 16, marginTop: 4,
+              }}
+              onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.background = 'rgba(232,82,42,.03)' }}
+              onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.background = 'transparent' }}
+            >
+              <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: '#888' }}>
+                {soundOn ? 'Sounds on' : 'Sounds off'}
+              </span>
+              <div style={{
+                display: 'flex', alignItems: 'center', gap: 6,
+                background: soundOn ? 'rgba(232,82,42,.08)' : 'rgba(26,20,16,.04)',
+                border: `1px solid ${soundOn ? 'rgba(232,82,42,.2)' : 'rgba(26,20,16,.1)'}`,
+                borderRadius: 999, padding: '3px 10px',
+                fontFamily: "'JetBrains Mono', monospace", fontSize: 11,
+                color: soundOn ? '#E8522A' : '#bbb',
+                transition: 'all .2s',
+              }}>
+                {soundOn ? '🔊' : '🔇'}
+              </div>
+            </div>
+
             <div style={{
-              marginTop: 12, fontFamily: "'JetBrains Mono', monospace",
+              marginTop: 8, fontFamily: "'JetBrains Mono', monospace",
               fontSize: 8, color: '#bbb', letterSpacing: '.08em',
             }}>Press ESC to close</div>
           </motion.div>
