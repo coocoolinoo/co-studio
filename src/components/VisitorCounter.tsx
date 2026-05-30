@@ -1,21 +1,33 @@
 import { useEffect, useState } from 'react'
 
+// Realistic offset so the counter doesn't start from zero
+const SEED = 284
+
 export default function VisitorCounter() {
   const [count, setCount] = useState<number | null>(null)
 
   useEffect(() => {
-    const visitedKey = 'co-studio-visitor'
-    const countKey = 'co-studio-count'
-    const storedCount = parseInt(localStorage.getItem(countKey) || '1247', 10)
+    const hitKey = 'co-studio-counted'
+    const cacheKey = 'co-studio-visit-count'
 
-    if (!localStorage.getItem(visitedKey)) {
-      const newCount = storedCount + 1
-      localStorage.setItem(visitedKey, 'true')
-      localStorage.setItem(countKey, String(newCount))
-      setCount(newCount)
-    } else {
-      setCount(storedCount)
-    }
+    const alreadyCounted = !!sessionStorage.getItem(hitKey)
+    const endpoint = alreadyCounted
+      ? 'https://api.countapi.xyz/get/co-studio-corneliu/visits'
+      : 'https://api.countapi.xyz/hit/co-studio-corneliu/visits'
+
+    fetch(endpoint)
+      .then(r => r.json())
+      .then(({ value }: { value: number }) => {
+        if (!alreadyCounted) sessionStorage.setItem(hitKey, 'true')
+        const display = value + SEED
+        sessionStorage.setItem(cacheKey, String(display))
+        setCount(display)
+      })
+      .catch(() => {
+        // fallback: use cached value from this session, or hide
+        const cached = sessionStorage.getItem(cacheKey)
+        if (cached) setCount(parseInt(cached, 10))
+      })
   }, [])
 
   if (!count) return null
