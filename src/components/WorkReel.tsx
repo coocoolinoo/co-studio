@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { playClick } from '../utils/sound'
+import ProjectReactions from './ProjectReactions'
 
 const projects = [
   {
@@ -180,9 +181,10 @@ export default function WorkReel() {
                 <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: 'clamp(44px, 4.5vw, 68px)', fontWeight: 900, color: 'var(--ink)', letterSpacing: -2, lineHeight: .92, margin: '0 0 18px' }}>
                   {proj.title}
                 </h3>
-                <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: '#888', lineHeight: 1.8, maxWidth: 320, margin: '0 0 20px' }}>
+                <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: '#888', lineHeight: 1.8, maxWidth: 320, margin: '0 0 4px' }}>
                   {proj.desc}
                 </p>
+                <ProjectReactions projectId={proj.slug} />
                 <div style={{ display: 'flex', gap: 5, flexWrap: 'wrap', marginBottom: 32 }}>
                   {proj.tags.map(tag => (
                     <span key={tag} style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 8, letterSpacing: '.1em', textTransform: 'uppercase', border: '1px solid rgba(26,20,16,.14)', borderRadius: 999, padding: '4px 10px', color: '#888' }}>

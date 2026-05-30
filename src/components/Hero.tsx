@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { useScrambledString } from '../hooks/useScrambledString'
@@ -5,6 +6,73 @@ import { easeEditorial } from '../lib/motion'
 import HeroWords from './HeroWords'
 import LoopAnimation from './LoopAnimation'
 import ProfileActions from './ProfileActions'
+
+const TYPEWRITER_WORDS = [
+  'digital THINGS ツ',
+  'Web Apps ツ',
+  'Mobile Apps ツ',
+  'Desktop Tools ツ',
+  'clean Code ツ',
+  'strong Craft ツ',
+  'something great ツ',
+]
+
+function TypewriterText() {
+  const [wordIndex, setWordIndex] = useState(0)
+  const [displayed, setDisplayed] = useState('')
+  const [phase, setPhase] = useState<'typing' | 'pause' | 'deleting'>('typing')
+  const [charIndex, setCharIndex] = useState(0)
+
+  useEffect(() => {
+    const current = TYPEWRITER_WORDS[wordIndex]
+    if (phase === 'typing') {
+      if (charIndex < current.length) {
+        const t = setTimeout(() => {
+          setDisplayed(current.slice(0, charIndex + 1))
+          setCharIndex(c => c + 1)
+        }, 55)
+        return () => clearTimeout(t)
+      } else {
+        const t = setTimeout(() => setPhase('pause'), 2200)
+        return () => clearTimeout(t)
+      }
+    }
+    if (phase === 'pause') {
+      const t = setTimeout(() => setPhase('deleting'), 400)
+      return () => clearTimeout(t)
+    }
+    if (phase === 'deleting') {
+      if (charIndex > 0) {
+        const t = setTimeout(() => {
+          setDisplayed(current.slice(0, charIndex - 1))
+          setCharIndex(c => c - 1)
+        }, 28)
+        return () => clearTimeout(t)
+      } else {
+        setWordIndex(i => (i + 1) % TYPEWRITER_WORDS.length)
+        setPhase('typing')
+      }
+    }
+  }, [phase, charIndex, wordIndex])
+
+  return (
+    <span>
+      {displayed}
+      <span
+        style={{
+          display: 'inline-block',
+          width: '3px',
+          height: '0.75em',
+          background: '#E8522A',
+          marginLeft: '4px',
+          verticalAlign: 'middle',
+          borderRadius: '1px',
+          animation: 'cursorBlink .8s ease-in-out infinite',
+        }}
+      />
+    </span>
+  )
+}
 
 type Lang = 'de' | 'en' | 'ro'
 
@@ -80,12 +148,9 @@ export default function Hero() {
             </motion.div>
 
             <motion.div style={{ y: y2 }}>
-              <HeroWords
-                text={line2}
-                className={displayClass}
-                style={displaySize}
-                baseDelay={1}
-              />
+              <div className={displayClass} style={displaySize}>
+                <TypewriterText />
+              </div>
             </motion.div>
 
             <motion.div

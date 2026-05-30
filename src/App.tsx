@@ -7,6 +7,7 @@ import CookieNotice from './components/CookieNotice'
 import Cursor from './components/Cursor'
 import Intro from './components/Intro'
 import KeyboardShortcuts from './components/KeyboardShortcuts'
+import LoadTimeBadge from './components/LoadTimeBadge'
 import ScrollProgress from './components/ScrollProgress'
 import ScrollToTop from './components/ScrollToTop'
 import { LanguageScrambleProvider } from './context/LanguageScrambleContext'
@@ -100,6 +101,7 @@ export default function App() {
         <CookieNotice />
         <BackToTop />
         <KeyboardShortcuts />
+        <LoadTimeBadge />
         <AppContent />
       </LanguageScrambleProvider>
     </BrowserRouter>
