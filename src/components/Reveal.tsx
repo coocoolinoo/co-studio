@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { motion, type Easing } from 'framer-motion'
 
 type RevealProps = {
   children: React.ReactNode
@@ -10,7 +10,7 @@ type RevealProps = {
   style?: React.CSSProperties
 }
 
-const EASE_OUT = [0.76, 0, 0.24, 1]
+const EASE_OUT: Easing = [0.76, 0, 0.24, 1]
 
 export default function Reveal({
   children,
