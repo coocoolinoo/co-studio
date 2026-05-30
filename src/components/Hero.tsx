@@ -100,7 +100,6 @@ export default function Hero() {
     : 'en'
   const intro = useScrambledString(getGreeting()[lang])
   const line1 = useScrambledString(t('hero.line1'), 400)
-  const line2 = useScrambledString(t('hero.line2'), 400)
   const scroll = useScrambledString(t('hero.scroll'), 380)
   const tag = useScrambledString(t('hero.tag'))
   const { scrollY } = useScroll()
