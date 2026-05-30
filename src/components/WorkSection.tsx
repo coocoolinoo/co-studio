@@ -1,31 +1,89 @@
-import { useRef, type RefObject } from 'react'
+import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
-import FadeUp from './FadeUp'
 import PageContainer from './PageContainer'
-import TiltCard from './TiltCard'
-import { useScrambledString } from '../hooks/useScrambledString'
-import { WorkMarqueeRow } from '../lib/workMarqueeText'
-import SectionCounter from './SectionCounter'
-import { HOME_SECTION_TOTAL } from '../lib/site'
+import Reveal from './Reveal'
 import WorkReel from './WorkReel'
 
-// ─── WorkScrollHeader ─────────────────────────────────────────────────────────
+// ─── WorkHeader ───────────────────────────────────────────────────────────────
 
-function WorkScrollHeader({ sectionRef, title }: { sectionRef: RefObject<HTMLElement | null>; title: string }) {
-  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ['start end', 'end start'] })
-  const x1 = useTransform(scrollYProgress, [0, 1], ['0%', '-15%'])
-  const x2 = useTransform(scrollYProgress, [0, 1], ['-10%', '5%'])
-  const row = `${title} * ${title} * ${title} * ${title} * ${title} * ${title} * ${title} * ${title} * `
+function WorkHeader() {
+  const { i18n } = useTranslation()
+  const ref = useRef(null)
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
+
+  const x1 = useTransform(scrollYProgress, [0, 1], ['0%', '-12%'])
+  const x2 = useTransform(scrollYProgress, [0, 1], ['-12%', '0%'])
+
+  const word2 = i18n.language.startsWith('de')
+    ? 'PROJEKTE'
+    : i18n.language.startsWith('ro')
+    ? 'PROIECTE'
+    : 'PROJECTS'
+
+  const repeat = (word: string, sep: string, count = 8) =>
+    Array(count).fill(`${word}${sep}`).join('')
 
   return (
-    <div className="work-scroll-header relative overflow-hidden py-2">
-      <motion.div style={{ x: x1 }} className="work-row-dark font-display font-black uppercase leading-[0.9] tracking-tight text-near-black whitespace-nowrap">
-        <WorkMarqueeRow text={row.repeat(4)} />
-      </motion.div>
-      <motion.div style={{ x: x2 }} className="work-row-gray mt-1 ml-[120px] font-display font-black uppercase leading-[0.9] tracking-tight whitespace-nowrap text-[#cccccc] md:ml-[200px]">
-        <WorkMarqueeRow text={row.repeat(4)} />
-      </motion.div>
+    <div
+      ref={ref}
+      style={{
+        background: 'white',
+        borderRadius: 20,
+        margin: '0 40px',
+        padding: '32px 0',
+        overflow: 'hidden',
+        position: 'relative',
+        border: '1px solid rgba(26,20,16,0.07)',
+      }}
+    >
+      {/* [02] label */}
+      <div style={{
+        position: 'absolute', top: 20, left: 48, zIndex: 2,
+        fontFamily: "'JetBrains Mono', monospace",
+        fontSize: 9, letterSpacing: '.2em', color: '#E8522A',
+      }}>
+        [02]
+      </div>
+
+      {/* Row 1 — solid, moves LEFT */}
+      <div style={{ overflow: 'hidden' }}>
+        <motion.div
+          style={{
+            x: x1,
+            fontFamily: "'Barlow Condensed', sans-serif",
+            fontWeight: 900,
+            fontSize: 'clamp(72px, 10vw, 120px)',
+            color: '#1A1410',
+            letterSpacing: -3,
+            lineHeight: 0.9,
+            whiteSpace: 'nowrap',
+            display: 'inline-block',
+          }}
+        >
+          {repeat('WORK', ' — ')}
+        </motion.div>
+      </div>
+
+      {/* Row 2 — outline, moves RIGHT */}
+      <div style={{ overflow: 'hidden' }}>
+        <motion.div
+          style={{
+            x: x2,
+            fontFamily: "'Barlow Condensed', sans-serif",
+            fontWeight: 900,
+            fontSize: 'clamp(72px, 10vw, 120px)',
+            color: 'transparent',
+            WebkitTextStroke: '1.5px rgba(26,20,16,.14)',
+            letterSpacing: -3,
+            lineHeight: 0.9,
+            whiteSpace: 'nowrap',
+            display: 'inline-block',
+          }}
+        >
+          {repeat(word2, '    ')}
+        </motion.div>
+      </div>
     </div>
   )
 }
@@ -33,28 +91,14 @@ function WorkScrollHeader({ sectionRef, title }: { sectionRef: RefObject<HTMLEle
 // ─── WorkSection ──────────────────────────────────────────────────────────────
 
 export default function WorkSection() {
-  const { t } = useTranslation()
-  const workSectionRef = useRef<HTMLElement>(null)
-  const workTitle = useScrambledString(t('work.title'), 380)
-
   return (
-    <section ref={workSectionRef} id="work" className="section-spacing">
-      {/* Marquee header — unchanged */}
-      <PageContainer>
-        <FadeUp>
-          <TiltCard className="float-card work-header-card relative overflow-hidden">
-            <SectionCounter index={2} total={HOME_SECTION_TOTAL} className="section-label section-label--counter" />
-            <div className="section-rail section-rail--inset" aria-hidden>
-              <span className="section-label section-label--side">{workTitle}</span>
-            </div>
-            <WorkScrollHeader sectionRef={workSectionRef} title={workTitle} />
-          </TiltCard>
-        </FadeUp>
-      </PageContainer>
+    <section id="work" className="section-spacing">
+      <WorkHeader />
 
-      {/* Horizontal reel */}
       <PageContainer>
-        <WorkReel />
+        <Reveal direction="up" distance={60} delay={0.1}>
+          <WorkReel />
+        </Reveal>
       </PageContainer>
     </section>
   )

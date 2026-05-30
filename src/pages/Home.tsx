@@ -16,9 +16,9 @@ export default function Home() {
         <main>
           <Hero />
           <About />
-          <div id="work"><WorkSection /></div>
-          <div id="services"><Services /></div>
-          <div id="contact"><ContactSection /></div>
+          <WorkSection />
+          <Services />
+          <ContactSection />
         </main>
         <Footer />
       </PageRoute>

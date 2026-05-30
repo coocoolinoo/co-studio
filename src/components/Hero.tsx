@@ -4,7 +4,6 @@ import { useScrambledString } from '../hooks/useScrambledString'
 import { easeEditorial } from '../lib/motion'
 import HeroWords from './HeroWords'
 import LoopAnimation from './LoopAnimation'
-import Marquee from './Marquee'
 import ProfileActions from './ProfileActions'
 
 const HERO_VIDEO =
@@ -21,7 +20,6 @@ export default function Hero() {
   const line2 = useScrambledString(t('hero.line2'), 400)
   const scroll = useScrambledString(t('hero.scroll'), 380)
   const tag = useScrambledString(t('hero.tag'))
-  const marquee = useScrambledString(t('hero.marquee'), 500)
   const { scrollY } = useScroll()
   const y1 = useTransform(scrollY, [0, 600], [0, -60])
   const y2 = useTransform(scrollY, [0, 600], [0, -120])
@@ -115,7 +113,6 @@ export default function Hero() {
         </div>
       </div>
 
-      <Marquee text={marquee} className="relative z-10 mt-auto" speed="slow" />
     </section>
   )
 }

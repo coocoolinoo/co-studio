@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
-import ClientTicker from './ClientTicker'
 import FadeUp from './FadeUp'
 import HtmlText from './HtmlText'
 import { useScrambledString } from '../hooks/useScrambledString'
@@ -71,7 +70,6 @@ export default function About() {
         </FadeUp>
       </PageContainer>
 
-      <ClientTicker className="about-section__ticker" />
     </section>
   )
 }

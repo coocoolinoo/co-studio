@@ -1,11 +1,10 @@
 import { useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useInView } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { useScrambledString } from '../hooks/useScrambledString'
 import CountLabel from './CountLabel'
 import PageContainer from './PageContainer'
-import Marquee from './Marquee'
 import AnimatedNumber from './AnimatedNumber'
 
 // ─── Inline SVG icons (currentColor = inherits from .service-item-icon) ────
@@ -188,10 +187,9 @@ export default function Services() {
   const navigate = useNavigate()
   const { t } = useTranslation()
   const sectionLabel = useScrambledString(t('services.label').replace(/^\[\d+\]\s*/, ''))
-  const marqueeText = useScrambledString(t('hero.marquee'), 300)
 
   return (
-    <section id="focus" className="section-spacing">
+    <section id="services" className="section-spacing">
       <PageContainer>
         <CountLabel
           number={3}
@@ -200,10 +198,22 @@ export default function Services() {
         />
 
         {/* Service items */}
-        <div>
+        <motion.div
+          variants={{
+            hidden: {},
+            show: { transition: { staggerChildren: 0.09, delayChildren: 0.05 } },
+          }}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: '-60px' }}
+        >
           {SERVICES.map(({ num, key, route, tags, Icon }) => (
-            <div
+            <motion.div
               key={key}
+              variants={{
+                hidden: { opacity: 0, y: 32 },
+                show: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.76, 0, 0.24, 1] } },
+              }}
               className="service-item"
               onMouseEnter={particleBurst}
               onClick={() => navigate(route)}
@@ -237,9 +247,9 @@ export default function Services() {
                   </span>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Stats */}
         <div className="service-stats">
@@ -249,8 +259,6 @@ export default function Services() {
         </div>
       </PageContainer>
 
-      {/* Marquee strip */}
-      <Marquee text={marqueeText} className="mt-16" speed="slow" />
     </section>
   )
 }
