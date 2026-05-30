@@ -7,53 +7,54 @@ import HeroWords from './HeroWords'
 import LoopAnimation from './LoopAnimation'
 import ProfileActions from './ProfileActions'
 
-const TYPEWRITER_WORDS = [
-  'digital THINGS ツ',
-  'Web Apps ツ',
-  'Mobile Apps ツ',
-  'Desktop Tools ツ',
-  'clean Code ツ',
-  'strong Craft ツ',
-  'something great ツ',
-]
-
 function TypewriterText() {
+  const { t } = useTranslation()
+  const words: string[] = t('hero.typewriter', { returnObjects: true }) as string[]
+  const { i18n } = useTranslation()
   const [wordIndex, setWordIndex] = useState(0)
   const [displayed, setDisplayed] = useState('')
   const [phase, setPhase] = useState<'typing' | 'pause' | 'deleting'>('typing')
   const [charIndex, setCharIndex] = useState(0)
 
+  // Reset when language switches
   useEffect(() => {
-    const current = TYPEWRITER_WORDS[wordIndex]
+    setWordIndex(0)
+    setDisplayed('')
+    setCharIndex(0)
+    setPhase('typing')
+  }, [i18n.language])
+
+  useEffect(() => {
+    const current = words[wordIndex] ?? ''
     if (phase === 'typing') {
       if (charIndex < current.length) {
-        const t = setTimeout(() => {
+        const timer = setTimeout(() => {
           setDisplayed(current.slice(0, charIndex + 1))
           setCharIndex(c => c + 1)
         }, 55)
-        return () => clearTimeout(t)
+        return () => clearTimeout(timer)
       } else {
-        const t = setTimeout(() => setPhase('pause'), 2200)
-        return () => clearTimeout(t)
+        const timer = setTimeout(() => setPhase('pause'), 2200)
+        return () => clearTimeout(timer)
       }
     }
     if (phase === 'pause') {
-      const t = setTimeout(() => setPhase('deleting'), 400)
-      return () => clearTimeout(t)
+      const timer = setTimeout(() => setPhase('deleting'), 400)
+      return () => clearTimeout(timer)
     }
     if (phase === 'deleting') {
       if (charIndex > 0) {
-        const t = setTimeout(() => {
+        const timer = setTimeout(() => {
           setDisplayed(current.slice(0, charIndex - 1))
           setCharIndex(c => c - 1)
         }, 28)
-        return () => clearTimeout(t)
+        return () => clearTimeout(timer)
       } else {
-        setWordIndex(i => (i + 1) % TYPEWRITER_WORDS.length)
+        setWordIndex(i => (i + 1) % words.length)
         setPhase('typing')
       }
     }
-  }, [phase, charIndex, wordIndex])
+  }, [phase, charIndex, wordIndex, words])
 
   return (
     <span>
