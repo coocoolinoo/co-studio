@@ -131,6 +131,13 @@ export default function Navbar() {
               {aboutLabel}
             </ScrambleNavLink>
           </nav>
+
+          <div className="flex items-center gap-4 px-5 pb-8">
+            <AvailabilityBadge variant="navbar" />
+            <div title="Current time in Vienna, Austria 🇦🇹">
+              <ViennaClock variant="navbar" />
+            </div>
+          </div>
         </div>
       )}
     </>
