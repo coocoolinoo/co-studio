@@ -328,6 +328,8 @@
     "note": "* Alle Preise exkl. MwSt. · 50% Anzahlung bei Projektstart",
     "customTitle": "Individuelles Angebot gewünscht?",
     "customCta": "Schreib mir →",
+    "viewPricing": "Preise ansehen",
+    "startingFrom": "Starter ab €500 · Professional ab €1.200 · Premium ab €2.500",
     "packages": [
       {
         "num": "01", "name": "Starter", "price": "€500", "priceNote": "einmalig",

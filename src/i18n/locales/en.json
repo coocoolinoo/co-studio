@@ -328,6 +328,8 @@
     "note": "* All prices excl. VAT · 50% deposit at project start",
     "customTitle": "Want a custom quote?",
     "customCta": "Write to me →",
+    "viewPricing": "View Pricing",
+    "startingFrom": "Starter from €500 · Professional from €1,200 · Premium from €2,500",
     "packages": [
       {
         "num": "01", "name": "Starter", "price": "€500", "priceNote": "one-time",

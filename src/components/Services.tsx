@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { motion, useInView } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { useScrambledString } from '../hooks/useScrambledString'
@@ -257,6 +257,51 @@ export default function Services() {
             <StatItem key={s.key} value={s.value} suffix={s.suffix} labelKey={`serviceStat.${s.key}`} />
           ))}
         </div>
+
+        {/* Pricing CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1], delay: 0.2 }}
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            paddingTop: 40,
+            borderTop: '1px solid rgba(26,20,16,.08)',
+            marginTop: 40,
+          }}
+        >
+          <Link
+            to="/pricing"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 10,
+              border: '1.5px solid #1A1410',
+              borderRadius: 999,
+              padding: '13px 32px',
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: 10,
+              letterSpacing: '.12em',
+              color: '#1A1410',
+              textDecoration: 'none',
+              textTransform: 'uppercase',
+              transition: 'all .25s',
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.background = '#1A1410'
+              e.currentTarget.style.color = '#F5F0E8'
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.background = 'transparent'
+              e.currentTarget.style.color = '#1A1410'
+            }}
+          >
+            {t('pricing.viewPricing')}
+            <span style={{ color: '#E8522A' }}>→</span>
+          </Link>
+        </motion.div>
       </PageContainer>
 
     </section>

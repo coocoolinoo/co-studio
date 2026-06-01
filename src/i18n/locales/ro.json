@@ -328,6 +328,8 @@
     "note": "* Toate prețurile fără TVA · Avans 50% la start",
     "customTitle": "Vrei o ofertă personalizată?",
     "customCta": "Scrie-mi →",
+    "viewPricing": "Vezi prețuri",
+    "startingFrom": "Starter de la €500 · Professional de la €1.200 · Premium de la €2.500",
     "packages": [
       {
         "num": "01", "name": "Starter", "price": "€500", "priceNote": "unic",

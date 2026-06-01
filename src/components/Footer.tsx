@@ -165,26 +165,49 @@ export default function Footer() {
           >
             <ScrambleText i18nKey="footer.location" />
           </p>
+
+          {/* Pricing link — inside white card, above dark bar */}
+          <div style={{
+            borderTop: '1px solid rgba(26,20,16,.06)',
+            paddingTop: 20,
+            marginTop: 24,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+            gap: 8,
+          }}>
+            <Link
+              to="/pricing"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 8,
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: 10,
+                letterSpacing: '.12em',
+                color: 'rgba(26,20,16,.35)',
+                textDecoration: 'none',
+                textTransform: 'uppercase',
+                transition: 'color .2s',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.color = '#E8522A' }}
+              onMouseLeave={e => { e.currentTarget.style.color = 'rgba(26,20,16,.35)' }}
+            >
+              <ScrambleText i18nKey="pricing.viewPricing" />
+              <span style={{ color: '#E8522A' }}>→</span>
+            </Link>
+            <span style={{
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: 9,
+              letterSpacing: '.1em',
+              color: 'rgba(26,20,16,.2)',
+            }}>
+              <ScrambleText i18nKey="pricing.startingFrom" />
+            </span>
+          </div>
         </motion.div>
       </motion.div>
-
-      {/* Pricing link — subtle, above bottom bar */}
-      <div style={{ padding: '10px 48px', display: 'flex', justifyContent: 'flex-end', background: '#1A1410' }}>
-        <Link
-          to="/pricing"
-          style={{
-            fontFamily: "'JetBrains Mono', monospace",
-            fontSize: 9, letterSpacing: '.15em',
-            color: 'rgba(245,240,232,.3)',
-            textDecoration: 'none', textTransform: 'uppercase',
-            transition: 'color .2s',
-          }}
-          onMouseEnter={e => { e.currentTarget.style.color = '#E8522A' }}
-          onMouseLeave={e => { e.currentTarget.style.color = 'rgba(245,240,232,.3)' }}
-        >
-          PREISE →
-        </Link>
-      </div>
 
       <motion.div
         className="footer-bottom-bar"
