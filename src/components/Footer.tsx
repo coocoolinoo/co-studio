@@ -253,7 +253,6 @@ export default function Footer() {
           alignItems: 'center',
           gap: '12px 20px',
           position: 'relative',
-          overflow: 'hidden',
         }}
       >
         {/* Cursor spotlight */}
