@@ -12,6 +12,10 @@
   50%       { opacity: 0; }
 }
 
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
 /* ——— Custom scrollbar ——— */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: #F5F0E8; }

@@ -1,7 +1,9 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import Footer from '../components/Footer'
+import InquiryModal from '../components/InquiryModal'
 import MagneticWrap from '../components/MagneticWrap'
 import Navbar from '../components/Navbar'
 import PageContainer from '../components/PageContainer'
@@ -37,6 +39,9 @@ export default function Pricing() {
   const addons   = t('pricing.addons',   { returnObjects: true }) as AddonData[]
 
   const highlights = [false, true, false]
+
+  type ModalPkg = { num: string; name: string; price: string; highlight: boolean }
+  const [selectedPkg, setSelectedPkg] = useState<ModalPkg | null>(null)
 
   return (
     <PageTransition>
@@ -224,17 +229,17 @@ export default function Pricing() {
                       </div>
 
                       {/* CTA */}
-                      <a
-                        href="mailto:secrieri.corneliu@gmail.com"
+                      <button
+                        onClick={() => setSelectedPkg({ num: pkg.num, name: pkg.name, price: pkg.price, highlight: dark })}
                         style={{
-                          display: 'block', textAlign: 'center',
+                          display: 'block', width: '100%', textAlign: 'center',
                           background: dark ? '#E8522A' : 'transparent',
                           border: `1.5px solid ${dark ? '#E8522A' : 'rgba(26,20,16,.2)'}`,
                           borderRadius: 999, padding: '12px 20px',
                           fontFamily: "'JetBrains Mono', monospace",
                           fontSize: 10, letterSpacing: '.12em', textTransform: 'uppercase',
                           color: dark ? 'white' : '#1A1410',
-                          textDecoration: 'none',
+                          cursor: 'pointer',
                           transition: 'all .2s',
                         }}
                         onMouseEnter={e => {
@@ -257,7 +262,7 @@ export default function Pricing() {
                         }}
                       >
                         {t('pricing.cta')}
-                      </a>
+                      </button>
                     </div>
                   </Reveal>
                 )
@@ -332,6 +337,7 @@ export default function Pricing() {
 
         </main>
         <Footer />
+        <InquiryModal pkg={selectedPkg} onClose={() => setSelectedPkg(null)} />
       </PageRoute>
     </PageTransition>
   )
