@@ -1902,3 +1902,15 @@ body {
 @media (max-width: 480px) {
   .addons-grid { grid-template-columns: 1fr !important; }
 }
+
+/* ——— Inquiry modal ——— */
+.inquiry-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+@media (max-width: 480px) {
+  .inquiry-form-grid {
+    grid-template-columns: 1fr;
+  }
+}

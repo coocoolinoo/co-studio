@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import emailjs from 'emailjs-com'
 
 interface Package {
@@ -15,15 +16,16 @@ interface InquiryModalProps {
 }
 
 export default function InquiryModal({ pkg, onClose }: InquiryModalProps) {
+  const { t } = useTranslation()
   const [step, setStep] = useState<'form' | 'sending' | 'success' | 'error'>('form')
   const [form, setForm] = useState({ name: '', email: '', phone: '', desc: '' })
   const [errors, setErrors] = useState<Record<string, string>>({})
 
   const validate = () => {
     const e: Record<string, string> = {}
-    if (!form.name.trim()) e.name = 'Name fehlt'
-    if (!form.email.trim() || !form.email.includes('@')) e.email = 'Gültige Email erforderlich'
-    if (!form.desc.trim() || form.desc.length < 10) e.desc = 'Kurze Beschreibung erforderlich'
+    if (!form.name.trim()) e.name = t('pricing.modal.nameError')
+    if (!form.email.trim() || !form.email.includes('@')) e.email = t('pricing.modal.emailError')
+    if (!form.desc.trim() || form.desc.length < 10) e.desc = t('pricing.modal.descError')
     setErrors(e)
     return Object.keys(e).length === 0
   }
@@ -87,7 +89,7 @@ export default function InquiryModal({ pkg, onClose }: InquiryModalProps) {
           background: 'rgba(26,20,16,.75)',
           backdropFilter: 'blur(12px)',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
-          padding: 24,
+          padding: 'clamp(12px, 4vw, 24px)',
         }}
       >
         <motion.div
@@ -102,37 +104,38 @@ export default function InquiryModal({ pkg, onClose }: InquiryModalProps) {
             maxWidth: 560,
             overflow: 'hidden',
             boxShadow: '0 40px 100px rgba(0,0,0,.3)',
-            maxHeight: '90vh',
+            maxHeight: '92vh',
             overflowY: 'auto',
           }}
         >
           {/* Header */}
           <div style={{
             background: pkg.highlight ? '#1A1410' : '#F5F0E8',
-            padding: '28px 32px',
+            padding: 'clamp(20px, 4vw, 28px) clamp(20px, 4vw, 32px)',
             display: 'flex', alignItems: 'center', justifyContent: 'space-between',
             position: 'sticky', top: 0, zIndex: 2,
           }}>
-            <div>
+            <div style={{ minWidth: 0, flex: 1 }}>
               <div style={{
                 fontFamily: "'JetBrains Mono', monospace",
                 fontSize: 8, letterSpacing: '.2em', color: '#E8522A',
                 marginBottom: 6, textTransform: 'uppercase',
               }}>
-                [{pkg.num}] Ausgewähltes Paket
+                [{pkg.num}] {t('pricing.modal.selectedPackage')}
               </div>
               <div style={{
                 fontFamily: "'Barlow Condensed', sans-serif",
-                fontSize: 32, fontWeight: 900, letterSpacing: -0.5, lineHeight: 1,
+                fontSize: 'clamp(22px, 5vw, 32px)', fontWeight: 900,
+                letterSpacing: -0.5, lineHeight: 1,
                 color: pkg.highlight ? '#F5F0E8' : '#1A1410',
               }}>
                 {pkg.name}
               </div>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexShrink: 0 }}>
               <div style={{
                 fontFamily: "'Barlow Condensed', sans-serif",
-                fontSize: 40, fontWeight: 900,
+                fontSize: 'clamp(24px, 5vw, 40px)', fontWeight: 900,
                 color: '#E8522A', letterSpacing: -1, lineHeight: 1,
               }}>
                 {pkg.price}
@@ -152,28 +155,29 @@ export default function InquiryModal({ pkg, onClose }: InquiryModalProps) {
           </div>
 
           {/* Body */}
-          <div style={{ padding: '32px' }}>
+          <div style={{ padding: 'clamp(20px, 5vw, 32px)' }}>
 
             {step === 'form' && (
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
                 <div style={{
                   fontFamily: "'Barlow Condensed', sans-serif",
-                  fontSize: 22, fontWeight: 900, color: '#1A1410',
-                  letterSpacing: -0.3, marginBottom: 4,
+                  fontSize: 'clamp(18px, 4vw, 22px)', fontWeight: 900, color: '#1A1410',
+                  letterSpacing: -0.3, marginBottom: 2,
                 }}>
-                  Erzähl mir von deinem Projekt
+                  {t('pricing.modal.formTitle')}
                 </div>
                 <div style={{
                   fontFamily: "'JetBrains Mono', monospace",
-                  fontSize: 10, color: '#888', lineHeight: 1.6, marginBottom: 8,
+                  fontSize: 10, color: '#888', lineHeight: 1.6, marginBottom: 4,
                 }}>
-                  Ich melde mich innerhalb von 24h mit einem Angebot.
+                  {t('pricing.modal.formSub')}
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+                {/* Name + Email — stacks on mobile via CSS class */}
+                <div className="inquiry-form-grid">
                   <div>
                     <input
-                      placeholder="Dein Name *"
+                      placeholder={t('pricing.modal.namePlaceholder')}
                       value={form.name}
                       onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
                       onFocus={e => { e.target.style.borderColor = '#E8522A' }}
@@ -184,7 +188,7 @@ export default function InquiryModal({ pkg, onClose }: InquiryModalProps) {
                   </div>
                   <div>
                     <input
-                      placeholder="Email *"
+                      placeholder={t('pricing.modal.emailPlaceholder')}
                       type="email"
                       value={form.email}
                       onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
@@ -197,7 +201,7 @@ export default function InquiryModal({ pkg, onClose }: InquiryModalProps) {
                 </div>
 
                 <input
-                  placeholder="Telefon (optional)"
+                  placeholder={t('pricing.modal.phonePlaceholder')}
                   type="tel"
                   value={form.phone}
                   onChange={e => setForm(f => ({ ...f, phone: e.target.value }))}
@@ -208,23 +212,23 @@ export default function InquiryModal({ pkg, onClose }: InquiryModalProps) {
 
                 <div>
                   <textarea
-                    placeholder="Beschreib dein Projekt kurz — was soll gebaut werden? *"
+                    placeholder={t('pricing.modal.descPlaceholder')}
                     value={form.desc}
                     onChange={e => setForm(f => ({ ...f, desc: e.target.value }))}
                     onFocus={e => { e.target.style.borderColor = '#E8522A' }}
                     onBlur={e => { e.target.style.borderColor = errors.desc ? '#ef4444' : 'rgba(26,20,16,.12)' }}
                     rows={4}
-                    style={{ ...inputStyle('desc'), resize: 'vertical', minHeight: 100 } as React.CSSProperties}
+                    style={{ ...inputStyle('desc'), resize: 'vertical', minHeight: 90 } as React.CSSProperties}
                   />
                   {errors.desc && <div style={{ fontSize: 9, color: '#ef4444', marginTop: 4, fontFamily: 'monospace' }}>{errors.desc}</div>}
                 </div>
 
-                <div style={{ display: 'flex', gap: 10, marginTop: 8 }}>
+                <div style={{ display: 'flex', gap: 10, marginTop: 4 }}>
                   <button
                     onClick={onClose}
                     style={{
                       flex: 1, border: '1.5px solid rgba(26,20,16,.15)',
-                      borderRadius: 999, padding: '13px',
+                      borderRadius: 999, padding: '12px',
                       fontFamily: "'JetBrains Mono', monospace",
                       fontSize: 10, letterSpacing: '.1em',
                       color: 'rgba(26,20,16,.4)', background: 'transparent',
@@ -233,13 +237,13 @@ export default function InquiryModal({ pkg, onClose }: InquiryModalProps) {
                     onMouseEnter={e => { e.currentTarget.style.borderColor = '#1A1410'; e.currentTarget.style.color = '#1A1410' }}
                     onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(26,20,16,.15)'; e.currentTarget.style.color = 'rgba(26,20,16,.4)' }}
                   >
-                    Abbrechen
+                    {t('pricing.modal.cancel')}
                   </button>
                   <button
                     onClick={handleSubmit}
                     style={{
                       flex: 2, background: '#E8522A', color: 'white',
-                      border: 'none', borderRadius: 999, padding: '13px',
+                      border: 'none', borderRadius: 999, padding: '12px',
                       fontFamily: "'JetBrains Mono', monospace",
                       fontSize: 10, letterSpacing: '.1em',
                       cursor: 'pointer', textTransform: 'uppercase', transition: 'background .2s',
@@ -247,7 +251,7 @@ export default function InquiryModal({ pkg, onClose }: InquiryModalProps) {
                     onMouseEnter={e => { e.currentTarget.style.background = '#c94420' }}
                     onMouseLeave={e => { e.currentTarget.style.background = '#E8522A' }}
                   >
-                    Anfrage senden →
+                    {t('pricing.modal.submit')}
                   </button>
                 </div>
 
@@ -256,7 +260,7 @@ export default function InquiryModal({ pkg, onClose }: InquiryModalProps) {
                   fontSize: 8, color: 'rgba(26,20,16,.25)',
                   letterSpacing: '.05em', textAlign: 'center',
                 }}>
-                  🔒 Deine Daten werden nur für die Projektanfrage verwendet.
+                  {t('pricing.modal.privacy')}
                 </div>
               </div>
             )}
@@ -272,29 +276,27 @@ export default function InquiryModal({ pkg, onClose }: InquiryModalProps) {
                   <circle cx="48" cy="20" r="4" fill="white"/>
                 </svg>
                 <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: '#888', letterSpacing: '.1em' }}>
-                  Anfrage wird gesendet...
+                  {t('pricing.modal.sending')}
                 </div>
               </div>
             )}
 
             {step === 'success' && (
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16, padding: '32px 0', textAlign: 'center' }}>
-                <div style={{ fontSize: 48 }}>🎉</div>
-                <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: 36, fontWeight: 900, color: '#1A1410', letterSpacing: -0.5 }}>
-                  Anfrage gesendet!
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 14, padding: '28px 0', textAlign: 'center' }}>
+                <div style={{ fontSize: 44 }}>🎉</div>
+                <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: 34, fontWeight: 900, color: '#1A1410', letterSpacing: -0.5 }}>
+                  {t('pricing.modal.successTitle')}
                 </div>
                 <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: '#888', lineHeight: 1.7, maxWidth: 360 }}>
-                  Danke {form.name}! Ich habe deine Anfrage für das{' '}
-                  <strong style={{ color: '#E8522A' }}>{pkg.name}</strong>-Paket erhalten
-                  und melde mich innerhalb von 24 Stunden.
+                  {t('pricing.modal.successMsg', { name: form.name, package: pkg.name })}
                 </div>
-                <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, color: 'rgba(26,20,16,.3)', letterSpacing: '.08em', marginTop: 4 }}>
-                  Bestätigung wurde an {form.email} gesendet.
+                <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, color: 'rgba(26,20,16,.3)', letterSpacing: '.08em' }}>
+                  {t('pricing.modal.successConfirm', { email: form.email })}
                 </div>
                 <button
                   onClick={onClose}
                   style={{
-                    marginTop: 16, border: '1.5px solid #1A1410', borderRadius: 999,
+                    marginTop: 12, border: '1.5px solid #1A1410', borderRadius: 999,
                     padding: '11px 28px', fontFamily: "'JetBrains Mono', monospace",
                     fontSize: 10, letterSpacing: '.1em', color: '#1A1410',
                     background: 'transparent', cursor: 'pointer', textTransform: 'uppercase', transition: 'all .2s',
@@ -302,19 +304,19 @@ export default function InquiryModal({ pkg, onClose }: InquiryModalProps) {
                   onMouseEnter={e => { e.currentTarget.style.background = '#1A1410'; e.currentTarget.style.color = '#F5F0E8' }}
                   onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#1A1410' }}
                 >
-                  Super, bis bald! ツ
+                  {t('pricing.modal.successClose')}
                 </button>
               </div>
             )}
 
             {step === 'error' && (
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16, padding: '32px 0', textAlign: 'center' }}>
-                <div style={{ fontSize: 48 }}>😕</div>
-                <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: 32, fontWeight: 900, color: '#1A1410' }}>
-                  Etwas ist schiefgelaufen.
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 14, padding: '28px 0', textAlign: 'center' }}>
+                <div style={{ fontSize: 44 }}>😕</div>
+                <div style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: 30, fontWeight: 900, color: '#1A1410' }}>
+                  {t('pricing.modal.errorTitle')}
                 </div>
                 <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: '#888', lineHeight: 1.7 }}>
-                  Bitte schreib mir direkt:<br/>
+                  {t('pricing.modal.errorMsg')}<br/>
                   <a href="mailto:secrieri.corneliu@gmail.com" style={{ color: '#E8522A', textDecoration: 'none' }}>
                     secrieri.corneliu@gmail.com
                   </a>
@@ -322,13 +324,13 @@ export default function InquiryModal({ pkg, onClose }: InquiryModalProps) {
                 <button
                   onClick={() => setStep('form')}
                   style={{
-                    marginTop: 8, border: '1.5px solid #E8522A', borderRadius: 999,
+                    marginTop: 4, border: '1.5px solid #E8522A', borderRadius: 999,
                     padding: '11px 28px', fontFamily: "'JetBrains Mono', monospace",
                     fontSize: 10, letterSpacing: '.1em', color: '#E8522A',
                     background: 'transparent', cursor: 'pointer', textTransform: 'uppercase',
                   }}
                 >
-                  Nochmal versuchen
+                  {t('pricing.modal.retry')}
                 </button>
               </div>
             )}
