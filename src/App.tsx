@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import Pricing from './pages/Pricing'
-import { AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { HelmetProvider } from 'react-helmet-async'
 import BackToTop from './components/BackToTop'
 import CookieNotice from './components/CookieNotice'
@@ -28,19 +28,82 @@ function AnimatedRoutes() {
 
   return (
     <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/work/:slug" element={<ProjectDetail />} />
-        <Route path="/services/web"    element={<ServiceWeb />} />
-        <Route path="/services/app"    element={<ServiceApp />} />
-        <Route path="/services/design" element={<ServiceDesign />} />
-        <Route path="/services/video"  element={<ServiceVideo />} />
-        <Route path="/pricing" element={<Pricing />} />
-        <Route path="/impressum" element={<Impressum />} />
-        <Route path="/datenschutz" element={<Privacy />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <motion.div
+        key={location.pathname}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -10 }}
+        transition={{ duration: 0.45, ease: [0.76, 0, 0.24, 1], delay: 0.15 }}
+      >
+        <Routes location={location}>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/work/:slug" element={<ProjectDetail />} />
+          <Route path="/services/web"    element={<ServiceWeb />} />
+          <Route path="/services/app"    element={<ServiceApp />} />
+          <Route path="/services/design" element={<ServiceDesign />} />
+          <Route path="/services/video"  element={<ServiceVideo />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/impressum" element={<Impressum />} />
+          <Route path="/datenschutz" element={<Privacy />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </motion.div>
+    </AnimatePresence>
+  )
+}
+
+function LogoPageTransition() {
+  const location = useLocation()
+  const isFirstLoad = useRef(true)
+  const [show, setShow] = useState(false)
+
+  useEffect(() => {
+    if (isFirstLoad.current) {
+      isFirstLoad.current = false
+      return
+    }
+    setShow(true)
+    const t = setTimeout(() => setShow(false), 700)
+    return () => clearTimeout(t)
+  }, [location.pathname])
+
+  return (
+    <AnimatePresence>
+      {show && (
+        <motion.div
+          key="logo-transition"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.35, ease: 'easeInOut' }}
+          style={{
+            position: 'fixed',
+            inset: 0,
+            zIndex: 99995,
+            pointerEvents: 'none',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <motion.div
+            initial={{ scale: 0.4, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 1.4, opacity: 0 }}
+            transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
+          >
+            <svg width="80" height="80" viewBox="0 0 96 96">
+              <circle cx="48" cy="48" r="46" fill="#1A1410"/>
+              <circle cx="48" cy="48" r="28" fill="#F5F0E8"/>
+              <rect x="48" y="2" width="48" height="46" fill="#F5F0E8"/>
+              <rect x="48" y="48" width="48" height="46" fill="#F5F0E8"/>
+              <circle cx="48" cy="20" r="9" fill="#E8522A"/>
+              <circle cx="48" cy="20" r="4" fill="#1A1410"/>
+            </svg>
+          </motion.div>
+        </motion.div>
+      )}
     </AnimatePresence>
   )
 }
@@ -148,6 +211,7 @@ export default function App() {
       <TabTitleEasterEgg />
       <ConsoleEasterEgg />
       <LanguageScrambleProvider>
+        <LogoPageTransition />
         <NightAmbient />
         {/* Noise/grain overlay */}
         <div

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import AvailabilityBadge from './AvailabilityBadge'
@@ -50,6 +50,25 @@ const STACK = [
 
 export default function Footer() {
   const [showStack, setShowStack] = useState(false)
+  const bottomBarRef = useRef<HTMLDivElement>(null)
+  const [spotlight, setSpotlight] = useState({ x: 0, y: 0, visible: false })
+
+  useEffect(() => {
+    const el = bottomBarRef.current
+    if (!el) return
+    const handleMove = (e: MouseEvent) => {
+      const rect = el.getBoundingClientRect()
+      setSpotlight({ x: e.clientX - rect.left, y: e.clientY - rect.top, visible: true })
+    }
+    const handleLeave = () => setSpotlight(s => ({ ...s, visible: false }))
+    el.addEventListener('mousemove', handleMove)
+    el.addEventListener('mouseleave', handleLeave)
+    return () => {
+      el.removeEventListener('mousemove', handleMove)
+      el.removeEventListener('mouseleave', handleLeave)
+    }
+  }, [])
+
   return (
     <motion.footer
       initial={{ opacity: 0, y: 40 }}
@@ -223,6 +242,7 @@ export default function Footer() {
       </motion.div>
 
       <motion.div
+        ref={bottomBarRef}
         className="footer-bottom-bar"
         style={{
           background: '#1A1410',
@@ -232,9 +252,26 @@ export default function Footer() {
           justifyContent: 'space-between',
           alignItems: 'center',
           gap: '12px 20px',
+          position: 'relative',
+          overflow: 'hidden',
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '20px', flexWrap: 'wrap' }}>
+        {/* Cursor spotlight */}
+        <div
+          aria-hidden="true"
+          style={{
+            position: 'absolute',
+            inset: 0,
+            pointerEvents: 'none',
+            zIndex: 0,
+            opacity: spotlight.visible ? 1 : 0,
+            transition: 'opacity .4s ease',
+            background: spotlight.visible
+              ? `radial-gradient(circle 200px at ${spotlight.x}px ${spotlight.y}px, rgba(232,82,42,0.08) 0%, transparent 70%)`
+              : 'none',
+          }}
+        />
+        <div style={{ display: 'flex', alignItems: 'center', gap: '20px', flexWrap: 'wrap', position: 'relative', zIndex: 1 }}>
           <Logo variant="dark" showWordmark={false} size={28} />
           <span
             style={{
@@ -351,7 +388,7 @@ export default function Footer() {
           <TimeOnSite />
           <LastUpdated />
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 20, position: 'relative', zIndex: 1 }}>
           <AvailabilityBadge variant="footer" />
           <ViennaClock variant="footer" />
         </div>

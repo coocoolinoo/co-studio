@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { playClick, playWhoosh, isSoundEnabled } from '../utils/sound'
@@ -113,6 +113,25 @@ export default function WorkReel() {
   const total = projects.length
   const proj = projects[current]
 
+  const visualPanelRef = useRef<HTMLDivElement>(null)
+  const [panelSpotlight, setPanelSpotlight] = useState({ x: 0, y: 0, visible: false })
+
+  useEffect(() => {
+    const el = visualPanelRef.current
+    if (!el) return
+    const handleMove = (e: MouseEvent) => {
+      const rect = el.getBoundingClientRect()
+      setPanelSpotlight({ x: e.clientX - rect.left, y: e.clientY - rect.top, visible: true })
+    }
+    const handleLeave = () => setPanelSpotlight(s => ({ ...s, visible: false }))
+    el.addEventListener('mousemove', handleMove)
+    el.addEventListener('mouseleave', handleLeave)
+    return () => {
+      el.removeEventListener('mousemove', handleMove)
+      el.removeEventListener('mouseleave', handleLeave)
+    }
+  }, [])
+
   const prev = () => {
     playClick()
     if (isSoundEnabled()) playWhoosh('prev')
@@ -218,7 +237,22 @@ export default function WorkReel() {
             </div>
 
             {/* RIGHT — visual */}
-            <div style={{ background: proj.visualBg, position: 'relative', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 40 }}>
+            <div ref={visualPanelRef} style={{ background: proj.visualBg, position: 'relative', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 40 }}>
+              {/* Cursor spotlight */}
+              <div
+                aria-hidden="true"
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  pointerEvents: 'none',
+                  zIndex: 2,
+                  opacity: panelSpotlight.visible ? 1 : 0,
+                  transition: 'opacity .4s ease',
+                  background: panelSpotlight.visible
+                    ? `radial-gradient(circle 220px at ${panelSpotlight.x}px ${panelSpotlight.y}px, rgba(255,255,255,0.07) 0%, transparent 70%)`
+                    : 'none',
+                }}
+              />
               {/* Wipe in on each slide change */}
               <motion.div
                 key={`wipe-${current}`}
