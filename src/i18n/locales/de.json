@@ -313,5 +313,49 @@
         { "num": "04", "title": "Export", "desc": "Endlieferung in allen benötigten Formaten inklusive Projektarchiv." }
       ]
     }
+  },
+  "pricing": {
+    "back": "← Zurück",
+    "label": "[PRICING]",
+    "headline": "PREISE.",
+    "sub": "Transparent. Fair. Kein Kleingedrucktes.",
+    "popular": "BELIEBT",
+    "includedLabel": "Beinhaltet",
+    "excludedLabel": "Nicht enthalten",
+    "deliveryLabel": "Lieferzeit",
+    "cta": "Projekt anfragen →",
+    "addonsTitle": "Add-ons",
+    "note": "* Alle Preise exkl. MwSt. · 50% Anzahlung bei Projektstart",
+    "customTitle": "Individuelles Angebot gewünscht?",
+    "customCta": "Schreib mir →",
+    "packages": [
+      {
+        "num": "01", "name": "Starter", "price": "€500", "priceNote": "einmalig",
+        "desc": "Für Einzelpersonen, Vereine oder kleine Unternehmen die online sichtbar sein wollen.",
+        "delivery": "1–2 Wochen",
+        "includes": ["Individuelles Design — kein Template", "Bis zu 5 Seiten", "Mobil optimiert", "Kontaktformular", "SEO Grundlagen", "1 Revisionsrunde"],
+        "excludes": ["CMS / Blog", "Mehrsprachig", "Animationen"]
+      },
+      {
+        "num": "02", "name": "Professional", "price": "€1.200", "priceNote": "einmalig",
+        "desc": "Für Unternehmen die eine vollwertige Website mit CMS, Blog und Animationen brauchen.",
+        "delivery": "2–4 Wochen",
+        "includes": ["Individuelles Design — kein Template", "Bis zu 10 Seiten", "CMS — Inhalte selbst bearbeiten", "Blog / News Bereich", "Animationen & Scroll-Effekte", "Vollständige SEO", "2 Revisionsrunden", "Google Analytics Setup", "Mehrsprachig möglich"],
+        "excludes": ["Komplexe Web-App", "Mobile App"]
+      },
+      {
+        "num": "03", "name": "Premium", "price": "ab €2.500", "priceNote": "individuell",
+        "desc": "Für komplexe Projekte — Web Apps, Mobile Apps, Desktop Tools. Preis nach Aufwand.",
+        "delivery": "4–10 Wochen",
+        "includes": ["Web App / Mobile App / Desktop App", "Backend & Datenbank", "Login & Nutzerverwaltung", "API Integrationen", "Unlimitierte Seiten & Features", "Individuelle Animationen", "Vollständige SEO", "Unlimitierte Revisionen", "Deployment & Hosting Setup", "Support nach Launch"],
+        "excludes": []
+      }
+    ],
+    "addons": [
+      { "name": "Wartung & Hosting",  "price": "€60–€120", "per": "/ Monat" },
+      { "name": "Logo & Branding",    "price": "€300–€600", "per": "einmalig" },
+      { "name": "SEO Optimierung",    "price": "€200–€400", "per": "einmalig" },
+      { "name": "Express Lieferung",  "price": "+30%",       "per": "Aufpreis" }
+    ]
   }
 }

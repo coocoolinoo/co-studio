@@ -313,5 +313,49 @@
         { "num": "04", "title": "Export", "desc": "Final delivery in all required formats with project archive." }
       ]
     }
+  },
+  "pricing": {
+    "back": "← Back",
+    "label": "[PRICING]",
+    "headline": "PRICES.",
+    "sub": "Transparent. Fair. No fine print.",
+    "popular": "POPULAR",
+    "includedLabel": "Includes",
+    "excludedLabel": "Not included",
+    "deliveryLabel": "Delivery",
+    "cta": "Start a project →",
+    "addonsTitle": "Add-ons",
+    "note": "* All prices excl. VAT · 50% deposit at project start",
+    "customTitle": "Want a custom quote?",
+    "customCta": "Write to me →",
+    "packages": [
+      {
+        "num": "01", "name": "Starter", "price": "€500", "priceNote": "one-time",
+        "desc": "For individuals, clubs or small businesses who want to be visible online.",
+        "delivery": "1–2 weeks",
+        "includes": ["Individual design — no template", "Up to 5 pages", "Mobile optimised", "Contact form", "SEO basics", "1 revision round"],
+        "excludes": ["CMS / Blog", "Multilingual", "Animations"]
+      },
+      {
+        "num": "02", "name": "Professional", "price": "€1,200", "priceNote": "one-time",
+        "desc": "For businesses that need a full website with CMS, blog and animations.",
+        "delivery": "2–4 weeks",
+        "includes": ["Individual design — no template", "Up to 10 pages", "CMS — edit content yourself", "Blog / News section", "Animations & scroll effects", "Full SEO", "2 revision rounds", "Google Analytics setup", "Multilingual possible"],
+        "excludes": ["Complex web app", "Mobile app"]
+      },
+      {
+        "num": "03", "name": "Premium", "price": "from €2,500", "priceNote": "individual",
+        "desc": "For complex projects — web apps, mobile apps, desktop tools. Price based on scope.",
+        "delivery": "4–10 weeks",
+        "includes": ["Web App / Mobile App / Desktop App", "Backend & database", "Login & user management", "API integrations", "Unlimited pages & features", "Custom animations", "Full SEO", "Unlimited revisions", "Deployment & hosting setup", "Post-launch support"],
+        "excludes": []
+      }
+    ],
+    "addons": [
+      { "name": "Maintenance & Hosting", "price": "€60–€120", "per": "/ month" },
+      { "name": "Logo & Branding",       "price": "€300–€600", "per": "one-time" },
+      { "name": "SEO Optimisation",      "price": "€200–€400", "per": "one-time" },
+      { "name": "Express Delivery",      "price": "+30%",       "per": "surcharge" }
+    ]
   }
 }

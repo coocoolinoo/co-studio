@@ -8,6 +8,7 @@ const SHORTCUTS = [
   { key: 'S', label: 'Scroll to Services' },
   { key: 'C', label: 'Scroll to Contact' },
   { key: 'A', label: 'Go to About' },
+  { key: 'P', label: 'Go to Pricing' },
   { key: 'H', label: 'Go to Home' },
   { key: 'G', label: 'Open GitHub' },
   { key: 'L', label: 'Open LinkedIn' },
@@ -42,6 +43,7 @@ export default function KeyboardShortcuts() {
           case 'S': document.querySelector('#services')?.scrollIntoView({ behavior: 'smooth' }); break
           case 'C': document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }); break
           case 'A': navigate('/about'); break
+          case 'P': navigate('/pricing'); break
           case 'H': navigate('/'); break
           case 'G': window.open('https://github.com/coocoolinoo', '_blank'); break
           case 'L': window.open('https://www.linkedin.com/in/corneliu-s-b488a22b6', '_blank'); break

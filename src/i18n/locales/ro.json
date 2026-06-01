@@ -313,5 +313,49 @@
         { "num": "04", "title": "Export", "desc": "Livrare finală în toate formatele necesare cu arhiva proiectului." }
       ]
     }
+  },
+  "pricing": {
+    "back": "← Înapoi",
+    "label": "[PREȚURI]",
+    "headline": "PREȚURI.",
+    "sub": "Transparent. Corect. Fără litere mici.",
+    "popular": "POPULAR",
+    "includedLabel": "Include",
+    "excludedLabel": "Nu include",
+    "deliveryLabel": "Livrare",
+    "cta": "Solicită proiect →",
+    "addonsTitle": "Extra servicii",
+    "note": "* Toate prețurile fără TVA · Avans 50% la start",
+    "customTitle": "Vrei o ofertă personalizată?",
+    "customCta": "Scrie-mi →",
+    "packages": [
+      {
+        "num": "01", "name": "Starter", "price": "€500", "priceNote": "unic",
+        "desc": "Pentru persoane, asociații sau firme mici care vor să fie vizibile online.",
+        "delivery": "1–2 săptămâni",
+        "includes": ["Design individual — fără template", "Până la 5 pagini", "Optimizat mobil", "Formular de contact", "Baze SEO", "1 rundă de revizii"],
+        "excludes": ["CMS / Blog", "Multilingv", "Animații"]
+      },
+      {
+        "num": "02", "name": "Professional", "price": "€1.200", "priceNote": "unic",
+        "desc": "Pentru companii care au nevoie de un site complet cu CMS, blog și animații.",
+        "delivery": "2–4 săptămâni",
+        "includes": ["Design individual — fără template", "Până la 10 pagini", "CMS — editezi conținut singur", "Secțiune Blog / Știri", "Animații & efecte scroll", "SEO complet", "2 runde de revizii", "Setup Google Analytics", "Multilingv posibil"],
+        "excludes": ["Aplicație web complexă", "Aplicație mobilă"]
+      },
+      {
+        "num": "03", "name": "Premium", "price": "de la €2.500", "priceNote": "individual",
+        "desc": "Pentru proiecte complexe — web apps, mobile apps, desktop tools. Preț după volum.",
+        "delivery": "4–10 săptămâni",
+        "includes": ["Web App / Mobile App / Desktop App", "Backend & bază de date", "Login & gestionare utilizatori", "Integrări API", "Pagini & funcții nelimitate", "Animații personalizate", "SEO complet", "Revizii nelimitate", "Deployment & hosting setup", "Suport după lansare"],
+        "excludes": []
+      }
+    ],
+    "addons": [
+      { "name": "Mentenanță & Hosting", "price": "€60–€120", "per": "/ lună" },
+      { "name": "Logo & Branding",      "price": "€300–€600", "per": "unic" },
+      { "name": "Optimizare SEO",       "price": "€200–€400", "per": "unic" },
+      { "name": "Livrare Express",      "price": "+30%",       "per": "suprataxă" }
+    ]
   }
 }

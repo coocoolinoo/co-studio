@@ -12,6 +12,16 @@
   50%       { opacity: 0; }
 }
 
+/* ——— Custom scrollbar ——— */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #F5F0E8; }
+::-webkit-scrollbar-thumb { background: #E8522A; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #c94420; }
+* { scrollbar-width: thin; scrollbar-color: #E8522A #F5F0E8; }
+
+/* ——— Text selection ——— */
+::selection { background: #E8522A; color: #F5F0E8; }
+
 @keyframes clockPulse {
   0%, 100% { opacity: 1; transform: scale(1); }
   50%       { opacity: 0.4; transform: scale(0.6); }
@@ -1878,4 +1888,13 @@ body {
 }
 @media (max-width: 480px) {
   .reel-slide > div:last-child { display: none; }
+}
+
+/* ——— Pricing page ——— */
+@media (max-width: 900px) {
+  .pricing-grid { grid-template-columns: 1fr !important; }
+  .addons-grid  { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 480px) {
+  .addons-grid { grid-template-columns: 1fr !important; }
 }

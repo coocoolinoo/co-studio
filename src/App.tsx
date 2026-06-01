@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import Pricing from './pages/Pricing'
 import { AnimatePresence } from 'framer-motion'
 import { HelmetProvider } from 'react-helmet-async'
 import BackToTop from './components/BackToTop'
@@ -35,6 +36,7 @@ function AnimatedRoutes() {
         <Route path="/services/app"    element={<ServiceApp />} />
         <Route path="/services/design" element={<ServiceDesign />} />
         <Route path="/services/video"  element={<ServiceVideo />} />
+        <Route path="/pricing" element={<Pricing />} />
         <Route path="/impressum" element={<Impressum />} />
         <Route path="/datenschutz" element={<Privacy />} />
         <Route path="*" element={<NotFound />} />
@@ -63,6 +65,22 @@ function AppContent() {
   )
 }
 
+function useNightAmbient() {
+  const [isNight, setIsNight] = useState(false)
+  useEffect(() => {
+    const check = () => {
+      const h = new Date(
+        new Date().toLocaleString('en-US', { timeZone: 'Europe/Vienna' })
+      ).getHours()
+      setIsNight(h >= 22 || h < 6)
+    }
+    check()
+    const id = setInterval(check, 60000)
+    return () => clearInterval(id)
+  }, [])
+  return isNight
+}
+
 function TabTitleEasterEgg() {
   useEffect(() => {
     const handleBlur = () => { document.title = '👋 Komm zurück!' }
@@ -77,6 +95,23 @@ function TabTitleEasterEgg() {
   return null
 }
 
+function NightAmbient() {
+  const isNight = useNightAmbient()
+  return (
+    <div
+      aria-hidden="true"
+      style={{
+        position: 'fixed', inset: 0,
+        background: 'rgba(10,6,4,0.07)',
+        pointerEvents: 'none',
+        zIndex: 99989,
+        opacity: isNight ? 1 : 0,
+        transition: 'opacity 3s ease',
+      }}
+    />
+  )
+}
+
 export default function App() {
   return (
     <HelmetProvider>
@@ -84,6 +119,7 @@ export default function App() {
       <ScrollToTop />
       <TabTitleEasterEgg />
       <LanguageScrambleProvider>
+        <NightAmbient />
         {/* Noise/grain overlay */}
         <div
           aria-hidden="true"

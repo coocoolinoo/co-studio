@@ -26,6 +26,7 @@ export default function Navbar() {
 
   const closeMenu = () => setMenuOpen(false)
 
+  const PROJECT_COUNT = 5
   const workLabel = `${t('nav.work')} ↓`
   const aboutLabel = `${t('nav.about')} →`
 
@@ -59,6 +60,14 @@ export default function Navbar() {
                   className={`nav-pill nav-link${isWorkActive ? ' active' : ''}`}
                 >
                   {workLabel}
+                  <span style={{
+                    display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                    width: 18, height: 18, borderRadius: '50%',
+                    background: '#E8522A', color: 'white',
+                    fontSize: 9, fontWeight: 700, marginLeft: 6,
+                    fontFamily: "'JetBrains Mono', monospace",
+                    letterSpacing: 0, lineHeight: 1, flexShrink: 0,
+                  }}>{PROJECT_COUNT}</span>
                 </ScrambleNavLink>
               </li>
               <li>
