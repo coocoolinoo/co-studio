@@ -95,6 +95,34 @@ function TabTitleEasterEgg() {
   return null
 }
 
+function ConsoleEasterEgg() {
+  useEffect(() => {
+    const s1 = 'font-size:13px;font-weight:bold;color:#E8522A;'
+    const s2 = 'font-size:11px;color:#888;'
+    const s3 = 'font-size:11px;color:#1A1410;font-weight:bold;'
+    const sr = 'font-size:11px;color:#888;'
+    console.log(
+      '%c\n' +
+      '  ██████╗ ██████╗       ███████╗████████╗██╗   ██╗██████╗ ██╗ ██████╗ \n' +
+      '██╔════╝██╔═══██╗      ██╔════╝╚══██╔══╝██║   ██║██╔══██╗██║██╔═══██╗\n' +
+      '██║     ██║   ██║█████╗███████╗   ██║   ██║   ██║██║  ██║██║██║   ██║\n' +
+      '██║     ██║   ██║╚════╝╚════██║   ██║   ██║   ██║██║  ██║██║██║   ██║\n' +
+      '╚██████╗╚██████╔╝      ███████║   ██║   ╚██████╔╝██████╔╝██║╚██████╔╝\n' +
+      ' ╚═════╝ ╚═════╝       ╚══════╝   ╚═╝    ╚═════╝ ╚═════╝ ╚═╝ ╚═════╝ \n',
+      s1
+    )
+    console.log('%cHey! 👋 Schön dass du hier reinschaust.', s3)
+    console.log('%cDiese Seite wurde gebaut von Corneliu Secrieri — co-studio Wien.', s2)
+    console.log('%c⚡ Stack: React · Vite · TypeScript · Framer Motion · i18next', s2)
+    console.log('%c🌐 co-studio.at', s3)
+    console.log('%c📧 secrieri.corneliu@gmail.com', s2)
+    console.log('%c💼 linkedin.com/in/corneliu-s-b488a22b6', s2)
+    console.log('%c🐙 github.com/coocoolinoo', s2)
+    console.log('%cP.S. Wenn du das hier siehst, bist du wahrscheinlich auch Developer. Schreib mir! ツ', sr)
+  }, [])
+  return null
+}
+
 function NightAmbient() {
   const isNight = useNightAmbient()
   return (
@@ -118,6 +146,7 @@ export default function App() {
     <BrowserRouter>
       <ScrollToTop />
       <TabTitleEasterEgg />
+      <ConsoleEasterEgg />
       <LanguageScrambleProvider>
         <NightAmbient />
         {/* Noise/grain overlay */}

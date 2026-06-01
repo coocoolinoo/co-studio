@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import AvailabilityBadge from './AvailabilityBadge'
 import CopyEmail from './CopyEmail'
 import LastUpdated from './LastUpdated'
@@ -36,7 +36,20 @@ const SOCIALS = [
   { key: 'linkedin' as const, href: 'https://www.linkedin.com/in/corneliu-s-b488a22b6' },
 ] as const
 
+const STACK = [
+  { name: 'React',         icon: '⚛️',  desc: 'UI Framework' },
+  { name: 'TypeScript',    icon: '🔷',  desc: 'Type Safety' },
+  { name: 'Vite',          icon: '⚡',  desc: 'Build Tool' },
+  { name: 'Framer Motion', icon: '🎬',  desc: 'Animations' },
+  { name: 'i18next',       icon: '🌍',  desc: 'Translations' },
+  { name: 'Tailwind CSS',  icon: '🎨',  desc: 'Styling' },
+  { name: 'React Router',  icon: '🔀',  desc: 'Routing' },
+  { name: 'EmailJS',       icon: '📧',  desc: 'Contact Form' },
+  { name: 'Vercel',        icon: '▲',   desc: 'Hosting' },
+]
+
 export default function Footer() {
+  const [showStack, setShowStack] = useState(false)
   return (
     <motion.footer
       initial={{ opacity: 0, y: 40 }}
@@ -260,6 +273,80 @@ export default function Footer() {
               <ScrambleText i18nKey="footer.privacy" />
             </Link>
           </span>
+          {/* Built-with popup */}
+          <div style={{ position: 'relative' }}>
+            <button
+              onClick={() => setShowStack(s => !s)}
+              style={{
+                background: 'none', border: 'none', cursor: 'pointer',
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: '0.7rem', letterSpacing: '.1em',
+                color: 'rgba(245,240,232,.35)',
+                padding: 0, transition: 'color .2s',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.color = '#E8522A' }}
+              onMouseLeave={e => { e.currentTarget.style.color = 'rgba(245,240,232,.35)' }}
+              title="Click to see tech stack"
+            >
+              Built by Corneliu ツ
+            </button>
+
+            <AnimatePresence>
+              {showStack && (
+                <>
+                  <div onClick={() => setShowStack(false)} style={{ position: 'fixed', inset: 0, zIndex: 998 }} />
+                  <motion.div
+                    initial={{ opacity: 0, y: 12, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 12, scale: 0.95 }}
+                    transition={{ duration: 0.25, ease: [0.34, 1.56, 0.64, 1] }}
+                    style={{
+                      position: 'absolute',
+                      bottom: '100%', left: '50%',
+                      transform: 'translateX(-50%)',
+                      marginBottom: 12,
+                      background: 'white', borderRadius: 16,
+                      padding: '20px 24px',
+                      boxShadow: '0 24px 64px rgba(26,20,16,.2)',
+                      border: '1px solid rgba(26,20,16,.06)',
+                      zIndex: 999, minWidth: 280,
+                    }}
+                  >
+                    <div style={{
+                      position: 'absolute', bottom: -6, left: '50%', transform: 'translateX(-50%)',
+                      width: 12, height: 12, background: 'white',
+                      borderRight: '1px solid rgba(26,20,16,.06)',
+                      borderBottom: '1px solid rgba(26,20,16,.06)',
+                      rotate: '45deg',
+                    }} />
+                    <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 8, letterSpacing: '.2em', color: '#888', textTransform: 'uppercase', marginBottom: 14 }}>
+                      Built with
+                    </div>
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 8 }}>
+                      {STACK.map(item => (
+                        <div key={item.name} style={{
+                          display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4,
+                          padding: '10px 8px', background: '#F5F0E8', borderRadius: 10, textAlign: 'center',
+                        }}>
+                          <span style={{ fontSize: 18 }}>{item.icon}</span>
+                          <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, fontWeight: 700, color: '#1A1410' }}>{item.name}</span>
+                          <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 7, color: '#888' }}>{item.desc}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <div style={{
+                      marginTop: 14, paddingTop: 12, borderTop: '1px solid rgba(26,20,16,.06)',
+                      fontFamily: "'JetBrains Mono', monospace",
+                      fontSize: 8, color: '#888', textAlign: 'center', letterSpacing: '.05em',
+                    }}>
+                      co-studio.at · Vienna · 2026
+                    </div>
+                  </motion.div>
+                </>
+              )}
+            </AnimatePresence>
+          </div>
+
           <VisitorCounter />
           <TimeOnSite />
           <LastUpdated />

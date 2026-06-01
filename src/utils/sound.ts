@@ -116,6 +116,45 @@ export function playSuccess() {
   } catch { /* silent fail */ }
 }
 
+export function playWhoosh(direction: 'next' | 'prev' = 'next') {
+  if (!isSoundEnabled()) return
+  try {
+    const ctx = getCtx()
+    const now = ctx.currentTime
+
+    const buffer = ctx.createBuffer(1, ctx.sampleRate * 0.25, ctx.sampleRate)
+    const data = buffer.getChannelData(0)
+    for (let i = 0; i < data.length; i++) {
+      data[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / data.length, 2)
+    }
+
+    const noise = ctx.createBufferSource()
+    noise.buffer = buffer
+
+    const filter = ctx.createBiquadFilter()
+    filter.type = 'bandpass'
+    filter.Q.value = 1.2
+
+    if (direction === 'next') {
+      filter.frequency.setValueAtTime(200, now)
+      filter.frequency.exponentialRampToValueAtTime(1800, now + 0.2)
+    } else {
+      filter.frequency.setValueAtTime(1800, now)
+      filter.frequency.exponentialRampToValueAtTime(200, now + 0.2)
+    }
+
+    const gain = ctx.createGain()
+    gain.gain.setValueAtTime(0.12, now)
+    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.25)
+
+    noise.connect(filter)
+    filter.connect(gain)
+    gain.connect(ctx.destination)
+    noise.start(now)
+    noise.stop(now + 0.25)
+  } catch { /* silent fail */ }
+}
+
 export function playNavigate() {
   if (!isSoundEnabled()) return
   try {
