@@ -9,7 +9,6 @@ const projects = [
     id: 'pifx',
     slug: 'pifx',
     num: '01',
-    ambientColor: 'rgba(59,130,246,0.06)',
     client: 'HTL DIPLOMARBEIT',
     title: 'πf(x)',
     desc: 'Audio-Multi-Effektgerät auf Basis eines Raspberry Pi. Echtzeit-DSP in C++, von der Hardware bis zur Software.',
@@ -29,7 +28,6 @@ const projects = [
     id: 'bible',
     slug: 'cobible',
     num: '02',
-    ambientColor: 'rgba(74,160,74,0.06)',
     client: 'CO.BIBLE',
     title: 'co.bible',
     desc: 'Mobile Bible reader — React Native, offline-first. Suche, Leseplan, Tagesvers und Quiz. Für iOS & Android.',
@@ -49,7 +47,6 @@ const projects = [
     id: 'bibelsuche',
     slug: 'bibelsuche',
     num: '03',
-    ambientColor: 'rgba(59,130,246,0.07)',
     client: 'CO-STUDIO',
     title: 'Bibelsuche',
     desc: 'Desktop-App für macOS & Windows — Bibelverse blitzschnell über mehrere Übersetzungen suchen.',
@@ -69,7 +66,6 @@ const projects = [
     id: 'vs',
     slug: 'vsmannersdorf',
     num: '04',
-    ambientColor: 'rgba(200,160,74,0.06)',
     client: 'VOLKSSCHULE MANNERSDORF',
     title: 'VS Mannersdorf',
     desc: 'Moderne React-Website für die Volksschule Mannersdorf am Leithagebirge — React + Vite, CSS Modules.',
@@ -89,7 +85,6 @@ const projects = [
     id: 'al',
     slug: 'alzeichenbuero',
     num: '05',
-    ambientColor: 'rgba(139,92,246,0.06)',
     client: 'AL ZEICHENBÜRO',
     title: 'AL Zeichenbüro',
     desc: 'Webauftritt für ein Architekturbüro in Wiener Neustadt — architektonische Zeichnungen & Leistungen.',
@@ -150,14 +145,6 @@ export default function WorkReel() {
 
   return (
     <>
-      {/* Ambient background tint — shifts per project */}
-      <motion.div
-        key={`ambient-${current}`}
-        animate={{ background: projects[current].ambientColor }}
-        transition={{ duration: 1.2, ease: 'easeInOut' }}
-        style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 0, background: 'transparent' }}
-      />
-
       {/* ── REEL ── */}
       <div style={{ borderRadius: 20, overflow: 'hidden', marginTop: '6rem', border: '1px solid rgba(26,20,16,.08)', position: 'relative' }}>
 
