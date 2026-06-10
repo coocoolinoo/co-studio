@@ -317,8 +317,8 @@ export default function InquiryModal({ pkg, onClose }: InquiryModalProps) {
                 </div>
                 <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: '#888', lineHeight: 1.7 }}>
                   {t('pricing.modal.errorMsg')}<br/>
-                  <a href="mailto:secrieri.corneliu@gmail.com" style={{ color: '#E8522A', textDecoration: 'none' }}>
-                    secrieri.corneliu@gmail.com
+                  <a href="mailto:contact@co-studio.at" style={{ color: '#E8522A', textDecoration: 'none' }}>
+                    contact@co-studio.at
                   </a>
                 </div>
                 <button

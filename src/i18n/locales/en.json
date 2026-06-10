@@ -149,7 +149,7 @@
     "impressum_sections": {
       "provider": {
         "h": "Media owner & service provider",
-        "p": "Corneliu Secrieri<br/>co-studio<br/>Dr.-Zaussinger-Ring 1<br/>2434 Götzendorf an der Leitha, Austria<br/><br/>Email: <a href=\"mailto:secrieri.corneliu@gmail.com\">secrieri.corneliu@gmail.com</a><br/>Phone: <a href=\"tel:+436602261011\">+43 660 2261011</a><br/>UID: not applicable (sole proprietorship)"
+        "p": "Corneliu Secrieri<br/>co-studio<br/>Dr.-Zaussinger-Ring 1<br/>2434 Götzendorf an der Leitha, Austria<br/><br/>Email: <a href=\"mailto:contact@co-studio.at\">contact@co-studio.at</a><br/>Phone: <a href=\"tel:+436602261011\">+43 660 2261011</a><br/>UID: not applicable (sole proprietorship)"
       },
       "subject": {
         "h": "Business activity",
@@ -171,7 +171,7 @@
     "privacy_sections": {
       "controller": {
         "h": "Controller",
-        "p": "Corneliu Secrieri, co-studio, Dr.-Zaussinger-Ring 1, 2434 Götzendorf an der Leitha, Austria. Email: <a href=\"mailto:secrieri.corneliu@gmail.com\">secrieri.corneliu@gmail.com</a>, Phone: <a href=\"tel:+436602261011\">+43 660 2261011</a>."
+        "p": "Corneliu Secrieri, co-studio, Dr.-Zaussinger-Ring 1, 2434 Götzendorf an der Leitha, Austria. Email: <a href=\"mailto:contact@co-studio.at\">contact@co-studio.at</a>, Phone: <a href=\"tel:+436602261011\">+43 660 2261011</a>."
       },
       "overview": {
         "h": "Overview",
@@ -203,7 +203,7 @@
     "rail": "CONTACT",
     "label": "[ get in touch ]",
     "title": "Send a message",
-    "desc": "Name, email, message — I'll get back to you at secrieri.corneliu@gmail.com.",
+    "desc": "Name, email, message — I'll get back to you at contact@co-studio.at.",
     "name": "Name",
     "email": "Email",
     "message": "Message",

@@ -4,7 +4,7 @@ import PageContainer from './PageContainer'
 import TiltCard from './TiltCard'
 
 const SOCIAL_KEYS = [
-  { key: 'email', href: 'mailto:hello@co-studio.dev' },
+  { key: 'email', href: 'mailto:contact@co-studio.at' },
   { key: 'github', href: 'https://github.com' },
   { key: 'linkedin', href: 'https://linkedin.com' },
   { key: 'twitter', href: 'https://twitter.com' },

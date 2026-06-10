@@ -30,7 +30,7 @@ function TimeOnSite() {
 }
 
 const SOCIALS = [
-  { key: 'email' as const, href: 'mailto:secrieri.corneliu@gmail.com' },
+  { key: 'email' as const, href: 'mailto:contact@co-studio.at' },
   { key: 'phone' as const, href: 'tel:+436602261011' },
   { key: 'github' as const, href: 'https://github.com/coocoolinoo' },
   { key: 'linkedin' as const, href: 'https://www.linkedin.com/in/corneliu-s-b488a22b6' },
@@ -115,7 +115,7 @@ export default function Footer() {
           </h2>
 
           <motion.a
-            href="mailto:secrieri.corneliu@gmail.com"
+            href="mailto:contact@co-studio.at"
             whileHover={{ scale: 1.03, background: 'rgba(255,255,255,0.15)' }}
             transition={{ duration: 0.2 }}
             data-cursor-hover
@@ -132,7 +132,7 @@ export default function Footer() {
               fontFamily: "'JetBrains Mono', monospace",
             }}
           >
-            <CopyEmail style={{ color: 'inherit' }}>secrieri.corneliu@gmail.com →</CopyEmail>
+            <CopyEmail style={{ color: 'inherit' }}>contact@co-studio.at →</CopyEmail>
           </motion.a>
         </motion.div>
 

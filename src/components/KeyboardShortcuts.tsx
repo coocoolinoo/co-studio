@@ -47,7 +47,7 @@ export default function KeyboardShortcuts() {
           case 'H': navigate('/'); break
           case 'G': window.open('https://github.com/coocoolinoo', '_blank'); break
           case 'L': window.open('https://www.linkedin.com/in/corneliu-s-b488a22b6', '_blank'); break
-          case 'E': navigator.clipboard.writeText('secrieri.corneliu@gmail.com'); break
+          case 'E': navigator.clipboard.writeText('contact@co-studio.at'); break
         }
       }
     }

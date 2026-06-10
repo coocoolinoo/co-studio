@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-const EMAIL = 'secrieri.corneliu@gmail.com'
+const EMAIL = 'contact@co-studio.at'
 
 export default function CopyEmail({ children, style }: { children?: React.ReactNode, style?: React.CSSProperties }) {
   const [copied, setCopied] = useState(false)
@@ -46,7 +46,7 @@ export default function CopyEmail({ children, style }: { children?: React.ReactN
             }}
           >
             <span style={{ color: '#22c55e', fontSize: 14 }}>✓</span>
-            secrieri.corneliu@gmail.com copied!
+            contact@co-studio.at copied!
           </motion.div>
         )}
       </AnimatePresence>

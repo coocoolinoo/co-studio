@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { playClick, playWhoosh, isSoundEnabled } from '../utils/sound'
 import ProjectReactions from './ProjectReactions'
+import TiltCard from './TiltCard'
 
 const projects = [
   {
@@ -263,7 +264,7 @@ export default function WorkReel() {
               />
 
               {/* Image */}
-              <div style={{ position: 'relative', zIndex: 1, width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <TiltCard style={{ position: 'relative', zIndex: 1, width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 {proj.wrapInPhone && (
                   <div style={{ width: 200, background: '#0a0a0a', borderRadius: 36, padding: 7, border: '2px solid #1a1a1a', boxShadow: '0 40px 80px rgba(0,0,0,.6)', position: 'relative' }}>
                     <div style={{ borderRadius: 29, overflow: 'hidden', position: 'relative' }}>
@@ -296,7 +297,7 @@ export default function WorkReel() {
                     style={{ width: '55%', filter: 'drop-shadow(0 32px 56px rgba(232,82,42,.3))', animation: 'floatDevice 3s ease-in-out infinite' }}
                   />
                 )}
-              </div>
+              </TiltCard>
 
               {/* Year */}
               <div style={{ position: 'absolute', bottom: 14, right: 16, fontFamily: "'Barlow Condensed', sans-serif", fontSize: 11, fontWeight: 700, letterSpacing: '.15em', color: light ? 'rgba(26,20,16,.25)' : 'rgba(255,255,255,.2)', zIndex: 4 }}>

@@ -315,7 +315,7 @@ export default function Pricing() {
                     {t('pricing.customTitle')}
                   </span>
                   <a
-                    href="mailto:secrieri.corneliu@gmail.com"
+                    href="mailto:contact@co-studio.at"
                     style={{
                       display: 'inline-block',
                       background: '#E8522A', color: 'white',

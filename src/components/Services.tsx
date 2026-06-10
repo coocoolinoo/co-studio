@@ -6,6 +6,7 @@ import { useScrambledString } from '../hooks/useScrambledString'
 import CountLabel from './CountLabel'
 import PageContainer from './PageContainer'
 import AnimatedNumber from './AnimatedNumber'
+import TiltCard from './TiltCard'
 
 // ─── Inline SVG icons (currentColor = inherits from .service-item-icon) ────
 
@@ -226,9 +227,9 @@ export default function Services() {
               <div className="service-item-content" style={{ padding: '28px 0' }}>
                 <div className="service-item-row">
                   <span className="service-item-num">{num}</span>
-                  <div className="service-item-icon" aria-hidden>
+                  <TiltCard className="service-item-icon">
                     <Icon />
-                  </div>
+                  </TiltCard>
                   <h3 className="service-item-title">
                     {t(`services.${key}.title`)}
                   </h3>

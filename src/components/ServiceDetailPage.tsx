@@ -209,7 +209,7 @@ export default function ServiceDetailPage({
                   {t('serviceDetail.ctaTitle1')}<br/>{t('serviceDetail.ctaTitle2')}
                 </h2>
                 <motion.a
-                  href="mailto:secrieri.corneliu@gmail.com"
+                  href="mailto:contact@co-studio.at"
                   whileHover={{ scale: 1.03, background: 'rgba(255,255,255,0.1)' }}
                   transition={{ duration: 0.2 }}
                   data-cursor-hover
@@ -219,7 +219,7 @@ export default function ServiceDetailPage({
                     color: '#F5F0E8', textDecoration: 'none',
                     fontFamily: "'JetBrains Mono', monospace" }}
                 >
-                  secrieri.corneliu@gmail.com →
+                  contact@co-studio.at →
                 </motion.a>
               </div>
             </FadeUp>

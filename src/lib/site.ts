@@ -36,11 +36,11 @@ export const HOME_SECTION_TOTAL = 4
 
 /**
  * Contact form via Web3Forms (free): https://web3forms.com
- * Register with secrieri.corneliu@gmail.com → copy Access Key to .env
+ * Register with contact@co-studio.at → copy Access Key to .env
  */
 export const WEB3FORMS_ACCESS_KEY =
   (import.meta.env.VITE_WEB3FORMS_ACCESS_KEY as string | undefined)?.trim() || ''
 
 export const HAS_CONTACT_FORM = WEB3FORMS_ACCESS_KEY.length > 0
 
-export const CONTACT_EMAIL = 'secrieri.corneliu@gmail.com'
+export const CONTACT_EMAIL = 'contact@co-studio.at'

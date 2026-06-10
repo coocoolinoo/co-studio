@@ -370,6 +370,31 @@ body {
   }
 }
 
+/* ——— Hero 3D scene — desktop only, sits behind the loop animation ——— */
+.hero-3d-canvas {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .hero-3d-canvas {
+    display: block;
+    position: absolute;
+    inset: -10%;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .hero-3d-canvas canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .loop-animation-wrap > *:not(.hero-3d-canvas) {
+    position: relative;
+    z-index: 1;
+  }
+}
+
 .mockup-shape {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }

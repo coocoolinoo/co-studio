@@ -22,6 +22,7 @@ import ServiceWeb from './pages/services/Web'
 import ServiceApp from './pages/services/App'
 import ServiceDesign from './pages/services/Design'
 import ServiceVideo from './pages/services/Video'
+import Experience from './pages/Experience'
 
 function AnimatedRoutes() {
   const location = useLocation()
@@ -37,6 +38,7 @@ function AnimatedRoutes() {
         <Route path="/services/design" element={<ServiceDesign />} />
         <Route path="/services/video"  element={<ServiceVideo />} />
         <Route path="/pricing" element={<Pricing />} />
+        <Route path="/experience" element={<Experience />} />
         <Route path="/impressum" element={<Impressum />} />
         <Route path="/datenschutz" element={<Privacy />} />
         <Route path="*" element={<NotFound />} />
@@ -115,7 +117,7 @@ function ConsoleEasterEgg() {
     console.log('%cDiese Seite wurde gebaut von Corneliu Secrieri — co-studio Wien.', s2)
     console.log('%c⚡ Stack: React · Vite · TypeScript · Framer Motion · i18next', s2)
     console.log('%c🌐 co-studio.at', s3)
-    console.log('%c📧 secrieri.corneliu@gmail.com', s2)
+    console.log('%c📧 contact@co-studio.at', s2)
     console.log('%c💼 linkedin.com/in/corneliu-s-b488a22b6', s2)
     console.log('%c🐙 github.com/coocoolinoo', s2)
     console.log('%cP.S. Wenn du das hier siehst, bist du wahrscheinlich auch Developer. Schreib mir! ツ', sr)
