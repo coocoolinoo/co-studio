@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 
 interface ViennaClockProps {
   variant?: 'navbar' | 'footer'
 }
 
 export default function ViennaClock({ variant = 'navbar' }: ViennaClockProps) {
+  const { t } = useTranslation()
   const [time, setTime] = useState<string>('')
   const [seconds, setSeconds] = useState<number>(0)
   const [isDay, setIsDay] = useState<boolean>(true)
@@ -62,7 +64,7 @@ export default function ViennaClock({ variant = 'navbar' }: ViennaClockProps) {
             color: 'rgba(245,240,232,.2)',
             textTransform: 'uppercase',
           }}>
-            Vienna {isDay ? '☀' : '🌙'}
+            {t('meta.vienna')} {isDay ? '☀' : '🌙'}
           </div>
         </div>
       </div>

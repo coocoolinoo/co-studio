@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import Pricing from './pages/Pricing'
 import { AnimatePresence } from 'framer-motion'
 import { HelmetProvider } from 'react-helmet-async'
@@ -82,16 +83,19 @@ function useNightAmbient() {
 }
 
 function TabTitleEasterEgg() {
+  const { t, i18n } = useTranslation()
+
   useEffect(() => {
-    const handleBlur = () => { document.title = '👋 Komm zurück!' }
-    const handleFocus = () => { document.title = 'co-studio — Web & App Development · Vienna' }
+    const handleBlur = () => { document.title = t('tabTitle.blur') }
+    const handleFocus = () => { document.title = t('tabTitle.focus') }
     window.addEventListener('blur', handleBlur)
     window.addEventListener('focus', handleFocus)
     return () => {
       window.removeEventListener('blur', handleBlur)
       window.removeEventListener('focus', handleFocus)
     }
-  }, [])
+  }, [t, i18n.language])
+
   return null
 }
 

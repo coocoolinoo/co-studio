@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { motion, AnimatePresence } from 'framer-motion'
 
 export default function LoadTimeBadge() {
+  const { t } = useTranslation()
   const [loadTime, setLoadTime] = useState<number | null>(null)
   const [visible, setVisible] = useState(false)
 
@@ -32,9 +34,9 @@ export default function LoadTimeBadge() {
   }
 
   const getLabel = (ms: number) => {
-    if (ms < 800)  return '⚡ Fast'
-    if (ms < 2000) return '🟡 OK'
-    return '🔴 Slow'
+    if (ms < 800)  return t('loadTime.fast')
+    if (ms < 2000) return t('loadTime.ok')
+    return t('loadTime.slow')
   }
 
   if (!loadTime) return null
@@ -101,7 +103,7 @@ export default function LoadTimeBadge() {
 
           <button
             onClick={() => setVisible(false)}
-            aria-label="Dismiss"
+            aria-label={t('meta.dismiss')}
             style={{
               background: 'none', border: 'none', cursor: 'pointer',
               color: 'rgba(26,20,16,.2)', fontSize: 12,

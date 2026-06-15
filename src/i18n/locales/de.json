@@ -8,7 +8,14 @@
     "scroll": "scroll runter für Projekte, Craft & ein bisschen Chaos",
     "tag": "[WEB · APPS · DESIGN · WIEN · 2026]",
     "badge": "co-studio · Wien · 2026 ·",
-    "marquee": "WEB · WORDPRESS · REACT · APPS · SWIFT · EXPO · DESIGN · VIDEO · VFX ·"
+    "marquee": "WEB · WORDPRESS · REACT · APPS · SWIFT · EXPO · DESIGN · VIDEO · VFX ·",
+    "greetings": {
+      "morning": "Guten Morgen —",
+      "lateMorning": "Guten Vormittag —",
+      "afternoon": "Guten Tag —",
+      "evening": "Guten Abend —",
+      "night": "Noch wach? —"
+    }
   },
   "about": {
     "label": "[ + ] EIN BISSCHEN MEHR ÜBER MICH",
@@ -18,7 +25,22 @@
   },
   "work": {
     "title": "PROJEKTE",
+    "marqueeSolid": "PROJEKTE",
+    "marqueeOutline": "PROJEKTE",
     "viewCase": "PROJEKT ANSEHEN →",
+    "reel": {
+      "caseStudy": "CASE STUDY →",
+      "livePreview": "▶ LIVE PREVIEW",
+      "navigate": "← → NAVIGIEREN",
+      "close": "✕ SCHLIESSEN",
+      "loadingPreview": "VORSCHAU LÄDT..."
+    },
+    "types": {
+      "hardware": "Hardware · DSP",
+      "mobileApp": "Mobile App",
+      "desktopApp": "Desktop App",
+      "web": "Web"
+    },
     "detail": {
       "back": "← PROJEKTE",
       "facts": "FACTS",
@@ -34,26 +56,37 @@
     "pifx": {
       "client": "HTL Diplomarbeit",
       "title": "πf(x)",
+      "platform": "Raspberry Pi · Embedded",
       "desc": "Audio-Multi-Effektgerät auf Basis eines Raspberry Pi — HTL Diplomarbeit. Echtzeit-DSP in C++, von der Hardware bis zur Software.",
       "longDesc": "πf(x) ist die HTL Diplomarbeit, entstanden gemeinsam mit Moritz Metzinger an der HTL Informationstechnologie / Schwerpunkt Medientechnik (Schuljahr 2025/26). Das Projekt ist ein eigenständiges Audio-Multi-Effektgerät auf Basis eines Raspberry Pi mit Behringer UCA222 als Audiointerface. Audio wird in Echtzeit durch eine in C++ geschriebene DSP-Engine verarbeitet — Effekte wie Filter, Delay, Reverb, Distortion, Modulation und Dynamik, alles auf Embedded Linux. Das Projekt deckt den gesamten Stack ab: Akustiktheorie, digitale Signalverarbeitung, Embedded-Hardware-Design und C++-Software."
     },
     "cobible": {
       "client": "co.bible",
       "title": "co.bible",
+      "platform": "iOS",
       "desc": "Native iOS Bibel-App in Swift — mehrere Übersetzungen, aktives Lesen und Quiz-Duelle gegen andere, um der Beste zu werden.",
       "longDesc": "co.bible ist eine native iOS Bibel-App, vollständig in Swift gebaut. Das Hauptfeature: mehrere Bibelübersetzungen vergleichen, aktiv lesen und in Quiz-Duellen gegen andere Nutzer antreten — wer kennt die Bibel am besten?"
     },
     "bibelsuche": {
       "client": "co-studio",
       "title": "Bibelsuche",
+      "platform": "macOS · Windows",
       "desc": "Desktop-App für macOS & Windows — Bibelverse blitzschnell über mehrere Übersetzungen suchen, gebaut mit Tauri & React.",
       "longDesc": "Bibelsuche ist eine schnelle, moderne Desktop-App für macOS und Windows. Bibelverse über mehrere Übersetzungen (Zefania XML) blitzschnell durchsuchen — gebaut mit Tauri (Rust-Backend) und React + Vite im Frontend. Native Performance, Web-Technologien."
     },
     "vsmannersdorf": {
       "client": "Volksschule Mannersdorf",
       "title": "VS Mannersdorf",
+      "platform": "Web",
       "desc": "Moderne React-Website für die Volksschule Mannersdorf am Leithagebirge (NÖ) — React + Vite, CSS Modules, ohne Component-Library.",
       "longDesc": "Moderne Website für die Volksschule Mannersdorf am Leithagebirge (Niederösterreich). Komplett in React + Vite gebaut, Styling ausschließlich mit CSS Modules — ohne Component-Library oder UI-Framework. Klares, zugängliches Design für Schüler, Eltern und Lehrpersonal."
+    },
+    "alzeichenbuero": {
+      "client": "AL Zeichenbüro",
+      "title": "AL Zeichenbüro",
+      "platform": "Web",
+      "desc": "Webauftritt für ein Architekturbüro in Wiener Neustadt — architektonische Zeichnungen & Leistungen.",
+      "longDesc": "Moderne Website für ein Architekturbüro in Wiener Neustadt. Präsentation von architektonischen Zeichnungen, Leistungen und Projekten — gebaut mit React + Vite, klar strukturiert und professionell."
     }
   },
   "services": {
@@ -85,7 +118,8 @@
     "github": "GitHub",
     "linkedin": "LinkedIn",
     "calendar": "Termin buchen",
-    "cv": "CV herunterladen"
+    "cv": "CV herunterladen",
+    "closing": "LASS UNS REDEN."
   },
   "footer": {
     "contactLabel": "[ KONTAKT ]",
@@ -97,13 +131,31 @@
     "copyright": "© 2026 co-studio",
     "impressum": "Impressum",
     "privacy": "Datenschutz",
-    "bookCall": "Termin buchen"
+    "bookCall": "Termin buchen",
+    "timeOnSiteSeconds": "Du bist seit {{s}}s hier",
+    "timeOnSiteMinutes": "Du bist seit {{m}} Min. hier",
+    "builtBy": "Built by Corneliu ツ",
+    "builtWith": "Built with",
+    "stackTip": "Klick für Tech Stack",
+    "stack": [
+      { "name": "React", "desc": "UI Framework" },
+      { "name": "TypeScript", "desc": "Typsicherheit" },
+      { "name": "Vite", "desc": "Build Tool" },
+      { "name": "Framer Motion", "desc": "Animationen" },
+      { "name": "i18next", "desc": "Übersetzungen" },
+      { "name": "Tailwind CSS", "desc": "Styling" },
+      { "name": "React Router", "desc": "Routing" },
+      { "name": "EmailJS", "desc": "Kontaktformular" },
+      { "name": "Vercel", "desc": "Hosting" }
+    ]
   },
   "notFound": {
     "label": "[ 404 ]",
-    "title": "Seite nicht gefunden",
-    "desc": "Dieser Link führt ins Leere — Tippfehler, alter Bookmark oder etwas, das es nicht mehr gibt.",
-    "home": "← Zur Startseite"
+    "title": "Diese Seite existiert nicht.",
+    "sub": "Oder sie versteckt sich. Schwer zu sagen.",
+    "desc": "Vielleicht hast du dich vertippt, vielleicht war der Link kaputt, vielleicht wollte die Seite einfach nicht gefunden werden.",
+    "home": "← Zur Startseite",
+    "hint": "Oder drück H auf der Tastatur"
   },
   "about_page": {
     "back": "← ZURÜCK",
@@ -187,7 +239,7 @@
       },
       "cookies": {
         "h": "Cookies & lokale Speicherung",
-        "p": "Es werden nur technisch notwendige Speicher genutzt: deine Sprachwahl wird lokal im Browser gespeichert (localStorage, Schlüssel <code>i18nextLng</code>). Keine Marketing-, Analyse- oder Tracking-Cookies von Drittanbietern. Gespeicherte Daten kannst du jederzeit in den Browser-Einstellungen löschen. Beim ersten Besuch erscheint ein kurzer Hinweis."
+        "p": "Es werden nur technisch notwendige Speicher genutzt: deine Sprachwahl wird lokal im Browser gespeichert (localStorage, Schlüssel <code>i18nLng</code>). Keine Marketing-, Analyse- oder Tracking-Cookies von Drittanbietern. Gespeicherte Daten kannst du jederzeit in den Browser-Einstellungen löschen. Beim ersten Besuch erscheint ein kurzer Hinweis."
       },
       "rights": {
         "h": "Deine Rechte",
@@ -349,7 +401,7 @@
       "errorTitle": "Etwas ist schiefgelaufen.",
       "errorMsg": "Bitte schreib mir direkt:",
       "retry": "Nochmal versuchen",
-      "nameError": "Name fehlt",
+      "customPackage": "Individuell",
       "emailError": "Gültige Email erforderlich",
       "descError": "Kurze Beschreibung erforderlich"
     },
@@ -382,5 +434,61 @@
       { "name": "SEO Optimierung",    "price": "€200–€400", "per": "einmalig" },
       { "name": "Express Lieferung",  "price": "+30%",       "per": "Aufpreis" }
     ]
+  },
+  "availability": {
+    "open": "OFFEN",
+    "limited": "LIMITIERT",
+    "booked": "AUSGEBUCHT",
+    "available": "Verfügbar für Projekte",
+    "limitedLabel": "Begrenzt verfügbar",
+    "bookedLabel": "Derzeit ausgebucht"
+  },
+  "shortcuts": {
+    "title": "Tastenkürzel",
+    "buttonTitle": "Tastenkürzel",
+    "closeHint": "ESC zum Schließen",
+    "soundOn": "Sounds an",
+    "soundOff": "Sounds aus",
+    "scrollWork": "Zu Projekte scrollen",
+    "scrollServices": "Zu Leistungen scrollen",
+    "scrollContact": "Zu Kontakt scrollen",
+    "goAbout": "Zur Über-mich-Seite",
+    "goPricing": "Zu Preise",
+    "goHome": "Zur Startseite",
+    "openGithub": "GitHub öffnen",
+    "openLinkedin": "LinkedIn öffnen",
+    "copyEmail": "E-Mail kopieren",
+    "togglePanel": "Panel ein/aus"
+  },
+  "copyEmail": {
+    "title": "Klicken zum Kopieren",
+    "copied": "contact@co-studio.at kopiert!"
+  },
+  "meta": {
+    "updated": "Aktualisiert",
+    "backToTop": "Nach oben",
+    "dismiss": "Schließen",
+    "vienna": "Wien",
+    "profile": "Profil",
+    "socialLabel": "SOCIAL",
+    "viennaClockTitle": "Aktuelle Zeit in Wien, Österreich 🇦🇹",
+    "openMenu": "Menü öffnen"
+  },
+  "loadTime": {
+    "fast": "⚡ Schnell",
+    "ok": "🟡 OK",
+    "slow": "🔴 Langsam"
+  },
+  "tabTitle": {
+    "blur": "👋 Komm zurück!",
+    "focus": "co-studio — Web & App Entwicklung · Wien"
+  },
+  "seo": {
+    "homeTitle": "co-studio — Web & App Entwicklung Wien | Corneliu Secrieri",
+    "homeDescription": "Moderne Web- und App-Entwicklung aus Wien. React, Swift, Tauri, WordPress. Clean code, strong craft.",
+    "aboutTitle": "Über mich — Corneliu Secrieri | co-studio Wien",
+    "aboutDescription": "Corneliu Secrieri — Web & App Developer aus Wien. React, Swift, Tauri, WordPress, Grafik & Video.",
+    "defaultTitle": "co-studio — Web & App Entwicklung Wien | Corneliu Secrieri",
+    "defaultDescription": "co-studio ist eine Web- und App-Entwicklung aus Wien. React, Swift, Tauri, WordPress — moderne digitale Produkte von Corneliu Secrieri."
   }
 }

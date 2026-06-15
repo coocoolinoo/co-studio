@@ -19,7 +19,7 @@ export default function SocialSection({ className = '' }: { className?: string }
         <FadeUp>
           <TiltCard className="float-card relative">
             <div className="section-rail" aria-hidden>
-              <span className="section-label section-label--side">SOCIAL</span>
+              <span className="section-label section-label--side">{t('meta.socialLabel')}</span>
             </div>
 
             <h2 className="contact-headline max-w-4xl font-mono font-bold uppercase tracking-[0.05em] text-near-black">
@@ -30,7 +30,7 @@ export default function SocialSection({ className = '' }: { className?: string }
               <div
                 className="h-[100px] w-[100px] shrink-0 rounded-full bg-[#cccccc]"
                 role="img"
-                aria-label="Profile"
+                aria-label={t('meta.profile')}
               />
 
               <nav className="flex flex-col gap-2">

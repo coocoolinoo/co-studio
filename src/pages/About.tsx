@@ -165,8 +165,8 @@ export default function About() {
     <PageTransition>
       <PageRoute>
         <SEO
-          title="Über mich — Corneliu Secrieri | co-studio Wien"
-          description="Corneliu Secrieri — Web & App Developer aus Wien. 3+ Jahre Erfahrung, 24+ Projekte, React, Swift, Tauri, WordPress."
+          titleKey="seo.aboutTitle"
+          descriptionKey="seo.aboutDescription"
           url="https://www.co-studio.at/about"
         />
         <Navbar />

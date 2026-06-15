@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { motion, AnimatePresence } from 'framer-motion'
 import AvailabilityBadge from './AvailabilityBadge'
 import CopyEmail from './CopyEmail'
@@ -10,6 +11,7 @@ import ViennaClock from './ViennaClock'
 import VisitorCounter from './VisitorCounter'
 
 function TimeOnSite() {
+  const { t } = useTranslation()
   const [seconds, setSeconds] = useState(0)
   useEffect(() => {
     const start = Date.now()
@@ -19,7 +21,9 @@ function TimeOnSite() {
   if (seconds < 30) return null
   const m = Math.floor(seconds / 60)
   const s = seconds % 60
-  const label = m > 0 ? `You've been here for ${m} min` : `You've been here for ${s}s`
+  const label = m > 0
+    ? t('footer.timeOnSiteMinutes', { m })
+    : t('footer.timeOnSiteSeconds', { s })
   return (
     <span style={{
       fontFamily: "'JetBrains Mono', monospace",
@@ -36,19 +40,21 @@ const SOCIALS = [
   { key: 'linkedin' as const, href: 'https://www.linkedin.com/in/corneliu-s-b488a22b6' },
 ] as const
 
-const STACK = [
-  { name: 'React',         icon: '⚛️',  desc: 'UI Framework' },
-  { name: 'TypeScript',    icon: '🔷',  desc: 'Type Safety' },
-  { name: 'Vite',          icon: '⚡',  desc: 'Build Tool' },
-  { name: 'Framer Motion', icon: '🎬',  desc: 'Animations' },
-  { name: 'i18next',       icon: '🌍',  desc: 'Translations' },
-  { name: 'Tailwind CSS',  icon: '🎨',  desc: 'Styling' },
-  { name: 'React Router',  icon: '🔀',  desc: 'Routing' },
-  { name: 'EmailJS',       icon: '📧',  desc: 'Contact Form' },
-  { name: 'Vercel',        icon: '▲',   desc: 'Hosting' },
+const STACK_ICONS = [
+  { name: 'React',         icon: '⚛️' },
+  { name: 'TypeScript',    icon: '🔷' },
+  { name: 'Vite',          icon: '⚡' },
+  { name: 'Framer Motion', icon: '🎬' },
+  { name: 'i18next',       icon: '🌍' },
+  { name: 'Tailwind CSS',  icon: '🎨' },
+  { name: 'React Router',  icon: '🔀' },
+  { name: 'EmailJS',       icon: '📧' },
+  { name: 'Vercel',        icon: '▲' },
 ]
 
 export default function Footer() {
+  const { t } = useTranslation()
+  const stack = t('footer.stack', { returnObjects: true }) as { name: string; desc: string }[]
   const [showStack, setShowStack] = useState(false)
   const bottomBarRef = useRef<HTMLDivElement>(null)
   const [spotlight, setSpotlight] = useState({ x: 0, y: 0, visible: false })
@@ -322,9 +328,9 @@ export default function Footer() {
               }}
               onMouseEnter={e => { e.currentTarget.style.color = '#E8522A' }}
               onMouseLeave={e => { e.currentTarget.style.color = 'rgba(245,240,232,.35)' }}
-              title="Click to see tech stack"
+              title={t('footer.stackTip')}
             >
-              Built by Corneliu ツ
+              {t('footer.builtBy')}
             </button>
 
             <AnimatePresence>
@@ -356,15 +362,15 @@ export default function Footer() {
                       rotate: '45deg',
                     }} />
                     <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 8, letterSpacing: '.2em', color: '#888', textTransform: 'uppercase', marginBottom: 14 }}>
-                      Built with
+                      {t('footer.builtWith')}
                     </div>
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 8 }}>
-                      {STACK.map(item => (
+                      {stack.map((item, i) => (
                         <div key={item.name} style={{
                           display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4,
                           padding: '10px 8px', background: '#F5F0E8', borderRadius: 10, textAlign: 'center',
                         }}>
-                          <span style={{ fontSize: 18 }}>{item.icon}</span>
+                          <span style={{ fontSize: 18 }}>{STACK_ICONS[i]?.icon}</span>
                           <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, fontWeight: 700, color: '#1A1410' }}>{item.name}</span>
                           <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 7, color: '#888' }}>{item.desc}</span>
                         </div>

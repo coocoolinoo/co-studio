@@ -43,4 +43,11 @@ export const PROJECTS_META: ProjectMeta[] = [
     live: 'https://vs-mannersdorf.vercel.app',
     image: vsMannersdorfImg,
   },
+  {
+    slug: 'alzeichenbuero',
+    year: 2026,
+    platform: 'Web',
+    tags: ['React', 'Vite', 'Web', 'Design'],
+    live: 'https://al-zeichenbuero.vercel.app',
+  },
 ]

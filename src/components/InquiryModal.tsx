@@ -38,7 +38,7 @@ export default function InquiryModal({ pkg, onClose }: InquiryModalProps) {
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         {
-          package_name:  pkg?.name  ?? 'Individuell',
+          package_name:  pkg?.name  ?? t('pricing.modal.customPackage'),
           package_price: pkg?.price ?? '–',
           client_name:   form.name,
           client_email:  form.email,

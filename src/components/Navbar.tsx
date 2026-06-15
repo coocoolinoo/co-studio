@@ -83,7 +83,7 @@ export default function Navbar() {
             <LanguageSwitcher />
             <div className="hidden items-center gap-3 lg:flex">
               <AvailabilityBadge variant="navbar" />
-              <div title="Current time in Vienna, Austria 🇦🇹">
+              <div title={t('meta.viennaClockTitle')}>
                 <ViennaClock variant="navbar" />
               </div>
             </div>
@@ -97,7 +97,7 @@ export default function Navbar() {
                 onClick={() => setMenuOpen(true)}
                 className="nav-pill nav-link"
                 data-cursor-hover
-                aria-label="Open menu"
+                aria-label={t('meta.openMenu')}
               >
                 <ScrambleText i18nKey="nav.menu" />
               </button>
@@ -143,7 +143,7 @@ export default function Navbar() {
 
           <div className="flex items-center gap-4 px-5 pb-8">
             <AvailabilityBadge variant="navbar" />
-            <div title="Current time in Vienna, Austria 🇦🇹">
+            <div title={t('meta.viennaClockTitle')}>
               <ViennaClock variant="navbar" />
             </div>
           </div>

@@ -14,8 +14,8 @@ export default function Home() {
     <PageTransition>
       <PageRoute>
         <SEO
-          title="co-studio — Web & App Entwicklung Wien | Corneliu Secrieri"
-          description="Moderne Web- und App-Entwicklung aus Wien. React, Swift, Tauri, WordPress. Clean code, strong craft."
+          titleKey="seo.homeTitle"
+          descriptionKey="seo.homeDescription"
           url="https://www.co-studio.at/"
         />
         <Navbar />

@@ -8,18 +8,15 @@ import WorkReel from './WorkReel'
 // ─── WorkHeader ───────────────────────────────────────────────────────────────
 
 function WorkHeader() {
-  const { i18n } = useTranslation()
+  const { t } = useTranslation()
   const ref = useRef(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
 
   const x1 = useTransform(scrollYProgress, [0, 1], ['0%', '-12%'])
   const x2 = useTransform(scrollYProgress, [0, 1], ['-12%', '0%'])
 
-  const word2 = i18n.language.startsWith('de')
-    ? 'PROJEKTE'
-    : i18n.language.startsWith('ro')
-    ? 'PROIECTE'
-    : 'PROJECTS'
+  const word1 = t('work.marqueeSolid')
+  const word2 = t('work.marqueeOutline')
 
   const repeat = (word: string, sep: string, count = 8) =>
     Array(count).fill(`${word}${sep}`).join('')
@@ -62,7 +59,7 @@ function WorkHeader() {
             display: 'inline-block',
           }}
         >
-          {repeat('WORK', ' — ')}
+          {repeat(word1, ' — ')}
         </motion.div>
       </div>
 

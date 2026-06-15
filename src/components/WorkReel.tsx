@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { motion, AnimatePresence } from 'framer-motion'
 import { playClick, playWhoosh, isSoundEnabled } from '../utils/sound'
 import ProjectReactions from './ProjectReactions'
@@ -10,12 +11,9 @@ const projects = [
     id: 'pifx',
     slug: 'pifx',
     num: '01',
-    client: 'HTL DIPLOMARBEIT',
-    title: 'πf(x)',
-    desc: 'Audio-Multi-Effektgerät auf Basis eines Raspberry Pi. Echtzeit-DSP in C++, von der Hardware bis zur Software.',
     tags: ['C++', 'Raspberry Pi', 'DSP', 'Linux', 'Hardware'],
     year: '2026',
-    type: 'Hardware · DSP',
+    typeKey: 'hardware' as const,
     image: '/assets/projects/pi.png',
     visualBg: '#0d1117',
     accentColor: '#E8522A',
@@ -29,12 +27,9 @@ const projects = [
     id: 'bible',
     slug: 'cobible',
     num: '02',
-    client: 'CO.BIBLE',
-    title: 'co.bible',
-    desc: 'Mobile Bible reader — React Native, offline-first. Suche, Leseplan, Tagesvers und Quiz. Für iOS & Android.',
     tags: ['React Native', 'Expo', 'SQLite', 'Mobile', 'Offline-first'],
     year: '2026',
-    type: 'Mobile App',
+    typeKey: 'mobileApp' as const,
     image: '/assets/projects/bible.png',
     visualBg: '#1a2a1b',
     accentColor: '#4CAF50',
@@ -48,12 +43,9 @@ const projects = [
     id: 'bibelsuche',
     slug: 'bibelsuche',
     num: '03',
-    client: 'CO-STUDIO',
-    title: 'Bibelsuche',
-    desc: 'Desktop-App für macOS & Windows — Bibelverse blitzschnell über mehrere Übersetzungen suchen.',
     tags: ['Tauri', 'React', 'Rust', 'Desktop', 'SQLite'],
     year: '2026',
-    type: 'Desktop App',
+    typeKey: 'desktopApp' as const,
     image: '/assets/projects/bibelsuche.png',
     visualBg: '#0f172a',
     accentColor: '#3B82F6',
@@ -67,12 +59,9 @@ const projects = [
     id: 'vs',
     slug: 'vsmannersdorf',
     num: '04',
-    client: 'VOLKSSCHULE MANNERSDORF',
-    title: 'VS Mannersdorf',
-    desc: 'Moderne React-Website für die Volksschule Mannersdorf am Leithagebirge — React + Vite, CSS Modules.',
     tags: ['React', 'Vite', 'CSS Modules', 'Web'],
     year: '2025',
-    type: 'Web',
+    typeKey: 'web' as const,
     image: '/assets/projects/vs.png',
     visualBg: '#fef3c7',
     accentColor: '#c8a04a',
@@ -86,12 +75,9 @@ const projects = [
     id: 'al',
     slug: 'alzeichenbuero',
     num: '05',
-    client: 'AL ZEICHENBÜRO',
-    title: 'AL Zeichenbüro',
-    desc: 'Webauftritt für ein Architekturbüro in Wiener Neustadt — architektonische Zeichnungen & Leistungen.',
     tags: ['React', 'Vite', 'Web', 'Design'],
     year: '2026',
-    type: 'Web',
+    typeKey: 'web' as const,
     image: '/assets/projects/al.png',
     visualBg: '#1c1917',
     accentColor: '#a8a29e',
@@ -106,6 +92,7 @@ const projects = [
 const isLight = (bg: string) => bg === '#fef3c7'
 
 export default function WorkReel() {
+  const { t } = useTranslation()
   const navigate = useNavigate()
   const [current, setCurrent] = useState(0)
   const [demoOpen, setDemoOpen] = useState(false)
@@ -113,6 +100,7 @@ export default function WorkReel() {
   const [demoLoading, setDemoLoading] = useState(true)
   const total = projects.length
   const proj = projects[current]
+  const projectTitle = t(`work.${proj.slug}.title`)
 
   const visualPanelRef = useRef<HTMLDivElement>(null)
   const [panelSpotlight, setPanelSpotlight] = useState({ x: 0, y: 0, visible: false })
@@ -198,19 +186,19 @@ export default function WorkReel() {
                   [{proj.num}]
                 </span>
                 <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, letterSpacing: '.12em', color: '#999', textTransform: 'uppercase' }}>
-                  {proj.type}
+                  {t(`work.types.${proj.typeKey}`)}
                 </span>
               </div>
 
               <div>
                 <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, letterSpacing: '.2em', color: 'var(--accent)', textTransform: 'uppercase', marginBottom: 10 }}>
-                  {proj.client}
+                  {t(`work.${proj.slug}.client`)}
                 </div>
                 <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: 'clamp(44px, 4.5vw, 68px)', fontWeight: 900, color: 'var(--ink)', letterSpacing: -2, lineHeight: .92, margin: '0 0 18px' }}>
-                  {proj.title}
+                  {t(`work.${proj.slug}.title`)}
                 </h3>
                 <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: '#888', lineHeight: 1.8, maxWidth: 320, margin: '0 0 4px' }}>
-                  {proj.desc}
+                  {t(`work.${proj.slug}.desc`)}
                 </p>
                 <ProjectReactions projectId={proj.slug} />
                 <div style={{ display: 'flex', gap: 5, flexWrap: 'wrap', marginBottom: 32 }}>
@@ -227,11 +215,11 @@ export default function WorkReel() {
                   className="reel-btn-case"
                   onClick={() => navigate(`/work/${proj.slug}`)}
                 >
-                  CASE STUDY →
+                  {t('work.reel.caseStudy')}
                 </button>
                 {proj.hasDemo && (
                   <button className="reel-btn-demo" onClick={openDemo}>
-                    ▶ LIVE PREVIEW
+                    {t('work.reel.livePreview')}
                   </button>
                 )}
               </div>
@@ -269,7 +257,7 @@ export default function WorkReel() {
                   <div style={{ width: 200, background: '#0a0a0a', borderRadius: 36, padding: 7, border: '2px solid #1a1a1a', boxShadow: '0 40px 80px rgba(0,0,0,.6)', position: 'relative' }}>
                     <div style={{ borderRadius: 29, overflow: 'hidden', position: 'relative' }}>
                       <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: 80, height: 24, background: '#0a0a0a', borderRadius: '0 0 14px 14px', zIndex: 5 }} />
-                      <img src={proj.image} alt={proj.title} style={{ width: '100%', display: 'block' }} />
+                      <img src={proj.image} alt={projectTitle} style={{ width: '100%', display: 'block' }} />
                     </div>
                   </div>
                 )}
@@ -285,7 +273,7 @@ export default function WorkReel() {
                       </div>
                     </div>
                     <div style={{ borderRadius: '0 0 10px 10px', overflow: 'hidden', border: '1px solid rgba(0,0,0,.1)', borderTop: 'none' }}>
-                      <img src={proj.image} alt={proj.title} style={{ width: '100%', display: 'block', maxHeight: 300, objectFit: 'cover', objectPosition: 'top' }} />
+                      <img src={proj.image} alt={projectTitle} style={{ width: '100%', display: 'block', maxHeight: 300, objectFit: 'cover', objectPosition: 'top' }} />
                     </div>
                   </div>
                 )}
@@ -293,7 +281,7 @@ export default function WorkReel() {
                 {!proj.wrapInPhone && !proj.wrapInBrowser && (
                   <img
                     src={proj.image}
-                    alt={proj.title}
+                    alt={projectTitle}
                     style={{ width: '55%', filter: 'drop-shadow(0 32px 56px rgba(232,82,42,.3))', animation: 'floatDevice 3s ease-in-out infinite' }}
                   />
                 )}
@@ -327,7 +315,7 @@ export default function WorkReel() {
           </div>
 
           <span className="reel-navigate-hint" style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, letterSpacing: '.12em', color: 'rgba(26,20,16,.22)' }}>
-            ← → NAVIGATE
+            {t('work.reel.navigate')}
           </span>
 
           {/* Arrows */}
@@ -367,7 +355,7 @@ export default function WorkReel() {
               <div style={{ background: '#2C2C2E', padding: '0 16px', display: 'flex', borderBottom: '1px solid rgba(255,255,255,.05)' }}>
                 <div style={{ padding: '10px 16px', display: 'flex', alignItems: 'center', gap: 6, background: '#3A3A3C', borderRadius: '6px 6px 0 0', fontSize: 10, color: 'rgba(255,255,255,.7)', fontFamily: "'JetBrains Mono', monospace", borderBottom: `2px solid ${proj.accentColor}`, marginBottom: -1 }}>
                   <div style={{ width: 10, height: 10, borderRadius: '50%', background: proj.accentColor }} />
-                  {proj.title}
+                  {t(`work.${proj.slug}.title`)}
                 </div>
               </div>
 
@@ -393,7 +381,7 @@ export default function WorkReel() {
                     ))}
                   </div>
                 )}
-                <button onClick={() => setDemoOpen(false)} style={{ background: 'rgba(255,255,255,.06)', border: 'none', color: 'rgba(255,255,255,.4)', borderRadius: 6, padding: '5px 12px', cursor: 'pointer', fontSize: 10, fontFamily: "'JetBrains Mono', monospace", letterSpacing: '.05em' }}>✕ CLOSE</button>
+                <button onClick={() => setDemoOpen(false)} style={{ background: 'rgba(255,255,255,.06)', border: 'none', color: 'rgba(255,255,255,.4)', borderRadius: 6, padding: '5px 12px', cursor: 'pointer', fontSize: 10, fontFamily: "'JetBrains Mono', monospace", letterSpacing: '.05em' }}>{t('work.reel.close')}</button>
               </div>
 
               {/* Content */}
@@ -408,7 +396,7 @@ export default function WorkReel() {
                       <circle cx="48" cy="20" r="9" fill="#F5F0E8"/>
                       <circle cx="48" cy="20" r="4" fill="#E8522A"/>
                     </svg>
-                    <span style={{ fontSize: 10, color: 'rgba(255,255,255,.3)', letterSpacing: '.15em', fontFamily: 'monospace' }}>LOADING PREVIEW...</span>
+                    <span style={{ fontSize: 10, color: 'rgba(255,255,255,.3)', letterSpacing: '.15em', fontFamily: 'monospace' }}>{t('work.reel.loadingPreview')}</span>
                   </div>
                 )}
 
@@ -418,8 +406,8 @@ export default function WorkReel() {
                       <div style={{ borderRadius: 36, overflow: 'hidden', position: 'relative', width: 264 }}>
                         <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: 100, height: 28, background: '#0a0a0a', borderRadius: '0 0 18px 18px', zIndex: 10 }} />
                         {proj.demoUrl
-                          ? <iframe src={proj.demoUrl} style={{ width: 375, height: 812, border: 'none', transform: 'scale(.704)', transformOrigin: 'top left', display: 'block' }} title={proj.title} allow="fullscreen" sandbox="allow-scripts allow-same-origin allow-forms allow-popups" />
-                          : <img src={proj.image} style={{ width: '100%', display: 'block' }} alt={proj.title} />
+                          ? <iframe src={proj.demoUrl} style={{ width: 375, height: 812, border: 'none', transform: 'scale(.704)', transformOrigin: 'top left', display: 'block' }} title={projectTitle} allow="fullscreen" sandbox="allow-scripts allow-same-origin allow-forms allow-popups" />
+                          : <img src={proj.image} style={{ width: '100%', display: 'block' }} alt={projectTitle} />
                         }
                       </div>
                     </div>
@@ -427,18 +415,18 @@ export default function WorkReel() {
                 ) : (
                   <div style={{ width: '100%', height: '100%', minHeight: 520 }}>
                     {proj.demoUrl ? (
-                      <iframe src={proj.demoUrl} style={{ width: '100%', height: '100%', minHeight: 520, border: 'none', display: 'block' }} title={proj.title} allow="fullscreen" sandbox="allow-scripts allow-same-origin allow-forms allow-popups" />
+                      <iframe src={proj.demoUrl} style={{ width: '100%', height: '100%', minHeight: 520, border: 'none', display: 'block' }} title={projectTitle} allow="fullscreen" sandbox="allow-scripts allow-same-origin allow-forms allow-popups" />
                     ) : proj.wrapInPhone ? (
                       <div style={{ width: '100%', height: '100%', minHeight: 520, background: proj.visualBg, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                         <div style={{ background: '#0a0a0a', borderRadius: 36, padding: 6, border: '2px solid #1a1a1a', boxShadow: '0 40px 80px rgba(0,0,0,.6)' }}>
                           <div style={{ borderRadius: 30, overflow: 'hidden', width: 220 }}>
-                            <img src={proj.image} style={{ width: '100%', display: 'block' }} alt={proj.title} />
+                            <img src={proj.image} style={{ width: '100%', display: 'block' }} alt={projectTitle} />
                           </div>
                         </div>
                       </div>
                     ) : (
                       <div style={{ width: '100%', height: '100%', minHeight: 520, background: proj.visualBg, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 32 }}>
-                        <img src={proj.image} style={{ width: '100%', maxWidth: 700, borderRadius: 10, boxShadow: '0 24px 64px rgba(0,0,0,.5)', display: 'block' }} alt={proj.title} />
+                        <img src={proj.image} style={{ width: '100%', maxWidth: 700, borderRadius: 10, boxShadow: '0 24px 64px rgba(0,0,0,.5)', display: 'block' }} alt={projectTitle} />
                       </div>
                     )}
                   </div>

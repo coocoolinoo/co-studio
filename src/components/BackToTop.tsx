@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { motion, AnimatePresence } from 'framer-motion'
 import { playClick } from '../utils/sound'
 
 export default function BackToTop() {
+  const { t } = useTranslation()
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
@@ -25,7 +27,7 @@ export default function BackToTop() {
           exit={{ opacity: 0, scale: 0.6, y: 16 }}
           transition={{ duration: 0.3, ease: [0.34, 1.56, 0.64, 1] }}
           onClick={scrollUp}
-          title="Back to top"
+          title={t('meta.backToTop')}
           className="fixed-action-btn"
           style={{
             position: 'fixed',

@@ -3,37 +3,8 @@ import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
-const messages = {
-  de: {
-    code: '404',
-    title: 'Diese Seite existiert nicht.',
-    sub: 'Oder sie versteckt sich. Schwer zu sagen.',
-    desc: 'Vielleicht hast du dich vertippt, vielleicht war der Link kaputt, vielleicht wollte die Seite einfach nicht gefunden werden.',
-    btn: '← Zurück zur Startseite',
-    hint: 'Oder drück H auf der Tastatur',
-  },
-  en: {
-    code: '404',
-    title: 'This page does not exist.',
-    sub: "Or it's hiding. Hard to say.",
-    desc: "Maybe you mistyped, maybe the link was broken, maybe the page just didn't want to be found.",
-    btn: '← Back to Home',
-    hint: 'Or press H on your keyboard',
-  },
-  ro: {
-    code: '404',
-    title: 'Această pagină nu există.',
-    sub: 'Sau se ascunde. Greu de spus.',
-    desc: 'Poate ai greșit adresa, poate linkul era stricat.',
-    btn: '← Înapoi acasă',
-    hint: 'Sau apasă H pe tastatură',
-  },
-}
-
 export default function NotFound() {
-  const { i18n } = useTranslation()
-  const lang = i18n.language.slice(0, 2) as keyof typeof messages
-  const t = messages[lang] ?? messages.en
+  const { t } = useTranslation()
 
   const [droop, setDroop] = useState(false)
   useEffect(() => {
@@ -90,7 +61,7 @@ export default function NotFound() {
         }}
         aria-hidden
       >
-        {t.code}
+        404
       </motion.div>
 
       <motion.h1
@@ -104,7 +75,7 @@ export default function NotFound() {
           letterSpacing: -1, marginBottom: 8,
         }}
       >
-        {t.title}
+        {t('notFound.title')}
       </motion.h1>
 
       <motion.p
@@ -113,7 +84,7 @@ export default function NotFound() {
         transition={{ delay: 0.5 }}
         style={{ fontSize: 12, color: '#E8522A', letterSpacing: '.1em', marginBottom: 20 }}
       >
-        {t.sub}
+        {t('notFound.sub')}
       </motion.p>
 
       <motion.p
@@ -125,7 +96,7 @@ export default function NotFound() {
           maxWidth: 400, marginBottom: 40,
         }}
       >
-        {t.desc}
+        {t('notFound.desc')}
       </motion.p>
 
       <motion.div
@@ -155,7 +126,7 @@ export default function NotFound() {
             e.currentTarget.style.color = '#1A1410'
           }}
         >
-          {t.btn}
+          {t('notFound.home')}
         </Link>
       </motion.div>
 
@@ -165,7 +136,7 @@ export default function NotFound() {
         transition={{ delay: 1 }}
         style={{ marginTop: 16, fontSize: 9, color: 'rgba(26,20,16,.25)', letterSpacing: '.12em' }}
       >
-        {t.hint}
+        {t('notFound.hint')}
       </motion.div>
     </div>
   )

@@ -8,7 +8,14 @@
     "scroll": "derulează pentru proiecte, craft și puțin haos",
     "tag": "[WEB · APPS · DESIGN · VIENA · 2026]",
     "badge": "co-studio · Viena · 2026 ·",
-    "marquee": "WEB · WORDPRESS · REACT · APPS · SWIFT · EXPO · DESIGN · VIDEO · VFX ·"
+    "marquee": "WEB · WORDPRESS · REACT · APPS · SWIFT · EXPO · DESIGN · VIDEO · VFX ·",
+    "greetings": {
+      "morning": "Bună dimineața —",
+      "lateMorning": "Bună dimineața —",
+      "afternoon": "Bună ziua —",
+      "evening": "Bună seara —",
+      "night": "Încă treaz? —"
+    }
   },
   "about": {
     "label": "[ + ] PUȚIN MAI MULT DESPRE MINE",
@@ -18,7 +25,22 @@
   },
   "work": {
     "title": "PROIECTE",
+    "marqueeSolid": "PROIECTE",
+    "marqueeOutline": "PROIECTE",
     "viewCase": "VEZI PROIECTUL →",
+    "reel": {
+      "caseStudy": "CASE STUDY →",
+      "livePreview": "▶ PREVIEW LIVE",
+      "navigate": "← → NAVIGHEAZĂ",
+      "close": "✕ ÎNCHIDE",
+      "loadingPreview": "SE ÎNCARCĂ PREVIEW..."
+    },
+    "types": {
+      "hardware": "Hardware · DSP",
+      "mobileApp": "Aplicație mobilă",
+      "desktopApp": "Aplicație desktop",
+      "web": "Web"
+    },
     "detail": {
       "back": "← PROIECTE",
       "facts": "FACTS",
@@ -34,26 +56,37 @@
     "pifx": {
       "client": "HTL Diplomarbeit",
       "title": "πf(x)",
+      "platform": "Raspberry Pi · Embedded",
       "desc": "Dispozitiv audio multi-efecte pe bază de Raspberry Pi — lucrare de diplomă HTL. DSP în timp real în C++, de la hardware la software.",
       "longDesc": "πf(x) este lucrarea de diplomă HTL realizată împreună cu Moritz Metzinger la HTL Informationstechnologie / Medientechnik (anul școlar 2025/26). Proiectul este un dispozitiv standalone de efecte audio multiple bazat pe un Raspberry Pi cu interfața audio Behringer UCA222. Sunetul este procesat în timp real printr-un motor DSP scris în C++ — efecte precum filtre, delay, reverb, distorsie, modulație și dinamică, totul rulând pe Linux embedded. Proiectul acoperă întregul stack: teoria acusticii, procesarea digitală a semnalului, proiectarea hardware embedded și software C++."
     },
     "cobible": {
       "client": "co.bible",
       "title": "co.bible",
+      "platform": "iOS",
       "desc": "App Biblie nativă iOS în Swift — traduceri multiple, lectură activă și dueluri quiz contra altor jucători pentru a deveni cel mai bun.",
       "longDesc": "co.bible este o aplicație Biblie nativă iOS construită integral în Swift. Funcția principală: compară mai multe traduceri ale Bibliei, citește activ și provoacă alți utilizatori la dueluri quiz — cine cunoaște cel mai bine Biblia?"
     },
     "bibelsuche": {
       "client": "co-studio",
       "title": "Bibelsuche",
+      "platform": "macOS · Windows",
       "desc": "Aplicație desktop pentru macOS & Windows — caută versete biblice rapid în mai multe traduceri, construită cu Tauri & React.",
       "longDesc": "Bibelsuche este o aplicație desktop rapidă și modernă pentru macOS și Windows. Caută versete biblice în mai multe traduceri (Zefania XML) fulgerător de rapid — construită cu Tauri (backend Rust) și React + Vite în frontend. Performanță nativă, tehnologii web."
     },
     "vsmannersdorf": {
       "client": "Volksschule Mannersdorf",
       "title": "VS Mannersdorf",
+      "platform": "Web",
       "desc": "Website React modern pentru școala primară Mannersdorf am Leithagebirge (Austria Inferioară) — React + Vite, CSS Modules, fără librărie de componente.",
       "longDesc": "Website modern pentru școala primară Mannersdorf am Leithagebirge (Austria Inferioară). Construit integral cu React + Vite, stilizat exclusiv cu CSS Modules — fără librărie de componente sau framework UI. Design curat și accesibil pentru elevi, părinți și personal didactic."
+    },
+    "alzeichenbuero": {
+      "client": "AL Zeichenbüro",
+      "title": "AL Zeichenbüro",
+      "platform": "Web",
+      "desc": "Site pentru un birou de arhitectură din Wiener Neustadt — desene arhitecturale și servicii.",
+      "longDesc": "Website modern pentru un birou de arhitectură din Wiener Neustadt. Prezentarea desenelor arhitecturale, serviciilor și proiectelor — construit cu React + Vite, structurat clar și profesional."
     }
   },
   "services": {
@@ -85,7 +118,8 @@
     "github": "GitHub",
     "linkedin": "LinkedIn",
     "calendar": "Programează un call",
-    "cv": "Descarcă CV-ul"
+    "cv": "Descarcă CV-ul",
+    "closing": "HAI SĂ VORBIM."
   },
   "footer": {
     "contactLabel": "[ CONTACT ]",
@@ -97,13 +131,31 @@
     "copyright": "© 2026 co-studio",
     "impressum": "Informații legale",
     "privacy": "Confidențialitate",
-    "bookCall": "Programează un call"
+    "bookCall": "Programează un call",
+    "timeOnSiteSeconds": "Ești aici de {{s}}s",
+    "timeOnSiteMinutes": "Ești aici de {{m}} min",
+    "builtBy": "Built by Corneliu ツ",
+    "builtWith": "Construit cu",
+    "stackTip": "Click pentru tech stack",
+    "stack": [
+      { "name": "React", "desc": "Framework UI" },
+      { "name": "TypeScript", "desc": "Siguranță tipuri" },
+      { "name": "Vite", "desc": "Build Tool" },
+      { "name": "Framer Motion", "desc": "Animații" },
+      { "name": "i18next", "desc": "Traduceri" },
+      { "name": "Tailwind CSS", "desc": "Styling" },
+      { "name": "React Router", "desc": "Routing" },
+      { "name": "EmailJS", "desc": "Formular contact" },
+      { "name": "Vercel", "desc": "Hosting" }
+    ]
   },
   "notFound": {
     "label": "[ 404 ]",
-    "title": "Pagină negăsită",
-    "desc": "Linkul nu duce nicăieri — greșeală de tastare, bookmark vechi sau ceva ce am scos.",
-    "home": "← Înapoi acasă"
+    "title": "Această pagină nu există.",
+    "sub": "Sau se ascunde. Greu de spus.",
+    "desc": "Poate ai greșit adresa, poate linkul era stricat, poate pagina pur și simplu nu voia să fie găsită.",
+    "home": "← Înapoi acasă",
+    "hint": "Sau apasă H pe tastatură"
   },
   "about_page": {
     "back": "← ÎNAPOI",
@@ -187,7 +239,7 @@
       },
       "cookies": {
         "h": "Cookie-uri & stocare locală",
-        "p": "Folosim doar stocare tehnic necesară: limba aleasă e salvată local în browser (localStorage, cheie <code>i18nextLng</code>). Fără cookie-uri de marketing, analiză sau tracking de la terți. Poți șterge datele oricând din setările browserului. La prima vizită apare un scurt mesaj informativ."
+        "p": "Folosim doar stocare tehnic necesară: limba aleasă e salvată local în browser (localStorage, cheie <code>i18nLng</code>). Fără cookie-uri de marketing, analiză sau tracking de la terți. Poți șterge datele oricând din setările browserului. La prima vizită apare un scurt mesaj informativ."
       },
       "rights": {
         "h": "Drepturile tale",
@@ -349,7 +401,7 @@
       "errorTitle": "Ceva a mers greșit.",
       "errorMsg": "Te rog scrie-mi direct:",
       "retry": "Încearcă din nou",
-      "nameError": "Numele lipsește",
+      "customPackage": "Personalizat",
       "emailError": "Email valid necesar",
       "descError": "Descriere scurtă necesară"
     },
@@ -382,5 +434,61 @@
       { "name": "Optimizare SEO",       "price": "€200–€400", "per": "unic" },
       { "name": "Livrare Express",      "price": "+30%",       "per": "suprataxă" }
     ]
+  },
+  "availability": {
+    "open": "DESCHIS",
+    "limited": "LIMITAT",
+    "booked": "REZERVAT",
+    "available": "Disponibil pentru proiecte",
+    "limitedLabel": "Disponibilitate limitată",
+    "bookedLabel": "Momentan rezervat"
+  },
+  "shortcuts": {
+    "title": "Scurtături tastatură",
+    "buttonTitle": "Scurtături tastatură",
+    "closeHint": "Apasă ESC pentru închidere",
+    "soundOn": "Sunet pornit",
+    "soundOff": "Sunet oprit",
+    "scrollWork": "Scroll la Proiecte",
+    "scrollServices": "Scroll la Servicii",
+    "scrollContact": "Scroll la Contact",
+    "goAbout": "Mergi la Despre",
+    "goPricing": "Mergi la Prețuri",
+    "goHome": "Mergi acasă",
+    "openGithub": "Deschide GitHub",
+    "openLinkedin": "Deschide LinkedIn",
+    "copyEmail": "Copiază email",
+    "togglePanel": "Comută panoul"
+  },
+  "copyEmail": {
+    "title": "Click pentru copiere email",
+    "copied": "contact@co-studio.at copiat!"
+  },
+  "meta": {
+    "updated": "Actualizat",
+    "backToTop": "Sus",
+    "dismiss": "Închide",
+    "vienna": "Viena",
+    "profile": "Profil",
+    "socialLabel": "SOCIAL",
+    "viennaClockTitle": "Ora curentă în Viena, Austria 🇦🇹",
+    "openMenu": "Deschide meniul"
+  },
+  "loadTime": {
+    "fast": "⚡ Rapid",
+    "ok": "🟡 OK",
+    "slow": "🔴 Lent"
+  },
+  "tabTitle": {
+    "blur": "👋 Revino!",
+    "focus": "co-studio — Dezvoltare Web & App · Viena"
+  },
+  "seo": {
+    "homeTitle": "co-studio — Dezvoltare Web & App Viena | Corneliu Secrieri",
+    "homeDescription": "Dezvoltare web și app modernă din Viena. React, Swift, Tauri, WordPress. Cod curat, meșteșug solid.",
+    "aboutTitle": "Despre mine — Corneliu Secrieri | co-studio Viena",
+    "aboutDescription": "Corneliu Secrieri — developer web & app din Viena. React, Swift, Tauri, WordPress, design & video.",
+    "defaultTitle": "co-studio — Dezvoltare Web & App Viena | Corneliu Secrieri",
+    "defaultDescription": "co-studio este un studio de dezvoltare web și app din Viena. React, Swift, Tauri, WordPress — produse digitale moderne de Corneliu Secrieri."
   }
 }

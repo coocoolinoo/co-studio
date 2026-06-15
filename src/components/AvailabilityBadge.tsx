@@ -2,48 +2,48 @@ import { useTranslation } from 'react-i18next'
 
 export const AVAILABILITY: 'available' | 'limited' | 'booked' = 'available'
 
-const config = {
-  available: {
-    color: '#22c55e',
-    label: { en: 'Available for projects', de: 'Verfügbar für Projekte', ro: 'Disponibil pentru proiecte' },
-  },
-  limited: {
-    color: '#F0B429',
-    label: { en: 'Limited availability', de: 'Begrenzt verfügbar', ro: 'Disponibilitate limitată' },
-  },
-  booked: {
-    color: '#ef4444',
-    label: { en: 'Currently booked', de: 'Derzeit ausgebucht', ro: 'Momentan rezervat' },
-  },
+const STATUS_KEYS = {
+  available: 'available',
+  limited: 'limitedLabel',
+  booked: 'bookedLabel',
+} as const
+
+const SHORT_KEYS = {
+  available: 'open',
+  limited: 'limited',
+  booked: 'booked',
+} as const
+
+const COLORS = {
+  available: '#22c55e',
+  limited: '#F0B429',
+  booked: '#ef4444',
 }
 
-const shortLabel = { available: 'OPEN', limited: 'LIMITED', booked: 'BOOKED' }
-
 export default function AvailabilityBadge({ variant = 'navbar' }: { variant?: 'navbar' | 'footer' }) {
-  const { i18n } = useTranslation()
-  const lang = i18n.language.slice(0, 2) as 'en' | 'de' | 'ro'
-  const status = config[AVAILABILITY]
+  const { t } = useTranslation()
+  const color = COLORS[AVAILABILITY]
 
   if (variant === 'navbar') {
     return (
       <div style={{
         display: 'flex', alignItems: 'center', gap: 6,
         padding: '5px 12px', borderRadius: 999,
-        border: `1px solid ${status.color}30`,
-        background: `${status.color}0A`,
+        border: `1px solid ${color}30`,
+        background: `${color}0A`,
       }}>
         <div style={{
           width: 6, height: 6, borderRadius: '50%',
-          background: status.color,
+          background: color,
           animation: AVAILABILITY === 'available' ? 'availPulse 2s ease-in-out infinite' : 'none',
           flexShrink: 0,
         }} />
         <span style={{
           fontSize: 9, letterSpacing: '.1em',
-          color: status.color, fontFamily: "'JetBrains Mono', monospace",
+          color, fontFamily: "'JetBrains Mono', monospace",
           textTransform: 'uppercase',
         }}>
-          {shortLabel[AVAILABILITY]}
+          {t(`availability.${SHORT_KEYS[AVAILABILITY]}`)}
         </span>
       </div>
     )
@@ -53,7 +53,7 @@ export default function AvailabilityBadge({ variant = 'navbar' }: { variant?: 'n
     <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
       <div style={{
         width: 7, height: 7, borderRadius: '50%',
-        background: status.color,
+        background: color,
         animation: AVAILABILITY === 'available' ? 'availPulse 2s ease-in-out infinite' : 'none',
         flexShrink: 0,
       }} />
@@ -62,7 +62,7 @@ export default function AvailabilityBadge({ variant = 'navbar' }: { variant?: 'n
         color: 'rgba(245,240,232,.55)',
         fontFamily: "'JetBrains Mono', monospace",
       }}>
-        {status.label[lang] || status.label.en}
+        {t(`availability.${STATUS_KEYS[AVAILABILITY]}`)}
       </span>
     </div>
   )

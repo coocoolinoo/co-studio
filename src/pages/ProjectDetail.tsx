@@ -155,7 +155,7 @@ export default function ProjectDetail() {
                         <dt className="mb-1 font-mono text-[9px] tracking-[0.2em] text-near-black/40 uppercase">
                           <ScrambleText i18nKey="work.detail.platform" />
                         </dt>
-                        <dd className="font-mono text-sm text-near-black">{project.platform}</dd>
+                        <dd className="font-mono text-sm text-near-black">{t(`work.${slug}.platform`)}</dd>
                       </div>
                       <div>
                         <dt className="mb-1 font-mono text-[9px] tracking-[0.2em] text-near-black/40 uppercase">

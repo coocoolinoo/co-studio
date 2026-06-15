@@ -1,22 +1,24 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { motion, AnimatePresence } from 'framer-motion'
 import { playClick, isSoundEnabled } from '../utils/sound'
 
-const SHORTCUTS = [
-  { key: 'W', label: 'Scroll to Work' },
-  { key: 'S', label: 'Scroll to Services' },
-  { key: 'C', label: 'Scroll to Contact' },
-  { key: 'A', label: 'Go to About' },
-  { key: 'P', label: 'Go to Pricing' },
-  { key: 'H', label: 'Go to Home' },
-  { key: 'G', label: 'Open GitHub' },
-  { key: 'L', label: 'Open LinkedIn' },
-  { key: 'E', label: 'Copy Email' },
-  { key: '?', label: 'Toggle this panel' },
-]
+const SHORTCUT_KEYS = [
+  { key: 'W', labelKey: 'shortcuts.scrollWork' },
+  { key: 'S', labelKey: 'shortcuts.scrollServices' },
+  { key: 'C', labelKey: 'shortcuts.scrollContact' },
+  { key: 'A', labelKey: 'shortcuts.goAbout' },
+  { key: 'P', labelKey: 'shortcuts.goPricing' },
+  { key: 'H', labelKey: 'shortcuts.goHome' },
+  { key: 'G', labelKey: 'shortcuts.openGithub' },
+  { key: 'L', labelKey: 'shortcuts.openLinkedin' },
+  { key: 'E', labelKey: 'shortcuts.copyEmail' },
+  { key: '?', labelKey: 'shortcuts.togglePanel' },
+] as const
 
 export default function KeyboardShortcuts() {
+  const { t } = useTranslation()
   const [open, setOpen] = useState(false)
   const [soundOn, setSoundOn] = useState(isSoundEnabled)
   const navigate = useNavigate()
@@ -59,7 +61,7 @@ export default function KeyboardShortcuts() {
     <>
       <button
         onClick={() => { playClick(); setOpen(o => !o) }}
-        title="Keyboard shortcuts"
+        title={t('shortcuts.buttonTitle')}
         className="fixed-action-btn"
         style={{
           position: 'fixed', bottom: 24, right: 24, zIndex: 1000,
@@ -102,9 +104,9 @@ export default function KeyboardShortcuts() {
               fontFamily: "'JetBrains Mono', monospace",
               fontSize: 9, letterSpacing: '.2em',
               color: '#888', textTransform: 'uppercase', marginBottom: 14,
-            }}>Keyboard Shortcuts</div>
+            }}>{t('shortcuts.title')}</div>
 
-            {SHORTCUTS.map(s => (
+            {SHORTCUT_KEYS.map(s => (
               <div
                 key={s.key}
                 style={{
@@ -116,7 +118,7 @@ export default function KeyboardShortcuts() {
                 onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.background = 'transparent' }}
               >
                 <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: '#888' }}>
-                  {s.label}
+                  {t(s.labelKey)}
                 </span>
                 <kbd style={{
                   background: '#F5F0E8', border: '1px solid rgba(26,20,16,.12)',
@@ -128,7 +130,6 @@ export default function KeyboardShortcuts() {
               </div>
             ))}
 
-            {/* Sound toggle row */}
             <div
               onClick={toggleSound}
               style={{
@@ -139,7 +140,7 @@ export default function KeyboardShortcuts() {
               onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.background = 'transparent' }}
             >
               <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: '#888' }}>
-                {soundOn ? 'Sounds on' : 'Sounds off'}
+                {soundOn ? t('shortcuts.soundOn') : t('shortcuts.soundOff')}
               </span>
               <div style={{
                 display: 'flex', alignItems: 'center', gap: 6,
@@ -157,7 +158,7 @@ export default function KeyboardShortcuts() {
             <div style={{
               marginTop: 8, fontFamily: "'JetBrains Mono', monospace",
               fontSize: 8, color: '#bbb', letterSpacing: '.08em',
-            }}>Press ESC to close</div>
+            }}>{t('shortcuts.closeHint')}</div>
           </motion.div>
         )}
       </AnimatePresence>

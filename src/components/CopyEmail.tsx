@@ -1,9 +1,11 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const EMAIL = 'contact@co-studio.at'
 
 export default function CopyEmail({ children, style }: { children?: React.ReactNode, style?: React.CSSProperties }) {
+  const { t } = useTranslation()
   const [copied, setCopied] = useState(false)
 
   const handleCopy = async (e: React.MouseEvent) => {
@@ -18,7 +20,7 @@ export default function CopyEmail({ children, style }: { children?: React.ReactN
     <>
       <span
         onClick={handleCopy}
-        title="Click to copy email"
+        title={t('copyEmail.title')}
         style={{ cursor: 'pointer', ...style }}
       >
         {children ?? EMAIL}
@@ -46,7 +48,7 @@ export default function CopyEmail({ children, style }: { children?: React.ReactN
             }}
           >
             <span style={{ color: '#22c55e', fontSize: 14 }}>✓</span>
-            contact@co-studio.at copied!
+            {t('copyEmail.copied')}
           </motion.div>
         )}
       </AnimatePresence>

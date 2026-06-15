@@ -75,16 +75,13 @@ function TypewriterText() {
   )
 }
 
-type Lang = 'de' | 'en' | 'ro'
 
-function getGreeting(): Record<Lang, string> {
-  const now = new Date()
-  const h = new Date(now.toLocaleString('en-US', { timeZone: 'Europe/Vienna' })).getHours()
-  if (h >= 5 && h < 10)  return { de: 'Guten Morgen —',   en: 'Good morning —',   ro: 'Bună dimineața —' }
-  if (h >= 10 && h < 13) return { de: 'Guten Vormittag —', en: 'Good morning —',   ro: 'Bună dimineața —' }
-  if (h >= 13 && h < 18) return { de: 'Guten Tag —',       en: 'Good afternoon —', ro: 'Bună ziua —' }
-  if (h >= 18 && h < 22) return { de: 'Guten Abend —',     en: 'Good evening —',   ro: 'Bună seara —' }
-  return                         { de: 'Noch wach? —',      en: 'Still up? —',      ro: 'Încă treaz? —' }
+function getGreetingKey(h: number): string {
+  if (h >= 5 && h < 10)  return 'hero.greetings.morning'
+  if (h >= 10 && h < 13) return 'hero.greetings.lateMorning'
+  if (h >= 13 && h < 18) return 'hero.greetings.afternoon'
+  if (h >= 18 && h < 22) return 'hero.greetings.evening'
+  return 'hero.greetings.night'
 }
 
 const HERO_VIDEO =
@@ -95,11 +92,9 @@ const displayClass =
 const displaySize = { fontSize: 'clamp(5rem, 14vw, 11.25rem)' }
 
 export default function Hero() {
-  const { t, i18n } = useTranslation()
-  const lang = (i18n.language.slice(0, 2) as Lang) in { de: 1, en: 1, ro: 1 }
-    ? (i18n.language.slice(0, 2) as Lang)
-    : 'en'
-  const intro = useScrambledString(getGreeting()[lang])
+  const { t } = useTranslation()
+  const h = new Date(new Date().toLocaleString('en-US', { timeZone: 'Europe/Vienna' })).getHours()
+  const intro = useScrambledString(t(getGreetingKey(h)))
   const line1 = useScrambledString(t('hero.line1'), 400)
   const scroll = useScrambledString(t('hero.scroll'), 380)
   const tag = useScrambledString(t('hero.tag'))
