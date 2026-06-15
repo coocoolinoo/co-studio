@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { useScrambledString } from '../hooks/useScrambledString'
@@ -152,36 +151,6 @@ export default function Hero() {
               <div className={displayClass} style={displaySize}>
                 <TypewriterText />
               </div>
-            </motion.div>
-
-            <motion.div
-              className="mt-8"
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7, duration: 0.5, ease: easeEditorial }}
-            >
-              <Link
-                to="/experience"
-                style={{
-                  display: 'inline-flex', alignItems: 'center', gap: 8,
-                  border: '1.5px solid rgba(26,20,16,.2)',
-                  borderRadius: 999, padding: '9px 20px',
-                  fontFamily: "'JetBrains Mono', monospace",
-                  fontSize: 9, letterSpacing: '.12em',
-                  color: 'rgba(26,20,16,.4)', textDecoration: 'none',
-                  textTransform: 'uppercase', transition: 'all .25s',
-                }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.borderColor = '#E8522A'
-                  e.currentTarget.style.color = '#E8522A'
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.borderColor = 'rgba(26,20,16,.2)'
-                  e.currentTarget.style.color = 'rgba(26,20,16,.4)'
-                }}
-              >
-                ✦ ENTER 3D EXPERIENCE
-              </Link>
             </motion.div>
 
             <motion.div

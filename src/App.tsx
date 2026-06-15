@@ -22,7 +22,6 @@ import ServiceWeb from './pages/services/Web'
 import ServiceApp from './pages/services/App'
 import ServiceDesign from './pages/services/Design'
 import ServiceVideo from './pages/services/Video'
-import Experience from './pages/Experience'
 
 function AnimatedRoutes() {
   const location = useLocation()
@@ -38,7 +37,6 @@ function AnimatedRoutes() {
         <Route path="/services/design" element={<ServiceDesign />} />
         <Route path="/services/video"  element={<ServiceVideo />} />
         <Route path="/pricing" element={<Pricing />} />
-        <Route path="/experience" element={<Experience />} />
         <Route path="/impressum" element={<Impressum />} />
         <Route path="/datenschutz" element={<Privacy />} />
         <Route path="*" element={<NotFound />} />
